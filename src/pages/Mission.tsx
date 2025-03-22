@@ -18,7 +18,7 @@ const Mission = () => {
       <Hero 
         title="Missão e Serviço"
         subtitle="Compartilhando o amor de Cristo através de iniciativas que transformam vidas ao redor do mundo"
-        backgroundImage="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&q=75&fit=crop&w=2000"
+        backgroundImage="/images/adra-workers.jpg"
         size="medium"
       />
       
@@ -73,7 +73,7 @@ const Mission = () => {
             <div>
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&q=75&fit=crop&w=800" 
+                  src="/images/global-mission.jpg" 
                   alt="Missão Adventista" 
                   className="w-full h-auto"
                 />
@@ -96,36 +96,42 @@ const Mission = () => {
               title="Assistência Humanitária"
               description="Através da ADRA (Agência Adventista de Desenvolvimento e Recursos Assistenciais), fornecemos ajuda emergencial em desastres e desenvolvemos projetos sustentáveis em comunidades vulneráveis."
               icon={<HeartHandshake className="h-6 w-6" />}
+              image="/images/adra-help.jpg"
             />
             
             <FeatureCard
               title="Educação"
               description="Operamos mais de 8.500 instituições educacionais, de escolas primárias a universidades, proporcionando educação de qualidade baseada em valores cristãos."
               icon={<GraduationCap className="h-6 w-6" />}
+              image="/images/adventist-education.jpg"
             />
             
             <FeatureCard
               title="Saúde e Bem-estar"
               description="Promovemos estilo de vida saudável e oferecemos assistência médica através de nossa rede de hospitais, clínicas e centros de vida saudável."
               icon={<Apple className="h-6 w-6" />}
+              image="/images/adventist-health.jpg"
             />
             
             <FeatureCard
               title="Liberdade Religiosa"
               description="Defendemos o direito à liberdade religiosa e de consciência para todas as pessoas, independentemente de sua crença."
               icon={<BookOpen className="h-6 w-6" />}
+              image="/images/religious-liberty.jpg"
             />
             
             <FeatureCard
               title="Desenvolvimento Comunitário"
               description="Trabalhamos com comunidades locais para desenvolver projetos que atendam às suas necessidades específicas de forma sustentável."
               icon={<Users className="h-6 w-6" />}
+              image="/images/community-development.jpg"
             />
             
             <FeatureCard
               title="Missões Globais"
               description="Enviamos missionários para áreas não alcançadas, adaptando a mensagem de esperança aos diferentes contextos culturais."
               icon={<Globe className="h-6 w-6" />}
+              image="/images/global-missions.jpg"
             />
           </div>
         </div>

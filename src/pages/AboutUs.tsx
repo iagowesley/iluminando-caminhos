@@ -68,7 +68,7 @@ const AboutUs = () => {
       <Hero 
         title="Quem Somos"
         subtitle="Conheça nossa identidade, história e visão como uma denominação cristã global"
-        backgroundImage="https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&q=75&fit=crop&w=2000"
+        backgroundImage="/images/church-service.jpg"
         size="medium"
       />
       

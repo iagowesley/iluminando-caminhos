@@ -23,6 +23,7 @@ const Index = () => {
         subtitle="Uma comunidade global de fé comprometida com a proclamação do evangelho eterno e a mensagem dos três anjos."
         buttonText="Conheça Nossas Crenças"
         buttonLink="/crencas"
+        backgroundImage="/images/church-wide.jpg"
         size="large"
       />
       
@@ -40,21 +41,21 @@ const Index = () => {
               title="Quem Somos"
               description="Conheça nossa identidade, história e visão como uma denominação cristã global presente em mais de 200 países."
               icon={<Users className="h-6 w-6" />}
-              image="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&q=75&fit=crop&w=600"
+              image="/images/church-community.jpg"
             />
             
             <FeatureCard
               title="Nossas Crenças"
               description="Explore as 28 crenças fundamentais baseadas nas Escrituras Sagradas que orientam nossa fé e prática."
               icon={<Book className="h-6 w-6" />}
-              image="https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&q=75&fit=crop&w=600"
+              image="/images/bible-study.jpg"
             />
             
             <FeatureCard
               title="Missão Global"
               description="Descubra como estamos compartilhando o amor de Cristo através de projetos missionários, educacionais e humanitários."
               icon={<Globe className="h-6 w-6" />}
-              image="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&q=75&fit=crop&w=600"
+              image="/images/adra-mission.jpg"
             />
           </div>
         </div>
@@ -90,7 +91,7 @@ const Index = () => {
             <div className="order-1 lg:order-2">
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&q=75&fit=crop&w=800" 
+                  src="/images/community-service.jpg" 
                   alt="Missão Adventista" 
                   className="w-full h-auto"
                 />

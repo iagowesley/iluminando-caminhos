@@ -6,7 +6,10 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Make sure we're scrolling to top with a slight delay to allow content to render
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
   }, [pathname]);
 
   return null;

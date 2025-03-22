@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface HeroProps {
   title: string;
@@ -14,11 +15,14 @@ interface HeroProps {
 export default function Hero({
   title,
   subtitle,
-  backgroundImage = "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&q=75&fit=crop&w=2000",
+  backgroundImage = "/images/church-background.jpg",
   buttonText,
   buttonLink,
   size = "large",
 }: HeroProps) {
+  
+  // Track whether content has loaded
+  const [contentVisible, setContentVisible] = useState(false);
   
   // Determine the height of the hero based on the size prop
   const heightClass = {
@@ -26,6 +30,18 @@ export default function Hero({
     medium: "min-h-[70vh]",
     small: "min-h-[50vh]",
   }[size];
+
+  useEffect(() => {
+    // Ensure content is visible after component mounts
+    setContentVisible(true);
+    
+    // Force reflow/repaint to ensure animation triggers
+    const timer = setTimeout(() => {
+      setContentVisible(true);
+    }, 50);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleScrollDown = () => {
     const nextSection = document.getElementById("content-section");
@@ -47,7 +63,7 @@ export default function Hero({
       </div>
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center text-white">
+      <div className={`relative z-10 container mx-auto px-6 text-center text-white transition-opacity duration-500 ${contentVisible ? 'opacity-100' : 'opacity-0'}`}>
         <h1 className="fade-in text-4xl md:text-5xl lg:text-6xl font-bold max-w-3xl mx-auto leading-tight">
           {title}
         </h1>
