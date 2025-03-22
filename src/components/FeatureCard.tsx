@@ -1,4 +1,3 @@
-
 import { ReactNode } from "react";
 
 interface FeatureCardProps {
@@ -15,7 +14,7 @@ export default function FeatureCard({
   image
 }: FeatureCardProps) {
   return (
-    <div className="group glass-card rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+    <div className="group glass-card overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
       {image && (
         <div className="relative h-48 overflow-hidden">
           <img 

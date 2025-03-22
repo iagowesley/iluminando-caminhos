@@ -37,7 +37,7 @@ const Worship = () => {
                     <h3 className="text-xl font-semibold text-church-darkBlue mb-6">Programação Semanal Típica</h3>
                     
                     <div className="space-y-6">
-                      <div className="bg-church-gray rounded-lg p-6">
+                      <div className="bg-church-gray p-6">
                         <div className="flex items-center mb-4">
                           <Clock className="h-6 w-6 text-church-blue mr-3" />
                           <h4 className="text-lg font-semibold text-church-darkBlue">Quarta-feira</h4>
@@ -53,9 +53,9 @@ const Worship = () => {
                         </div>
                       </div>
                       
-                      <div className="bg-church-gray rounded-lg p-6">
+                      <div className="bg-church-gray p-6">
                         <div className="flex items-center mb-4">
-                          <Clock className="h-6 w-6 text-church-blue mr-3" />
+                          <Calendar className="h-6 w-6 text-church-blue mr-3" />
                           <h4 className="text-lg font-semibold text-church-darkBlue">Sexta-feira</h4>
                         </div>
                         
@@ -69,7 +69,7 @@ const Worship = () => {
                         </div>
                       </div>
                       
-                      <div className="bg-church-gray rounded-lg p-6">
+                      <div className="bg-church-gray p-6">
                         <div className="flex items-center mb-4">
                           <Clock className="h-6 w-6 text-church-blue mr-3" />
                           <h4 className="text-lg font-semibold text-church-darkBlue">Sábado</h4>
@@ -106,7 +106,7 @@ const Worship = () => {
                         </div>
                       </div>
                       
-                      <div className="bg-church-gray rounded-lg p-6">
+                      <div className="bg-church-gray p-6">
                         <div className="flex items-center mb-4">
                           <Clock className="h-6 w-6 text-church-blue mr-3" />
                           <h4 className="text-lg font-semibold text-church-darkBlue">Domingo</h4>

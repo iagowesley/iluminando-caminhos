@@ -1,69 +1,109 @@
-# Welcome to your Lovable project
+# IASD Central Russas - Site Oficial
 
-## Project info
+Este é o site oficial da Igreja Adventista do Sétimo Dia Central de Russas-CE. O projeto foi desenvolvido utilizando React, Vite, TypeScript e TailwindCSS com Shadcn/UI para componentes.
 
-**URL**: https://lovable.dev/projects/784b3b8d-c091-4276-ae5d-0711edbf5fe0
+## 📋 Funcionalidades
 
-## How can I edit this code?
+- Slideshow interativo na página inicial
+- Informações sobre a igreja, crenças e serviços
+- Exibição de eventos e calendário da igreja
+- Galeria de fotos
+- Informações de contato e localização
+- Design responsivo para todos os dispositivos
 
-There are several ways of editing your application.
+## 🛠️ Tecnologias Utilizadas
 
-**Use Lovable**
+- **React** - Biblioteca JavaScript para criar interfaces de usuário
+- **TypeScript** - Superset tipado de JavaScript
+- **Vite** - Ferramenta de build rápida para desenvolvimento web
+- **TailwindCSS** - Framework CSS utilitário
+- **Shadcn/UI** - Componentes de UI reutilizáveis
+- **React Router** - Roteamento para aplicações React
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/784b3b8d-c091-4276-ae5d-0711edbf5fe0) and start prompting.
+## 🚀 Começando
 
-Changes made via Lovable will be committed automatically to this repo.
+### Pré-requisitos
 
-**Use your preferred IDE**
+- Node.js (versão 16 ou superior)
+- npm ou yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Instalação
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone o repositório
+   ```bash
+   git clone https://github.com/seu-usuario/iluminando-caminhos.git
+   cd iluminando-caminhos
+   ```
 
-Follow these steps:
+2. Instale as dependências
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. Execute o servidor de desenvolvimento
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+4. Acesse `http://localhost:8080` no seu navegador
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🔧 Compilando para produção
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm run build
+# ou
+yarn build
 ```
 
-**Edit a file directly in GitHub**
+Os arquivos compilados estarão na pasta `dist`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Deploy no Netlify
 
-**Use GitHub Codespaces**
+Este projeto está configurado para fácil deploy no Netlify. Você pode fazer deploy de duas formas:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 1. Deploy direto pelo GitHub
 
-## What technologies are used for this project?
+1. Faça o fork ou push do projeto para o seu repositório GitHub
+2. No Netlify, clique em "New site from Git"
+3. Selecione o GitHub e o repositório correto
+4. Nas configurações de build, mantenha os valores padrão:
+   - Branch: `main` (ou sua branch principal)
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+5. Clique em "Deploy site"
 
-This project is built with .
+### 2. Deploy manual
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Compile o projeto:
+   ```bash
+   npm run build
+   ```
+2. Faça o deploy da pasta `dist`:
+   - Arraste e solte a pasta `dist` na interface do Netlify
+   - OU use o Netlify CLI:
+     ```bash
+     npx netlify deploy --prod
+     ```
 
-## How can I deploy this project?
+## 🔄 Atualização de Conteúdo
 
-Simply open [Lovable](https://lovable.dev/projects/784b3b8d-c091-4276-ae5d-0711edbf5fe0) and click on Share -> Publish.
+Para atualizar as imagens do slideshow ou outras imagens:
 
-## I want to use a custom domain - is that possible?
+1. Substitua os arquivos na pasta `public/images/`
+2. As imagens do slideshow são nomeadas como `church-1.jpg`, `church-2.jpg`, etc.
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## 📝 Licença
+
+Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
+
+## ✨ Créditos
+
+Desenvolvido para a Igreja Adventista do Sétimo Dia Central de Russas-CE.
+
+---
+
+Para mais informações, entre em contato com a administração da igreja.

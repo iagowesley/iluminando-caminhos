@@ -35,7 +35,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
 
-    --radius: 0.5rem;
+    --radius: 0;
   }
 
   * {
@@ -68,7 +68,7 @@
   p { @apply text-base md:text-lg leading-relaxed; }
   
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-none;
   }
   
   .section-padding {

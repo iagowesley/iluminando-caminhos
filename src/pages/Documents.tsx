@@ -1,4 +1,3 @@
-
 import PageLayout from "@/components/PageLayout";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
@@ -47,7 +46,7 @@ const Documents = () => {
                     </p>
                     
                     <div className="space-y-4">
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Declaração sobre Casamento e Família</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Posicionamento sobre a instituição do casamento como design divino e a importância da família como núcleo da sociedade.
@@ -59,10 +58,10 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Declaração sobre Liberdade Religiosa</h4>
                         <p className="text-gray-700 text-sm mb-3">
-                          Afirmação do direito fundamental de liberdade religiosa e de consciência para todos os indivíduos.
+                          Posição sobre a importância da liberdade de consciência e expressão religiosa como direito humano fundamental.
                         </p>
                         <div className="flex justify-end">
                           <Button variant="outline" size="sm" className="text-church-blue border-church-blue hover:bg-church-blue/10">
@@ -71,7 +70,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Declaração sobre Meio Ambiente</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Posicionamento sobre a responsabilidade cristã de cuidar da Terra como mordomos da criação divina.
@@ -83,7 +82,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Declaração sobre Saúde e Bem-estar</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Visão holística da saúde, abrangendo aspectos físicos, mentais, sociais e espirituais do bem-estar humano.
@@ -95,7 +94,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Declaração sobre Questões Sociais</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Posicionamento sobre temas como pobreza, discriminação, violência e direitos humanos sob a perspectiva bíblica.
@@ -130,7 +129,7 @@ const Documents = () => {
                     </p>
                     
                     <div className="space-y-4">
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Diretrizes sobre Mídia e Comunicação</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Orientações para o uso responsável de meios de comunicação e produção de conteúdo que reflete os valores cristãos.
@@ -142,7 +141,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Diretrizes para Capelania</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Princípios e práticas para capelães que servem em hospitais, escolas, forças armadas e outras instituições.
@@ -154,7 +153,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Diretrizes para Música na Igreja</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Orientações sobre princípios que devem guiar a escolha e uso da música no contexto de adoração.
@@ -166,7 +165,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Diretrizes para Educação Adventista</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Princípios filosóficos e metodológicos que orientam o sistema educacional adventista.
@@ -201,7 +200,7 @@ const Documents = () => {
                     </p>
                     
                     <div className="space-y-4">
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Manual da Igreja</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Documento oficial que contém informações sobre a estrutura organizacional, crenças fundamentais, políticas e procedimentos administrativos da igreja.
@@ -213,7 +212,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Manual de Anciãos</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Guia prático para líderes leigos da igreja local, detalhando suas responsabilidades e funções.
@@ -225,7 +224,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Manual para Ministérios Jovens</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Diretrizes e recursos para o desenvolvimento e implementação de programas para jovens e adolescentes.
@@ -237,7 +236,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Manual de Trabalho Administrativo</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Procedimentos para administradores em vários níveis da organização eclesiástica.
@@ -249,7 +248,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Manual de Escola Sabatina</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Guia completo para a organização e condução do programa de estudo bíblico semanal da igreja.
@@ -284,7 +283,7 @@ const Documents = () => {
                     </p>
                     
                     <div className="space-y-4">
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Relatório Estatístico Anual</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Dados sobre crescimento da membresia, número de igrejas, finanças e outras estatísticas globais.
@@ -296,7 +295,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Relatório da ADRA</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Resumo anual das atividades e projetos humanitários da Agência Adventista de Desenvolvimento e Recursos Assistenciais.
@@ -308,7 +307,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Relatório de Missão Global</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Detalhamento dos esforços missionários em áreas não alcançadas e o progresso da evangelização mundial.
@@ -320,7 +319,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Relatório do Sistema Educacional</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Informações sobre instituições de ensino, número de alunos e desenvolvimento do sistema educacional adventista.
@@ -332,7 +331,7 @@ const Documents = () => {
                         </div>
                       </div>
                       
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-church-gray transition-colors">
+                      <div className="border border-gray-200 p-4 hover:bg-church-gray transition-colors">
                         <h4 className="font-medium text-church-darkBlue mb-2">Publicações Teológicas</h4>
                         <p className="text-gray-700 text-sm mb-3">
                           Livros, revistas e artigos produzidos pelo Comitê de Pesquisa Bíblica e outras entidades teológicas da igreja.
