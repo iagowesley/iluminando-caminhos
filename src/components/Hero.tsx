@@ -63,7 +63,7 @@ export default function Hero({
           <div className="mt-8">
             <Button 
               asChild
-              className="bg-church-accent text-black hover:bg-church-accent/90 font-medium px-6 py-3 text-base rounded-md"
+              className="bg-church-accent hover:bg-church-accent/90 text-church-darkBlue font-bold px-8 py-6 rounded-lg text-lg shadow-xl transform transition-transform hover:scale-105 hover:shadow-2xl border-2 border-white/20 backdrop-blur-sm"
             >
               <a href={buttonLink}>{buttonText}</a>
             </Button>

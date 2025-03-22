@@ -23,7 +23,7 @@ const Index = () => {
         subtitle="Uma comunidade global de fé comprometida com a proclamação do evangelho eterno e a mensagem dos três anjos."
         buttonText="Conheça Nossas Crenças"
         buttonLink="/crencas"
-        backgroundImage="https://i.ibb.co/Kj9WVgf/church-background.jpg"
+        backgroundImage="https://images.unsplash.com/photo-1601065200980-100fc8c36dea?q=80&w=1920&fit=crop"
         size="large"
       />
       
@@ -41,21 +41,21 @@ const Index = () => {
               title="Quem Somos"
               description="Conheça nossa identidade, história e visão como uma denominação cristã global presente em mais de 200 países."
               icon={<Users className="h-6 w-6" />}
-              image="https://i.ibb.co/d2VF8Md/church-community.jpg"
+              image="https://images.unsplash.com/photo-1517499414936-6d488beddc84?q=80&w=800&h=500&fit=crop"
             />
             
             <FeatureCard
               title="Nossas Crenças"
               description="Explore as 28 crenças fundamentais baseadas nas Escrituras Sagradas que orientam nossa fé e prática."
               icon={<Book className="h-6 w-6" />}
-              image="https://i.ibb.co/n7cKMmj/bible-study.jpg"
+              image="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=800&h=500&fit=crop"
             />
             
             <FeatureCard
               title="Missão Global"
               description="Descubra como estamos compartilhando o amor de Cristo através de projetos missionários, educacionais e humanitários."
               icon={<Globe className="h-6 w-6" />}
-              image="https://i.ibb.co/PNsXnKr/global-mission.jpg"
+              image="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&h=500&fit=crop"
             />
           </div>
         </div>
@@ -91,7 +91,7 @@ const Index = () => {
             <div className="order-1 lg:order-2">
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://i.ibb.co/y8JLF6b/community-service.jpg" 
+                  src="https://images.unsplash.com/photo-1509225770129-fbcf8a696c0b?q=80&w=800&h=500&fit=crop" 
                   alt="Missão Adventista" 
                   className="w-full h-auto"
                 />
