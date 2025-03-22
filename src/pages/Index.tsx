@@ -23,7 +23,7 @@ const Index = () => {
         subtitle="Uma comunidade global de fé comprometida com a proclamação do evangelho eterno e a mensagem dos três anjos."
         buttonText="Conheça Nossas Crenças"
         buttonLink="/crencas"
-        backgroundImage="/images/adventist-hero.jpg"
+        backgroundImage="https://i.ibb.co/Kj9WVgf/church-background.jpg"
         size="large"
       />
       
@@ -41,21 +41,21 @@ const Index = () => {
               title="Quem Somos"
               description="Conheça nossa identidade, história e visão como uma denominação cristã global presente em mais de 200 países."
               icon={<Users className="h-6 w-6" />}
-              image="/images/adventist-community.jpg"
+              image="https://i.ibb.co/d2VF8Md/church-community.jpg"
             />
             
             <FeatureCard
               title="Nossas Crenças"
               description="Explore as 28 crenças fundamentais baseadas nas Escrituras Sagradas que orientam nossa fé e prática."
               icon={<Book className="h-6 w-6" />}
-              image="/images/adventist-bible-study.jpg"
+              image="https://i.ibb.co/n7cKMmj/bible-study.jpg"
             />
             
             <FeatureCard
               title="Missão Global"
               description="Descubra como estamos compartilhando o amor de Cristo através de projetos missionários, educacionais e humanitários."
               icon={<Globe className="h-6 w-6" />}
-              image="/images/adventist-global-mission.jpg"
+              image="https://i.ibb.co/PNsXnKr/global-mission.jpg"
             />
           </div>
         </div>
@@ -91,7 +91,7 @@ const Index = () => {
             <div className="order-1 lg:order-2">
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="/images/community-service.jpg" 
+                  src="https://i.ibb.co/y8JLF6b/community-service.jpg" 
                   alt="Missão Adventista" 
                   className="w-full h-auto"
                 />

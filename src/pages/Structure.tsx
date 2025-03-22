@@ -11,7 +11,7 @@ const Structure = () => {
       <Hero 
         title="Estrutura Organizacional"
         subtitle="Conheça como a Igreja Adventista está organizada em diferentes níveis administrativos ao redor do mundo"
-        backgroundImage="/images/adventist-organization.jpg"
+        backgroundImage="https://i.ibb.co/xH6DkBL/church-organization.jpg"
         size="medium"
       />
       
@@ -263,7 +263,7 @@ const Structure = () => {
             
             <div>
               <img 
-                src="/images/adventist-organization-structure.jpg" 
+                src="https://i.ibb.co/Lnr8Kjx/church-structure.jpg" 
                 alt="Organização Adventista" 
                 className="rounded-xl shadow-xl"
               />

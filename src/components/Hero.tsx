@@ -21,24 +21,12 @@ export default function Hero({
   size = "large",
 }: HeroProps) {
   
-  // Track whether content has loaded
-  const [contentVisible, setContentVisible] = useState(false);
-  
   // Determine the height of the hero based on the size prop
   const heightClass = {
     large: "min-h-screen",
     medium: "min-h-[70vh]",
     small: "min-h-[50vh]",
   }[size];
-
-  useEffect(() => {
-    // Ensure content is visible after component mounts
-    const timer = setTimeout(() => {
-      setContentVisible(true);
-    }, 50);
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleScrollDown = () => {
     const nextSection = document.getElementById("content-section");
@@ -60,19 +48,19 @@ export default function Hero({
       </div>
       
       {/* Content */}
-      <div className={`relative z-10 container mx-auto px-6 text-center text-white transition-opacity duration-500 ${contentVisible ? 'opacity-100' : 'opacity-0'}`}>
-        <h1 className="fade-in text-4xl md:text-5xl lg:text-6xl font-bold max-w-3xl mx-auto leading-tight">
+      <div className="relative z-10 container mx-auto px-6 text-center text-white">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold max-w-3xl mx-auto leading-tight">
           {title}
         </h1>
         
         {subtitle && (
-          <p className="slide-up animate-delay-200 mt-6 text-lg md:text-xl max-w-2xl mx-auto text-white/90 leading-relaxed">
+          <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-white/90 leading-relaxed">
             {subtitle}
           </p>
         )}
         
         {buttonText && buttonLink && (
-          <div className="slide-up animate-delay-400 mt-8">
+          <div className="mt-8">
             <Button 
               asChild
               className="bg-church-accent text-black hover:bg-church-accent/90 font-medium px-6 py-3 text-base rounded-md"
@@ -85,7 +73,7 @@ export default function Hero({
         {size === "large" && (
           <button 
             onClick={handleScrollDown}
-            className="slide-up animate-delay-600 absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/80 hover:text-white transition-colors"
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/80 hover:text-white transition-colors"
             aria-label="Scroll down"
           >
             <span className="text-sm mb-2">Saiba mais</span>

@@ -6,7 +6,7 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Make sure we're scrolling to top without affecting visibility
+    // Simple scroll to top without any side effects
     window.scrollTo(0, 0);
   }, [pathname]);
 

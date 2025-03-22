@@ -1,14 +1,8 @@
 
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger 
-} from "@/components/ui/dropdown-menu";
 
 const navigation = [
   { name: "Início", href: "/" },
@@ -44,9 +38,9 @@ export default function Navbar() {
         <div className="flex items-center">
           <NavLink to="/" className="flex items-center gap-2">
             <img 
-              src="https://via.placeholder.com/40/00539F/FFFFFF?text=A" 
-              alt="Logo" 
-              className="h-10 w-auto" 
+              src="https://i.ibb.co/qN1YbC1/iasd-logo.png" 
+              alt="Logo IASD" 
+              className="h-12 w-auto" 
             />
             <span className={`text-xl font-serif font-semibold ${scrolled ? "text-church-blue" : "text-white"}`}>
               Adventistas
@@ -90,9 +84,9 @@ export default function Navbar() {
           <div className="flex items-center justify-between mb-6">
             <NavLink to="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
               <img 
-                src="https://via.placeholder.com/40/00539F/FFFFFF?text=A" 
-                alt="Logo" 
-                className="h-10 w-auto" 
+                src="https://i.ibb.co/qN1YbC1/iasd-logo.png" 
+                alt="Logo IASD" 
+                className="h-12 w-auto" 
               />
               <span className="text-xl font-serif font-semibold text-church-blue">
                 Adventistas

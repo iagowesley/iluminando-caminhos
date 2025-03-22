@@ -18,7 +18,7 @@ const Mission = () => {
       <Hero 
         title="Missão e Serviço"
         subtitle="Compartilhando o amor de Cristo através de iniciativas que transformam vidas ao redor do mundo"
-        backgroundImage="/images/adventist-mission.jpg"
+        backgroundImage="https://i.ibb.co/BGjWnk3/church-wide.jpg"
         size="medium"
       />
       
@@ -73,7 +73,7 @@ const Mission = () => {
             <div>
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="/images/adventist-global-service.jpg" 
+                  src="https://i.ibb.co/9cjBWsd/church-service.jpg" 
                   alt="Missão Adventista" 
                   className="w-full h-auto"
                 />
@@ -96,42 +96,42 @@ const Mission = () => {
               title="Assistência Humanitária"
               description="Através da ADRA (Agência Adventista de Desenvolvimento e Recursos Assistenciais), fornecemos ajuda emergencial em desastres e desenvolvemos projetos sustentáveis em comunidades vulneráveis."
               icon={<HeartHandshake className="h-6 w-6" />}
-              image="/images/adventist-adra-help.jpg"
+              image="https://i.ibb.co/tBJdKxk/adra-help.jpg"
             />
             
             <FeatureCard
               title="Educação"
               description="Operamos mais de 8.500 instituições educacionais, de escolas primárias a universidades, proporcionando educação de qualidade baseada em valores cristãos."
               icon={<GraduationCap className="h-6 w-6" />}
-              image="/images/adventist-education.jpg"
+              image="https://i.ibb.co/z4qKJQR/adventist-education.jpg"
             />
             
             <FeatureCard
               title="Saúde e Bem-estar"
               description="Promovemos estilo de vida saudável e oferecemos assistência médica através de nossa rede de hospitais, clínicas e centros de vida saudável."
               icon={<Apple className="h-6 w-6" />}
-              image="/images/adventist-health.jpg"
+              image="https://i.ibb.co/0tgnJSs/adventist-health.jpg"
             />
             
             <FeatureCard
               title="Liberdade Religiosa"
               description="Defendemos o direito à liberdade religiosa e de consciência para todas as pessoas, independentemente de sua crença."
               icon={<BookOpen className="h-6 w-6" />}
-              image="/images/adventist-religious-liberty.jpg"
+              image="https://i.ibb.co/4sgqDX2/religious-liberty.jpg"
             />
             
             <FeatureCard
               title="Desenvolvimento Comunitário"
               description="Trabalhamos com comunidades locais para desenvolver projetos que atendam às suas necessidades específicas de forma sustentável."
               icon={<Users className="h-6 w-6" />}
-              image="/images/adventist-community-development.jpg"
+              image="https://i.ibb.co/sPQQqdd/community-development.jpg"
             />
             
             <FeatureCard
               title="Missões Globais"
               description="Enviamos missionários para áreas não alcançadas, adaptando a mensagem de esperança aos diferentes contextos culturais."
               icon={<Globe className="h-6 w-6" />}
-              image="/images/adventist-global-missions.jpg"
+              image="https://i.ibb.co/K2dtFRC/global-missions.jpg"
             />
           </div>
         </div>
@@ -147,7 +147,7 @@ const Mission = () => {
               
               <div className="mb-6">
                 <img 
-                  src="/images/adventist-adra-action.jpg"
+                  src="https://i.ibb.co/TLJ20FT/adra-workers.jpg"
                   alt="ADRA em ação"
                   className="w-full h-auto rounded-lg shadow-md"
                 />
@@ -171,7 +171,7 @@ const Mission = () => {
               
               <div className="mb-6">
                 <img 
-                  src="/images/adventist-hospital.jpg"
+                  src="https://i.ibb.co/jy3v3N8/adra-mission.jpg"
                   alt="Hospital Adventista"
                   className="w-full h-auto rounded-lg shadow-md"
                 />
