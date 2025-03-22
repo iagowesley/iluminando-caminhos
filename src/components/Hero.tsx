@@ -33,9 +33,6 @@ export default function Hero({
 
   useEffect(() => {
     // Ensure content is visible after component mounts
-    setContentVisible(true);
-    
-    // Force reflow/repaint to ensure animation triggers
     const timer = setTimeout(() => {
       setContentVisible(true);
     }, 50);

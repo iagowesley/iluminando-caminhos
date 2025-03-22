@@ -1,2 +1,19 @@
 
 This folder contains images for the Adventist Church website.
+
+Required images:
+- church-background.jpg
+- church-wide.jpg
+- church-service.jpg
+- church-community.jpg
+- bible-study.jpg
+- adra-mission.jpg
+- adra-workers.jpg
+- adra-help.jpg
+- community-service.jpg
+- global-mission.jpg
+- adventist-education.jpg
+- adventist-health.jpg
+- religious-liberty.jpg
+- community-development.jpg
+- global-missions.jpg

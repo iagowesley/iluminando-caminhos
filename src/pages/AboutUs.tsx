@@ -68,7 +68,7 @@ const AboutUs = () => {
       <Hero 
         title="Quem Somos"
         subtitle="Conheça nossa identidade, história e visão como uma denominação cristã global"
-        backgroundImage="/images/church-service.jpg"
+        backgroundImage="/images/adventist-congregation.jpg"
         size="medium"
       />
       

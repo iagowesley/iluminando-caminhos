@@ -23,7 +23,7 @@ const Index = () => {
         subtitle="Uma comunidade global de fé comprometida com a proclamação do evangelho eterno e a mensagem dos três anjos."
         buttonText="Conheça Nossas Crenças"
         buttonLink="/crencas"
-        backgroundImage="/images/church-wide.jpg"
+        backgroundImage="/images/adventist-hero.jpg"
         size="large"
       />
       
@@ -41,21 +41,21 @@ const Index = () => {
               title="Quem Somos"
               description="Conheça nossa identidade, história e visão como uma denominação cristã global presente em mais de 200 países."
               icon={<Users className="h-6 w-6" />}
-              image="/images/church-community.jpg"
+              image="/images/adventist-community.jpg"
             />
             
             <FeatureCard
               title="Nossas Crenças"
               description="Explore as 28 crenças fundamentais baseadas nas Escrituras Sagradas que orientam nossa fé e prática."
               icon={<Book className="h-6 w-6" />}
-              image="/images/bible-study.jpg"
+              image="/images/adventist-bible-study.jpg"
             />
             
             <FeatureCard
               title="Missão Global"
               description="Descubra como estamos compartilhando o amor de Cristo através de projetos missionários, educacionais e humanitários."
               icon={<Globe className="h-6 w-6" />}
-              image="/images/adra-mission.jpg"
+              image="/images/adventist-global-mission.jpg"
             />
           </div>
         </div>

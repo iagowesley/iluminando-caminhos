@@ -18,7 +18,7 @@ const Mission = () => {
       <Hero 
         title="Missão e Serviço"
         subtitle="Compartilhando o amor de Cristo através de iniciativas que transformam vidas ao redor do mundo"
-        backgroundImage="/images/adra-workers.jpg"
+        backgroundImage="/images/adventist-mission.jpg"
         size="medium"
       />
       
@@ -73,7 +73,7 @@ const Mission = () => {
             <div>
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="/images/global-mission.jpg" 
+                  src="/images/adventist-global-service.jpg" 
                   alt="Missão Adventista" 
                   className="w-full h-auto"
                 />
@@ -96,7 +96,7 @@ const Mission = () => {
               title="Assistência Humanitária"
               description="Através da ADRA (Agência Adventista de Desenvolvimento e Recursos Assistenciais), fornecemos ajuda emergencial em desastres e desenvolvemos projetos sustentáveis em comunidades vulneráveis."
               icon={<HeartHandshake className="h-6 w-6" />}
-              image="/images/adra-help.jpg"
+              image="/images/adventist-adra-help.jpg"
             />
             
             <FeatureCard
@@ -117,21 +117,21 @@ const Mission = () => {
               title="Liberdade Religiosa"
               description="Defendemos o direito à liberdade religiosa e de consciência para todas as pessoas, independentemente de sua crença."
               icon={<BookOpen className="h-6 w-6" />}
-              image="/images/religious-liberty.jpg"
+              image="/images/adventist-religious-liberty.jpg"
             />
             
             <FeatureCard
               title="Desenvolvimento Comunitário"
               description="Trabalhamos com comunidades locais para desenvolver projetos que atendam às suas necessidades específicas de forma sustentável."
               icon={<Users className="h-6 w-6" />}
-              image="/images/community-development.jpg"
+              image="/images/adventist-community-development.jpg"
             />
             
             <FeatureCard
               title="Missões Globais"
               description="Enviamos missionários para áreas não alcançadas, adaptando a mensagem de esperança aos diferentes contextos culturais."
               icon={<Globe className="h-6 w-6" />}
-              image="/images/global-missions.jpg"
+              image="/images/adventist-global-missions.jpg"
             />
           </div>
         </div>
@@ -147,7 +147,7 @@ const Mission = () => {
               
               <div className="mb-6">
                 <img 
-                  src="https://via.placeholder.com/600x350/F4F7F9/003366?text=ADRA+em+ação"
+                  src="/images/adventist-adra-action.jpg"
                   alt="ADRA em ação"
                   className="w-full h-auto rounded-lg shadow-md"
                 />
@@ -171,7 +171,7 @@ const Mission = () => {
               
               <div className="mb-6">
                 <img 
-                  src="https://via.placeholder.com/600x350/F4F7F9/003366?text=Hospital+Adventista"
+                  src="/images/adventist-hospital.jpg"
                   alt="Hospital Adventista"
                   className="w-full h-auto rounded-lg shadow-md"
                 />
