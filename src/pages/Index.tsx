@@ -1,4 +1,3 @@
-
 import PageLayout from "@/components/PageLayout";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
@@ -18,14 +17,7 @@ import { Link } from "react-router-dom";
 const Index = () => {
   return (
     <PageLayout>
-      <Hero 
-        title="Proclamando Esperança, Transformando Vidas"
-        subtitle="Uma comunidade global de fé comprometida com a proclamação do evangelho eterno e a mensagem dos três anjos."
-        buttonText="Conheça Nossas Crenças"
-        buttonLink="/crencas"
-        backgroundImage="https://images.unsplash.com/photo-1438032005730-c779502df39b?q=80&w=1920&auto=format&fit=crop"
-        size="large"
-      />
+      <Hero size="large" useSlideshow={true} />
       
       {/* Features Section */}
       <section id="content-section" className="py-20 bg-white">
@@ -34,6 +26,7 @@ const Index = () => {
             title="Bem-vindo à Igreja Adventista do Sétimo Dia"
             subtitle="Somos uma comunidade cristã mundial que se dedica a compartilhar a mensagem de esperança e restauração."
             accent={true}
+            ornate={true}
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -155,10 +148,7 @@ const Index = () => {
             Faça parte de uma comunidade global de fé que busca seguir os ensinamentos de Cristo e compartilhar Seu amor com o mundo.
           </p>
           <div className="space-x-4">
-            <Button asChild className="bg-white text-church-blue hover:bg-white/90">
-              <Link to="/cultos">Encontre uma Igreja</Link>
-            </Button>
-            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button asChild variant="churchOutline" size="church" className="border-white text-white hover:bg-white/10">
               <Link to="/crencas">Nossas Crenças</Link>
             </Button>
           </div>

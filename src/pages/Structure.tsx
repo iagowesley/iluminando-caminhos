@@ -1,4 +1,3 @@
-
 import PageLayout from "@/components/PageLayout";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
@@ -21,6 +20,7 @@ const Structure = () => {
             title="Nossa Estrutura Global"
             subtitle="Uma estrutura organizada para cumprir nossa missão mundialmente"
             accent={true}
+            ornate={true}
           />
           
           <div className="mt-12 max-w-3xl mx-auto text-center">

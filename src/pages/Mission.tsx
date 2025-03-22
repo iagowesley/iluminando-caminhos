@@ -1,4 +1,3 @@
-
 import PageLayout from "@/components/PageLayout";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
@@ -89,6 +88,7 @@ const Mission = () => {
             title="Áreas de Serviço"
             subtitle="Conheça como estamos fazendo a diferença em várias áreas"
             accent={true}
+            ornate={true}
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -205,29 +205,29 @@ const Mission = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Voluntariado</h3>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border-2 border-white/10">
+              <h3 className="text-xl font-serif font-semibold mb-3">Voluntariado</h3>
               <p className="text-white/80">
                 Junte-se a projetos locais ou internacionais como voluntário, oferecendo suas habilidades e tempo.
               </p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Doações</h3>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border-2 border-white/10">
+              <h3 className="text-xl font-serif font-semibold mb-3">Doações</h3>
               <p className="text-white/80">
                 Contribua financeiramente para projetos específicos ou para o fundo geral de missão e assistência.
               </p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Serviço Comunitário</h3>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border-2 border-white/10">
+              <h3 className="text-xl font-serif font-semibold mb-3">Serviço Comunitário</h3>
               <p className="text-white/80">
                 Participe de iniciativas de serviço em sua comunidade local através da sua igreja.
               </p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">Oração</h3>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border-2 border-white/10">
+              <h3 className="text-xl font-serif font-semibold mb-3">Oração</h3>
               <p className="text-white/80">
                 Sustente os projetos missionários e humanitários através de sua intercessão constante.
               </p>

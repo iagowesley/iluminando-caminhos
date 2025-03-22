@@ -1,10 +1,9 @@
-
 import PageLayout from "@/components/PageLayout";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Clock, Globe, Users, BookOpen } from "lucide-react";
+import { Clock, Globe, Users, BookOpen, ChevronRight, Book, Building, MapPin, Church, Award } from "lucide-react";
 
 const AboutUs = () => {
   const timeline = [
@@ -66,10 +65,10 @@ const AboutUs = () => {
   return (
     <PageLayout>
       <Hero 
+        size="medium"
         title="Quem Somos"
         subtitle="Conheça nossa identidade, história e visão como uma denominação cristã global"
-        backgroundImage="/images/adventist-congregation.jpg"
-        size="medium"
+        backgroundImage="/images/church-background.jpg"
       />
       
       <section id="content-section" className="py-20 bg-white">
@@ -117,35 +116,39 @@ const AboutUs = () => {
             title="Nossa História"
             subtitle="De um pequeno movimento a uma igreja global"
             accent={true}
+            ornate={true}
           />
           
-          <div className="mt-12">
+          <div className="relative mt-20 pb-10">
+            {/* Linha do tempo central */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-church-blue z-0"></div>
+            
             {timeline.map((item, index) => (
-              <div key={index} className="mb-12 last:mb-0">
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="md:w-1/6">
-                    <div className="bg-church-blue text-white py-2 px-4 rounded text-center font-semibold">
-                      {item.year}
-                    </div>
-                  </div>
-                  
-                  <div className="md:w-5/6">
-                    <h3 className="text-xl font-semibold text-church-darkBlue mb-3">{item.title}</h3>
-                    <p className="text-gray-700">{item.description}</p>
-                    
-                    {index < timeline.length - 1 && (
-                      <div className="mt-8 md:hidden">
-                        <Separator />
+              <div key={index} className={`relative z-10 mb-20 last:mb-0 flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-12 text-right' : 'md:pl-12 text-left'}`}>
+                  <div className="bg-white p-6 shadow-lg border-t-4 border-church-blue">
+                    <div className="flex items-center mb-4 justify-between">
+                      <div className={`${index % 2 === 0 ? 'order-last' : 'order-first'}`}>
+                        {index === 0 && <Book className="h-8 w-8 text-church-accent" />}
+                        {index === 1 && <Award className="h-8 w-8 text-church-accent" />}
+                        {index === 2 && <Building className="h-8 w-8 text-church-accent" />}
+                        {index === 3 && <MapPin className="h-8 w-8 text-church-accent" />}
+                        {index === 4 && <Globe className="h-8 w-8 text-church-accent" />}
+                        {index === 5 && <Church className="h-8 w-8 text-church-accent" />}
                       </div>
-                    )}
+                      <span className="font-serif text-xl font-bold text-church-blue">{item.year}</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-church-darkBlue mb-2">{item.title}</h3>
+                    <p className="text-gray-700">{item.description}</p>
                   </div>
                 </div>
                 
-                {index < timeline.length - 1 && (
-                  <div className="hidden md:block mt-8">
-                    <Separator />
+                {/* Marcador central */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 -mt-2">
+                  <div className="h-8 w-8 rounded-full bg-church-blue border-4 border-white flex items-center justify-center">
+                    <span className="text-xs text-white font-bold">{index + 1}</span>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
@@ -158,6 +161,7 @@ const AboutUs = () => {
             title="Nossa Visão"
             subtitle="O que esperamos alcançar como comunidade global de fé"
             accent={true}
+            ornate={true}
           />
           
           <div className="mt-8 max-w-3xl mx-auto">

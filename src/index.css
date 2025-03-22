@@ -1,5 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap');
+@import './styles/fonts.css';
 
 @tailwind base;
 @tailwind components;
@@ -44,15 +44,28 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 18px;
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
+    font-family: 'Adventist Sans', system-ui, sans-serif;
+    font-size: 1.05rem;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    font-family: 'Adventist Sans', sans-serif;
+    font-weight: 600;
   }
+  
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  h5 { @apply text-lg md:text-xl; }
+  h6 { @apply text-base md:text-lg; }
+  
+  p { @apply text-base md:text-lg leading-relaxed; }
   
   .glass-card {
     @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
@@ -92,5 +105,9 @@
   
   .transition-all {
     transition: all 0.3s ease;
+  }
+
+  .font-adventist {
+    font-family: 'Adventist Sans', system-ui, sans-serif;
   }
 }

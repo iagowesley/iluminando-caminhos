@@ -1,0 +1,7 @@
+/* Importando a fonte Adventist Sans da CDN */
+@import url('https://adventist.org/fonts/adventist-sans/fonts.css');
+
+/* Definindo variáveis para facilitar o uso da fonte */
+:root {
+  --font-adventist-sans: 'Adventist Sans', system-ui, sans-serif;
+} 
