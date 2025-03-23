@@ -1,7 +1,7 @@
-
 import { ReactNode } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import SideBar from "./SideBar";
 import { cn } from "@/lib/utils";
 import ScrollToTop from "./ScrollToTop";
 
@@ -12,10 +12,11 @@ interface PageLayoutProps {
 
 export default function PageLayout({ children, className }: PageLayoutProps) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen relative">
       <ScrollToTop />
       <Navbar />
-      <main className={cn("flex-grow", className)}>
+      <SideBar />
+      <main className={cn("flex-grow md:pr-[calc(100vw/7)]", className)}>
         {children}
       </main>
       <Footer />

@@ -26,11 +26,11 @@ const Documents = () => {
           
           <div className="mt-12 max-w-4xl mx-auto">
             <Tabs defaultValue="statements" className="w-full">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-4">
-                <TabsTrigger value="statements">Declarações Oficiais</TabsTrigger>
-                <TabsTrigger value="guidelines">Diretrizes</TabsTrigger>
-                <TabsTrigger value="manuals">Manuais</TabsTrigger>
-                <TabsTrigger value="reports">Relatórios</TabsTrigger>
+              <TabsList className="flex flex-wrap w-full gap-1 h-auto">
+                <TabsTrigger value="statements" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Declarações Oficiais</TabsTrigger>
+                <TabsTrigger value="guidelines" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Diretrizes</TabsTrigger>
+                <TabsTrigger value="manuals" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Manuais</TabsTrigger>
+                <TabsTrigger value="reports" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Relatórios</TabsTrigger>
               </TabsList>
               
               <TabsContent value="statements" className="mt-8">

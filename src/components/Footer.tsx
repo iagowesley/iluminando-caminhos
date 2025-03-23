@@ -5,31 +5,27 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-church-darkBlue text-white">
+    <footer className="bg-church-darkBlue text-white md:pr-[calc(100vw/7)]">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <span className="text-2xl font-serif font-semibold">
-                IASD Central Russas
-              </span>
+            <div className="mb-6">
+              <img 
+                src="/images/logo-central-branca.png" 
+                alt="IASD Central Russas" 
+                className="h-16 w-auto"
+              />
             </div>
             <p className="text-gray-300 mb-4 max-w-xs">
               Proclamando esperança e transformando vidas através da mensagem de fé, esperança e amor.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-church-accent transition-colors">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </a>
+              
               <a href="https://www.instagram.com/iasdcentralrussas/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-church-accent transition-colors">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </a>
-              <a href="#" className="text-gray-300 hover:text-church-accent transition-colors">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </a>
+              
               <a href="#" className="text-gray-300 hover:text-church-accent transition-colors">
                 <Youtube className="h-5 w-5" />
                 <span className="sr-only">YouTube</span>
@@ -72,29 +68,25 @@ export default function Footer() {
             <h3 className="text-xl font-semibold mb-4">Recursos</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-base">
+                <NavLink to="/estudos-biblicos" className="text-gray-300 hover:text-white transition-colors text-base">
                   Estudos Bíblicos
-                </a>
+                </NavLink>
+              </li>
+             
+              <li>
+                <NavLink to="/cultos#horarios" className="text-gray-300 hover:text-white transition-colors text-base">
+                  Horários de Culto
+                </NavLink>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Publicações
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Mídia
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-base">
+                <NavLink to="/eventos" className="text-gray-300 hover:text-white transition-colors text-base">
                   Eventos
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-base">
+                <NavLink to="/faq" className="text-gray-300 hover:text-white transition-colors text-base">
                   Perguntas Frequentes
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>

@@ -10,11 +10,58 @@ import {
   Church, 
   Users, 
   Calendar,
-  ArrowRight
+  ArrowRight,
+  Sunset,
+  Download
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+// Coordenadas geográficas de Russas-CE, Brasil
+const RUSSAS_LATITUDE = -4.9386;
+const RUSSAS_LONGITUDE = -37.9722;
 
 const Index = () => {
+  const [currentDate, setCurrentDate] = useState('');
+  const [sunsetTime, setSunsetTime] = useState('Carregando...');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Configurar a data atual formatada em português
+    const now = new Date();
+    const options: Intl.DateTimeFormatOptions = { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    };
+    setCurrentDate(now.toLocaleDateString('pt-BR', options));
+    
+    // Buscar o horário real do pôr do sol com base nas coordenadas de Russas
+    const fetchSunsetData = async () => {
+      try {
+        setIsLoading(true);
+        const url = `https://api.sunrisesunset.io/json?lat=${RUSSAS_LATITUDE}&lng=${RUSSAS_LONGITUDE}&timezone=America/Fortaleza`;
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        if (data.status === 'OK' && data.results) {
+          setSunsetTime(data.results.sunset);
+        } else {
+          setSunsetTime('Indisponível');
+          console.error('Erro ao obter dados do pôr do sol:', data);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar horário do pôr do sol:', error);
+        setSunsetTime('Indisponível');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchSunsetData();
+  }, []);
+
   return (
     <PageLayout>
       <Hero size="large" useSlideshow={true} />
@@ -135,6 +182,41 @@ const Index = () => {
               <Link to="/cultos" className="inline-flex items-center text-church-blue hover:text-church-darkBlue font-medium">
                 Saiba mais <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Sunset Section */}
+      <section className="py-12 bg-gradient-to-r from-orange-300 to-orange-500">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-center mb-6 md:mb-0">
+              <Sunset className="h-16 w-16 text-white mr-6" />
+              <div>
+                <h2 className="text-2xl font-bold text-white mb-2 font-adventist">Pôr do Sol</h2>
+                <p className="text-white text-lg font-adventist">{currentDate}</p>
+                <p className="text-white text-xl font-bold font-adventist">
+                  Horário: {isLoading ? 'Carregando...' : sunsetTime}
+                </p>
+                <p className="text-white/80 text-xs mt-1 font-adventist">
+                  Powered by SunriseSunset.io
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white/20 backdrop-blur-sm p-1 rounded-lg">
+              <Button 
+                asChild
+                variant="churchOutline" 
+                size="lg" 
+                className="border-white text-white hover:bg-white/20"
+              >
+                <a href="/downloads/meditacao.pdf.txt" download className="flex items-center">
+                  <Download className="mr-2 h-5 w-5" />
+                  Baixar Meditação do Pôr do Sol
+                </a>
+              </Button>
             </div>
           </div>
         </div>

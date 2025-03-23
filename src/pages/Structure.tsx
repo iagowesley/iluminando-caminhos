@@ -46,12 +46,12 @@ const Structure = () => {
             </div>
             
             <Tabs defaultValue="overview" className="max-w-4xl mx-auto">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-5">
-                <TabsTrigger value="overview">Visão Geral</TabsTrigger>
-                <TabsTrigger value="local">Igreja Local</TabsTrigger>
-                <TabsTrigger value="conferences">Associações</TabsTrigger>
-                <TabsTrigger value="unions">Uniões</TabsTrigger>
-                <TabsTrigger value="gc">Conferência Geral</TabsTrigger>
+              <TabsList className="flex flex-wrap w-full gap-1 h-auto">
+                <TabsTrigger value="overview" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Visão Geral</TabsTrigger>
+                <TabsTrigger value="local" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Igreja Local</TabsTrigger>
+                <TabsTrigger value="conferences" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Associações</TabsTrigger>
+                <TabsTrigger value="unions" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Uniões</TabsTrigger>
+                <TabsTrigger value="gc" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Conferência Geral</TabsTrigger>
               </TabsList>
               <TabsContent value="overview" className="mt-8">
                 <Card className="glass-card border-none">

@@ -16,6 +16,7 @@ import SocialProjects from "./pages/SocialProjects";
 import BibleStudies from "./pages/BibleStudies";
 import FAQ from "./pages/FAQ";
 import Music from "./pages/Music";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/estudos-biblicos" element={<BibleStudies />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/musica" element={<Music />} />
+          <Route path="/contato" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

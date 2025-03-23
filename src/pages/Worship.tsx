@@ -25,10 +25,10 @@ const Worship = () => {
           
           <div className="mt-12 max-w-4xl mx-auto">
             <Tabs defaultValue="weekly" className="w-full">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-3">
-                <TabsTrigger value="weekly">Programação Semanal</TabsTrigger>
-                <TabsTrigger value="sabbath">Culto de Sábado</TabsTrigger>
-                <TabsTrigger value="classes">Classes de Estudo</TabsTrigger>
+              <TabsList className="flex flex-wrap w-full gap-1 h-auto">
+                <TabsTrigger value="weekly" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Programação Semanal</TabsTrigger>
+                <TabsTrigger value="sabbath" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Culto de Sábado</TabsTrigger>
+                <TabsTrigger value="classes" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] m-1">Classes de Estudo</TabsTrigger>
               </TabsList>
               
               <TabsContent value="weekly" className="mt-8">

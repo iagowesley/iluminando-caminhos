@@ -1,0 +1,18 @@
+# Meditação do Pôr do Sol - IASD Central Russas
+
+Este é um arquivo de placeholder para a meditação do pôr do sol.
+
+Em uma implementação completa, este seria um arquivo PDF contendo a meditação 
+do pôr do sol para o sábado atual, fornecida pela Igreja Adventista do Sétimo Dia.
+
+## Instruções para implementação final
+
+1. Substitua este arquivo texto por um PDF real com a meditação do pôr do sol
+2. Atualize o PDF semanalmente com a nova meditação
+3. Considere adicionar um sistema para gerar ou baixar automaticamente as meditações
+
+---
+
+IASD Central Russas
+R. André Moreira - Planalto da Catumbela, Russas - CE, 62900-000
+Instagram: @iasdcentralrussas 

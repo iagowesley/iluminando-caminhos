@@ -165,25 +165,14 @@ export default function Hero({
           
           {/* Content */}
           <div className="relative z-10 h-full flex flex-col items-start justify-center text-white px-12 md:px-24">
-            {index === 0 ? (
-              <div className="max-w-2xl ml-auto mr-12">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 font-adventist drop-shadow-lg">
-                  {slide.title}
-                </h2>
-                <p className="text-lg md:text-xl whitespace-pre-line drop-shadow-lg font-adventist">
-                  {slide.info}
-                </p>
-              </div>
-            ) : (
-              <div className="max-w-2xl bg-black/60 p-6 rounded-lg backdrop-blur-sm">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 font-adventist">
-                  {slide.title}
-                </h2>
-                <p className="text-lg md:text-xl whitespace-pre-line font-adventist">
-                  {slide.info}
-                </p>
-              </div>
-            )}
+            <div className="max-w-2xl">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-adventist drop-shadow-lg">
+                {slide.title}
+              </h2>
+              <p className="text-lg md:text-xl whitespace-pre-line drop-shadow-lg font-adventist">
+                {slide.info}
+              </p>
+            </div>
           </div>
         </div>
       ))}

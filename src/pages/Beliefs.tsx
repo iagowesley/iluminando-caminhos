@@ -199,14 +199,49 @@ const Beliefs = () => {
           
           <div className="mt-12">
             <Tabs defaultValue="overview" className="max-w-4xl mx-auto">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-7">
-                <TabsTrigger value="overview">Visão Geral</TabsTrigger>
-                <TabsTrigger value="god">Deus</TabsTrigger>
-                <TabsTrigger value="humanity">Humanidade</TabsTrigger>
-                <TabsTrigger value="salvation">Salvação</TabsTrigger>
-                <TabsTrigger value="church">Igreja</TabsTrigger>
-                <TabsTrigger value="life">Vida Cristã</TabsTrigger>
-                <TabsTrigger value="end">Eventos Finais</TabsTrigger>
+              <TabsList className="flex flex-wrap w-full gap-1 p-1 h-auto">
+                <TabsTrigger 
+                  value="overview" 
+                  className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] font-medium m-1"
+                >
+                  Visão Geral
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="god" 
+                  className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] font-medium m-1"
+                >
+                  Deus
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="humanity" 
+                  className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] font-medium m-1"
+                >
+                  Humanidade
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="salvation" 
+                  className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] font-medium m-1"
+                >
+                  Salvação
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="church" 
+                  className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] font-medium m-1"
+                >
+                  Igreja
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="life" 
+                  className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] font-medium m-1"
+                >
+                  Vida Cristã
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="end" 
+                  className="flex-1 text-xs sm:text-sm py-2 sm:py-3 px-1 sm:px-2 min-h-[40px] font-medium m-1"
+                >
+                  Eventos Finais
+                </TabsTrigger>
               </TabsList>
               
               <TabsContent value="overview" className="mt-8">
