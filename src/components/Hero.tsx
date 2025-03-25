@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 const churchSlides = [
   {
     image: "/images/church-1.jpg",
-    title: "Bem-vindo à IASD Central Russas",
-    info: "Unidos em fé, esperança e amor"
+    title: "Bem-vindo à Igreja Adventista do Sétimo Dia Central Russas",
+    info: "Unidos em fé, esperança e amor."
   },
   {
     image: "/images/church-2.jpg",
-    title: "Horários de Culto",
-    info: "Sábados: Escola Sabatina 9h | Culto Divino 11h\nQuartas: Culto de Oração 19h\nSextas: Culto Jovem 19h30"
+    title: "Horários de culto",
+    info: "Sábados: Escola Sabatina 9h | Culto Divino 10h\nQuartas: Culto de Oração 19h\nSextas: Pequenos Grupos 19h00"
   },
   {
     image: "/images/church-3.jpg",
@@ -57,7 +57,7 @@ export default function Hero({
     
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % churchSlides.length);
-    }, 6000);
+    }, 13000);
     return () => clearInterval(interval);
   }, [useSlideshow]);
 
@@ -180,7 +180,7 @@ export default function Hero({
       {/* Controles de navegação */}
       <button 
         onClick={goToPrevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 transition-all"
         aria-label="Slide anterior"
       >
         <ChevronLeft className="h-6 w-6 text-white" />
@@ -188,7 +188,7 @@ export default function Hero({
       
       <button 
         onClick={goToNextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 transition-all"
         aria-label="Próximo slide"
       >
         <ChevronRight className="h-6 w-6 text-white" />

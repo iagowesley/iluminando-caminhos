@@ -170,9 +170,9 @@ export default function Events() {
   return (
     <PageLayout>
       <Hero 
-        title="Nossos Eventos"
-        subtitle="Confira a programação e atividades de nossa igreja"
-        backgroundImage="/images/events-background.jpg"
+        title="Eventos"
+        subtitle="Confira nossos próximos eventos e atividades especiais"
+        backgroundImage="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
 
@@ -331,12 +331,19 @@ export default function Events() {
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-serif mb-4">Fique por dentro de nossos eventos</h3>
             <p className="text-white/90 mb-8">
-              Receba notificações sobre próximos eventos e atividades da igreja.
-              Não perca nenhuma programação especial!
+              Acompanhe nosso Instagram para se manter atualizado sobre todos os eventos 
+              e atividades da igreja. Não perca nenhuma programação especial!
             </p>
             <div className="flex justify-center">
               <Button asChild variant="churchGold" size="church">
-                <Link to="/contato#newsletter">Inscreva-se para Notificações</Link>
+                <a href="https://www.instagram.com/iasdcentralrussas/" target="_blank" rel="noopener noreferrer">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                  Siga-nos no Instagram
+                </a>
               </Button>
             </div>
           </div>

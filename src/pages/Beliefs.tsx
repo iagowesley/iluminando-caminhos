@@ -184,8 +184,8 @@ const Beliefs = () => {
     <PageLayout>
       <Hero 
         title="Nossas Crenças"
-        subtitle="As 28 crenças fundamentais que constituem a compreensão e expressão das Escrituras pela Igreja Adventista do Sétimo Dia"
-        backgroundImage="https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&q=75&fit=crop&w=2000"
+        subtitle="Conheça as 28 crenças fundamentais que orientam nossa fé"
+        backgroundImage="https://images.unsplash.com/photo-1470859624578-4bb64aaef791?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
       

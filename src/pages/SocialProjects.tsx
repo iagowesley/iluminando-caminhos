@@ -95,8 +95,8 @@ export default function SocialProjects() {
     <main>
       <Hero 
         title="Projetos Sociais"
-        subtitle="Servindo a comunidade através de ações que transformam vidas"
-        backgroundImage="/images/social-projects-background.jpg"
+        subtitle="Servindo à comunidade com amor e compaixão"
+        backgroundImage="https://images.unsplash.com/photo-1469571486292-b53376e58b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
 

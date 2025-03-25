@@ -9,9 +9,9 @@ const Worship = () => {
   return (
     <PageLayout>
       <Hero 
-        title="Nossos Cultos"
-        subtitle="Informações sobre nossa programação semanal de cultos, estudos bíblicos e atividades"
-        backgroundImage="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&q=75&fit=crop&w=2000"
+        title="Cultos e Atividades"
+        subtitle="Momentos de adoração, edificação e comunhão"
+        backgroundImage="https://images.unsplash.com/photo-1546484488-2a1430996887?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
       

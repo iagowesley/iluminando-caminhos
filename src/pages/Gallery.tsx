@@ -129,8 +129,8 @@ export default function Gallery() {
     <PageLayout>
       <Hero 
         title="Galeria de Fotos"
-        subtitle="Momentos especiais da vida de nossa igreja"
-        backgroundImage="/images/gallery-background.jpg"
+        subtitle="Momentos especiais de nossa comunidade"
+        backgroundImage="https://images.unsplash.com/photo-1540927067149-024859a7f799?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
 

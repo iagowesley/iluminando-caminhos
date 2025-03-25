@@ -95,17 +95,17 @@ export default function Footer() {
             <h3 className="text-xl font-semibold mb-4">Contato</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-church-accent" />
+                <MapPin className="h-9 w-9 mr-2 mt-0.5 text-church-accent" />
                 <span className="text-gray-300 text-base">R. André Moreira - Planalto da Catumbela, Russas - CE, 62900-000</span>
               </li>
               <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-2 text-church-accent" />
+                <Phone className="h-4 w-4 mr-2 text-church-accent" />
                 <a href="tel:+556133456789" className="text-gray-300 hover:text-white transition-colors text-base">
                   (61) 3345-6789
                 </a>
               </li>
               <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-2 text-church-accent" />
+                <Mail className="h-4 w-4 mr-2 text-church-accent" />
                 <a href="mailto:contato@adventistas.org" className="text-gray-300 hover:text-white transition-colors text-base">
                   contato@adventistas.org
                 </a>

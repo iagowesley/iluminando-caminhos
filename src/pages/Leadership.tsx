@@ -68,8 +68,8 @@ export default function Leadership() {
     <PageLayout>
       <Hero 
         title="Nossa Liderança"
-        subtitle="Conheça os líderes que servem e guiam nossa comunidade de fé"
-        backgroundImage="/images/leadership-background.jpg"
+        subtitle="Conheça os líderes que servem nossa igreja"
+        backgroundImage="https://images.unsplash.com/photo-1556484687-30636164638b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
 

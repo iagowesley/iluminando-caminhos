@@ -10,9 +10,9 @@ const Documents = () => {
   return (
     <PageLayout>
       <Hero 
-        title="Declarações e Documentos"
-        subtitle="Posicionamentos oficiais, declarações e documentos institucionais"
-        backgroundImage="https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&q=75&fit=crop&w=2000"
+        title="Documentos e Recursos"
+        subtitle="Acesse documentos, estudos e materiais importantes"
+        backgroundImage="https://images.unsplash.com/photo-1462952765008-021334573c66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
       

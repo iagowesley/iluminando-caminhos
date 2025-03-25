@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useForm as useFormspree, ValidationError } from '@formspree/react';
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,7 +11,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import PageLayout from "@/components/PageLayout";
 import Hero from "@/components/Hero";
@@ -32,12 +32,12 @@ const formSchema = z.object({
     message: "A mensagem deve ter pelo menos 10 caracteres.",
   }),
   department: z.string(),
+  requestType: z.string(),
 });
 
 export default function Contact() {
-  const [activeTab, setActiveTab] = useState("mensagem");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [formspreeState, handleFormspreeSubmit] = useFormspree("mqapbvao");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,24 +48,28 @@ export default function Contact() {
       subject: "",
       message: "",
       department: "geral",
+      requestType: "mensagem",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    
-    // Simular envio do formulário
-    setTimeout(() => {
-      console.log(values);
-      setIsSubmitting(false);
+  // Monitora o estado do Formspree para atualizar o estado de sucesso
+  useEffect(() => {
+    if (formspreeState.succeeded) {
       setIsSuccess(true);
-      form.reset();
       
-      // Esconder mensagem de sucesso após 5 segundos
-      setTimeout(() => {
+      // Esconder mensagem de sucesso e resetar o formulário após 5 segundos
+      const timer = setTimeout(() => {
         setIsSuccess(false);
+        form.reset();
       }, 5000);
-    }, 1500);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [formspreeState.succeeded, form]);
+
+  // Função que combina a validação do react-hook-form com o envio para o Formspree
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    handleFormspreeSubmit(values);
   }
 
   const departments = [
@@ -79,12 +83,19 @@ export default function Contact() {
     { value: "midia", label: "Mídia e Comunicação" },
   ];
 
+  const requestTypes = [
+    { value: "mensagem", label: "Mensagem Geral" },
+    { value: "estudo", label: "Solicitar Estudo Bíblico" },
+    { value: "oracao", label: "Pedido de Oração" },
+    { value: "visita", label: "Solicitar Visita" },
+  ];
+
   return (
     <PageLayout>
       <Hero 
-        title="Entre em Contato"
+        title="Entre em contato"
         subtitle="Estamos aqui para responder suas dúvidas e receber seus comentários"
-        backgroundImage="/images/contact-background.jpg"
+        backgroundImage="https://images.unsplash.com/photo-1560174946-872aa33e4865?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
       
@@ -99,13 +110,13 @@ export default function Contact() {
           
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-xl font-adventist text-church-blue mb-6">Informações de Contato</h3>
+              <h3 className="text-xl font-adventist text-church-blue mb-6 text-center">Informações de Contato</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-6 max-w-md mx-auto">
                 <div className="flex items-start">
-                  <MapPin className="h-6 w-6 mr-4 text-church-blue flex-shrink-0 mt-1" />
+                  <MapPin className="h-4 w-4 mr-3 text-church-blue flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-medium">Endereço</h4>
+                    <h4 className="text-lg font-medium">Endereço</h4>
                     <p className="text-gray-700 mt-1">
                       R. André Moreira - Planalto da Catumbela
                       <br />
@@ -115,9 +126,9 @@ export default function Contact() {
                 </div>
                 
                 <div className="flex items-start">
-                  <Phone className="h-6 w-6 mr-4 text-church-blue flex-shrink-0 mt-1" />
+                  <Phone className="h-4 w-4 mr-3 text-church-blue flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-medium">Telefone</h4>
+                    <h4 className="text-lg font-medium">Telefone</h4>
                     <p className="text-gray-700 mt-1">
                       <a href="tel:+556133456789" className="hover:text-church-blue transition-colors">
                         (61) 3345-6789
@@ -127,9 +138,9 @@ export default function Contact() {
                 </div>
                 
                 <div className="flex items-start">
-                  <Mail className="h-6 w-6 mr-4 text-church-blue flex-shrink-0 mt-1" />
+                  <Mail className="h-4 w-4 mr-3 text-church-blue flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-medium">E-mail</h4>
+                    <h4 className="text-lg font-medium">E-mail</h4>
                     <p className="text-gray-700 mt-1">
                       <a href="mailto:contato@adventistas.org" className="hover:text-church-blue transition-colors">
                         contato@adventistas.org
@@ -139,8 +150,8 @@ export default function Contact() {
                 </div>
               </div>
               
-              <div className="mt-10">
-                <h3 className="text-xl font-adventist text-church-blue mb-6">Horário de Atendimento</h3>
+              <div className="mt-10 max-w-md mx-auto">
+                <h3 className="text-xl font-adventist text-church-blue mb-6 text-center">Horário de Atendimento</h3>
                 <div className="bg-church-gray p-6 rounded-lg">
                   <p className="mb-2"><span className="font-medium">Segunda a Quinta:</span> 9h às 17h</p>
                   <p className="mb-2"><span className="font-medium">Sexta:</span> 9h às 12h</p>
@@ -148,9 +159,9 @@ export default function Contact() {
                 </div>
               </div>
               
-              <div className="mt-10">
-                <h3 className="text-xl font-adventist text-church-blue mb-6">Redes Sociais</h3>
-                <div className="flex space-x-4">
+              <div className="mt-10 max-w-md mx-auto">
+                <h3 className="text-xl font-adventist text-church-blue mb-6 text-center">Redes Sociais</h3>
+                <div className="flex justify-center space-x-4">
                   <a 
                     href="https://www.instagram.com/iasdcentralrussas/" 
                     target="_blank" 
@@ -178,424 +189,195 @@ export default function Contact() {
             </div>
             
             <div>
-              <Tabs defaultValue="mensagem" className="w-full" onValueChange={setActiveTab}>
-                <TabsList className="w-full mb-12 flex flex-wrap">
-                  <TabsTrigger value="mensagem" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 min-h-[40px] m-1">Mensagem</TabsTrigger>
-                  <TabsTrigger value="estudo" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 min-h-[40px] m-1">Estudo Bíblico</TabsTrigger>
-                  <TabsTrigger value="oracao" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 min-h-[40px] m-1">Pedido de Oração</TabsTrigger>
-                  <TabsTrigger value="visita" className="flex-1 text-xs sm:text-sm py-2 sm:py-3 min-h-[40px] m-1">Solicitar Visita</TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="mensagem" id="mensagem" className="mt-16 sm:mt-8">
-                  <Card>
-                    <CardContent className="pt-10 sm:pt-6">
-                      <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                          <FormField
-                            control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Nome Completo</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Digite seu nome" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <FormField
-                              control={form.control}
-                              name="email"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>E-mail</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="Digite seu e-mail" {...field} />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
+              <Card>
+                <CardContent className="pt-10 sm:pt-6">
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                      <FormField
+                        control={form.control}
+                        name="requestType"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Tipo de Solicitação</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Selecione o tipo de solicitação" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {requestTypes.map((type) => (
+                                  <SelectItem key={type.value} value={type.value}>
+                                    {type.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                            <ValidationError 
+                              prefix="Tipo de Solicitação" 
+                              field="requestType"
+                              errors={formspreeState.errors}
                             />
-                            
-                            <FormField
-                              control={form.control}
-                              name="phone"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>Telefone (opcional)</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="(00) 00000-0000" {...field} />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Nome Completo</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Digite seu nome" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                            <ValidationError 
+                              prefix="Nome" 
+                              field="name"
+                              errors={formspreeState.errors}
                             />
-                          </div>
-                          
-                          <FormField
-                            control={form.control}
-                            name="department"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Departamento</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                  <FormControl>
-                                    <SelectTrigger>
-                                      <SelectValue placeholder="Selecione um departamento" />
-                                    </SelectTrigger>
-                                  </FormControl>
-                                  <SelectContent>
-                                    {departments.map((dept) => (
-                                      <SelectItem key={dept.value} value={dept.value}>
-                                        {dept.label}
-                                      </SelectItem>
-                                    ))}
-                                  </SelectContent>
-                                </Select>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="subject"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Assunto</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Digite o assunto" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="message"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Mensagem</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Digite sua mensagem" 
-                                    className="min-h-[120px]" 
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          {isSuccess && (
-                            <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
-                              Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.
-                            </div>
-                          )}
-                          
-                          <Button 
-                            type="submit" 
-                            variant="church" 
-                            className="w-full"
-                            disabled={isSubmitting}
-                          >
-                            {isSubmitting ? (
-                              <>Enviando...</>
-                            ) : (
-                              <>
-                                <Send className="mr-2 h-4 w-4" /> Enviar Mensagem
-                              </>
-                            )}
-                          </Button>
-                        </form>
-                      </Form>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent value="estudo" id="estudo" className="mt-16 sm:mt-8">
-                  <Card>
-                    <CardContent className="pt-10 sm:pt-6">
-                      <h3 className="text-lg font-medium mb-4">Solicitar Estudo Bíblico</h3>
-                      <p className="text-gray-700 mb-6">
-                        Preencha o formulário para solicitar estudos bíblicos gratuitos em sua casa ou em nossa igreja.
-                      </p>
+                          </FormItem>
+                        )}
+                      />
                       
-                      <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                          <FormField
-                            control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Nome Completo</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Digite seu nome" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <FormField
-                              control={form.control}
-                              name="email"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>E-mail</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="Digite seu e-mail" {...field} />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            
-                            <FormField
-                              control={form.control}
-                              name="phone"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>Telefone</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="(00) 00000-0000" {...field} />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                          
-                          <FormField
-                            control={form.control}
-                            name="message"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Informações Adicionais</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Informe horários disponíveis, temas de interesse, etc." 
-                                    className="min-h-[120px]" 
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          {isSuccess && activeTab === "estudo" && (
-                            <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
-                              Sua solicitação de estudo bíblico foi recebida! Entraremos em contato em breve.
-                            </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>E-mail</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Digite seu e-mail" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                              <ValidationError 
+                                prefix="Email" 
+                                field="email"
+                                errors={formspreeState.errors}
+                              />
+                            </FormItem>
                           )}
-                          
-                          <Button 
-                            type="submit" 
-                            variant="church" 
-                            className="w-full"
-                            disabled={isSubmitting}
-                          >
-                            {isSubmitting ? (
-                              <>Enviando...</>
-                            ) : (
-                              <>
-                                <Send className="mr-2 h-4 w-4" /> Solicitar Estudo
-                              </>
-                            )}
-                          </Button>
-                        </form>
-                      </Form>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent value="oracao" id="oracao" className="mt-16 sm:mt-8">
-                  <Card>
-                    <CardContent className="pt-10 sm:pt-6">
-                      <h3 className="text-lg font-medium mb-4">Pedido de Oração</h3>
-                      <p className="text-gray-700 mb-6">
-                        Compartilhe seu pedido de oração conosco. Nossa equipe de intercessores orará por você.
-                      </p>
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Telefone (opcional)</FormLabel>
+                              <FormControl>
+                                <Input placeholder="(00) 00000-0000" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                              <ValidationError 
+                                prefix="Telefone" 
+                                field="phone"
+                                errors={formspreeState.errors}
+                              />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
                       
-                      <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                          <FormField
-                            control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Nome</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Digite seu nome" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="message"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Pedido de Oração</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Descreva seu pedido de oração" 
-                                    className="min-h-[200px]" 
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          {isSuccess && activeTab === "oracao" && (
-                            <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
-                              Seu pedido de oração foi recebido! Nossa equipe orará por sua intenção.
-                            </div>
-                          )}
-                          
-                          <Button 
-                            type="submit" 
-                            variant="church" 
-                            className="w-full"
-                            disabled={isSubmitting}
-                          >
-                            {isSubmitting ? (
-                              <>Enviando...</>
-                            ) : (
-                              <>
-                                <Send className="mr-2 h-4 w-4" /> Enviar Pedido
-                              </>
-                            )}
-                          </Button>
-                        </form>
-                      </Form>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent value="visita" id="visita" className="mt-16 sm:mt-8">
-                  <Card>
-                    <CardContent className="pt-10 sm:pt-6">
-                      <h3 className="text-lg font-medium mb-4">Solicitar Visita Pastoral</h3>
-                      <p className="text-gray-700 mb-6">
-                        Se você deseja receber a visita de um pastor ou ancião, preencha este formulário.
-                      </p>
+                      <FormField
+                        control={form.control}
+                        name="department"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Departamento</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Selecione um departamento" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {departments.map((dept) => (
+                                  <SelectItem key={dept.value} value={dept.value}>
+                                    {dept.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                            <ValidationError 
+                              prefix="Departamento" 
+                              field="department"
+                              errors={formspreeState.errors}
+                            />
+                          </FormItem>
+                        )}
+                      />
                       
-                      <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                          <FormField
-                            control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Nome Completo</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Digite seu nome" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <FormField
-                              control={form.control}
-                              name="email"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>E-mail</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="Digite seu e-mail" {...field} />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
+                      <FormField
+                        control={form.control}
+                        name="subject"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Assunto</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Digite o assunto" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                            <ValidationError 
+                              prefix="Assunto" 
+                              field="subject"
+                              errors={formspreeState.errors}
                             />
-                            
-                            <FormField
-                              control={form.control}
-                              name="phone"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>Telefone</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="(00) 00000-0000" {...field} />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Mensagem</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Digite sua mensagem" 
+                                className="min-h-[120px]" 
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                            <ValidationError 
+                              prefix="Mensagem" 
+                              field="message"
+                              errors={formspreeState.errors}
                             />
-                          </div>
-                          
-                          <FormField
-                            control={form.control}
-                            name="subject"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Endereço</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Digite seu endereço completo" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="message"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Motivo da Visita</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Descreva o motivo da visita e horários disponíveis" 
-                                    className="min-h-[120px]" 
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          {isSuccess && activeTab === "visita" && (
-                            <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
-                              Sua solicitação de visita pastoral foi recebida! Entraremos em contato em breve para agendar.
-                            </div>
-                          )}
-                          
-                          <Button 
-                            type="submit" 
-                            variant="church" 
-                            className="w-full"
-                            disabled={isSubmitting}
-                          >
-                            {isSubmitting ? (
-                              <>Enviando...</>
-                            ) : (
-                              <>
-                                <Send className="mr-2 h-4 w-4" /> Solicitar Visita
-                              </>
-                            )}
-                          </Button>
-                        </form>
-                      </Form>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              </Tabs>
+                          </FormItem>
+                        )}
+                      />
+                      
+                      {isSuccess && (
+                        <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
+                          Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.
+                        </div>
+                      )}
+                      
+                      <Button 
+                        type="submit" 
+                        variant="church" 
+                        className="w-full"
+                        disabled={formspreeState.submitting}
+                      >
+                        {formspreeState.submitting ? (
+                          <>Enviando...</>
+                        ) : (
+                          <>
+                            <Send className="mr-2 h-4 w-4" /> Enviar Mensagem
+                          </>
+                        )}
+                      </Button>
+                    </form>
+                  </Form>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
@@ -623,9 +405,9 @@ export default function Contact() {
               <div className="bg-white p-6 shadow-sm">
                 <h3 className="text-lg font-medium text-church-blue mb-2">Como solicitar um estudo bíblico?</h3>
                 <p className="text-gray-700">
-                  Você pode solicitar estudos bíblicos preenchendo o formulário na aba "Estudo Bíblico" acima, 
-                  ou entrando em contato pelo telefone ou e-mail. Temos instrutores bíblicos prontos para atender 
-                  você no horário e local de sua preferência.
+                  Você pode solicitar estudos bíblicos preenchendo o formulário de contato e selecionando a opção 
+                  "Solicitar Estudo Bíblico", ou entrando em contato pelo telefone ou e-mail. Temos instrutores bíblicos 
+                  prontos para atender você no horário e local de sua preferência.
                 </p>
               </div>
               
@@ -664,7 +446,7 @@ export default function Contact() {
       
       <section className="relative h-[400px]" id="localizacao">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.3141211247837!2d-37.977056825378894!3d-4.148320345891973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b8b3722fe72297%3A0xab2f32db37a4d8af!2sIgreja%20Adventista%20do%20S%C3%A9timo%20Dia%20-%20Central!5e0!3m2!1spt-BR!2sbr!4v1711258217100!5m2!1spt-BR!2sbr" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d472.28826604663175!2d-37.98106365263381!3d-4.94212545616354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b978751935d551%3A0x5fa3df5827ac75db!2sIgreja%20Adventista%20do%20S%C3%A9timo%20Dia!5e1!3m2!1spt-BR!2sbr!4v1742863223631!5m2!1spt-BR!2sbr" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 

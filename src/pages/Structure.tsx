@@ -9,8 +9,8 @@ const Structure = () => {
     <PageLayout>
       <Hero 
         title="Estrutura Organizacional"
-        subtitle="Conheça como a Igreja Adventista está organizada em diferentes níveis administrativos ao redor do mundo"
-        backgroundImage="https://i.ibb.co/xH6DkBL/church-organization.jpg"
+        subtitle="Como a Igreja Adventista está organizada no mundo todo"
+        backgroundImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
       
@@ -209,64 +209,68 @@ const Structure = () => {
       
       <section className="py-20 bg-church-gray">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-church-darkBlue mb-6">Princípios de Organização</h2>
-              <div className="h-1 w-20 bg-church-accent mb-8"></div>
+          <SectionTitle 
+            title="Princípios de Organização"
+            subtitle="Fundamentos que guiam nossa estrutura denominacional"
+            accent={true}
+            ornate={true}
+          />
+          
+          <div className="mt-12 max-w-4xl mx-auto">
+            <p className="text-gray-700 text-center mb-12 text-lg">
+              A estrutura organizacional da Igreja Adventista é baseada em princípios fundamentais que garantem eficiência, 
+              representatividade e unidade no cumprimento de nossa missão global.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl p-8 shadow-md">
+                <div className="flex items-center mb-4">
+                  <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center mr-4 text-xl font-bold">1</div>
+                  <h3 className="text-xl font-bold text-church-darkBlue">Representatividade</h3>
+                </div>
+                <p className="text-gray-700 pl-16">
+                  A autoridade é delegada pelos membros a representantes eleitos em cada nível, garantindo que as decisões reflitam a vontade da igreja como um todo.
+                </p>
+              </div>
               
-              <p className="text-gray-700 mb-6">
-                A estrutura organizacional da Igreja Adventista é baseada em vários princípios fundamentais:
-              </p>
+              <div className="bg-white rounded-xl p-8 shadow-md">
+                <div className="flex items-center mb-4">
+                  <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center mr-4 text-xl font-bold">2</div>
+                  <h3 className="text-xl font-bold text-church-darkBlue">Unidade na Diversidade</h3>
+                </div>
+                <p className="text-gray-700 pl-16">
+                  Respeito à diversidade cultural e regional enquanto se mantém a unidade doutrinária e organizacional, permitindo adaptações locais sem perder a identidade global.
+                </p>
+              </div>
               
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-church-blue text-white flex items-center justify-center mr-3 mt-0.5">1</div>
-                  <div>
-                    <h3 className="font-semibold text-church-darkBlue">Representatividade</h3>
-                    <p className="text-gray-700">
-                      A autoridade é delegada pelos membros a representantes eleitos em cada nível.
-                    </p>
-                  </div>
-                </li>
-                
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-church-blue text-white flex items-center justify-center mr-3 mt-0.5">2</div>
-                  <div>
-                    <h3 className="font-semibold text-church-darkBlue">Unidade na Diversidade</h3>
-                    <p className="text-gray-700">
-                      Respeito à diversidade cultural enquanto se mantém a unidade doutrinária e organizacional.
-                    </p>
-                  </div>
-                </li>
-                
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-church-blue text-white flex items-center justify-center mr-3 mt-0.5">3</div>
-                  <div>
-                    <h3 className="font-semibold text-church-darkBlue">Transparência</h3>
-                    <p className="text-gray-700">
-                      Processos de decisão abertos e comunicação clara entre os diferentes níveis.
-                    </p>
-                  </div>
-                </li>
-                
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-church-blue text-white flex items-center justify-center mr-3 mt-0.5">4</div>
-                  <div>
-                    <h3 className="font-semibold text-church-darkBlue">Cooperação</h3>
-                    <p className="text-gray-700">
-                      Todos os níveis trabalham juntos para cumprir a missão da igreja de forma coordenada.
-                    </p>
-                  </div>
-                </li>
-              </ul>
+              <div className="bg-white rounded-xl p-8 shadow-md">
+                <div className="flex items-center mb-4">
+                  <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center mr-4 text-xl font-bold">3</div>
+                  <h3 className="text-xl font-bold text-church-darkBlue">Transparência</h3>
+                </div>
+                <p className="text-gray-700 pl-16">
+                  Processos de decisão abertos e comunicação clara entre os diferentes níveis administrativos, com prestação de contas regular e auditorias sistemáticas.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-8 shadow-md">
+                <div className="flex items-center mb-4">
+                  <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center mr-4 text-xl font-bold">4</div>
+                  <h3 className="text-xl font-bold text-church-darkBlue">Cooperação</h3>
+                </div>
+                <p className="text-gray-700 pl-16">
+                  Todos os níveis da organização trabalham juntos para cumprir a missão da igreja de forma coordenada, compartilhando recursos, experiências e estratégias.
+                </p>
+              </div>
             </div>
             
-            <div>
-              <img 
-                src="https://i.ibb.co/Lnr8Kjx/church-structure.jpg" 
-                alt="Organização Adventista" 
-                className="rounded-xl shadow-xl"
-              />
+            <div className="mt-12 bg-white p-8 rounded-xl shadow-md">
+              <h3 className="text-xl font-bold text-church-darkBlue mb-4 text-center">Aplicação Prática</h3>
+              <p className="text-gray-700">
+                Estes princípios se manifestam em reuniões regulares de comissões, assembleias representativas, sistemas financeiros 
+                transparentes e projetos colaborativos entre diferentes entidades. Com esta estrutura, a Igreja Adventista 
+                consegue manter sua identidade global enquanto atende às necessidades específicas de contextos locais diversos.
+              </p>
             </div>
           </div>
         </div>

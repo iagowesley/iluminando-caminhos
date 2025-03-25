@@ -111,8 +111,8 @@ export default function Music() {
     <PageLayout>
       <Hero 
         title="Ministério de Música"
-        subtitle="Adoração e louvor através da música"
-        backgroundImage="https://images.unsplash.com/photo-1504185947566-8380bacb492b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80"
+        subtitle="Adorando a Deus através da música e louvores"
+        backgroundImage="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
       

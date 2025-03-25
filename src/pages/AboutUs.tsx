@@ -66,9 +66,9 @@ const AboutUs = () => {
     <PageLayout>
       <Hero 
         size="medium"
-        title="Quem Somos"
+        title="Quem somos"
         subtitle="Conheça nossa identidade, história e visão como uma denominação cristã global"
-        backgroundImage="/images/church-background.jpg"
+        backgroundImage="https://images.unsplash.com/photo-1438032005730-c779502df39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
       />
       
       <section id="content-section" className="py-20 bg-white">

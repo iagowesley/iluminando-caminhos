@@ -31,8 +31,8 @@ Se você deseja alterar o conteúdo dos slides (textos, informações de horári
 const churchSlides = [
   {
     image: "/images/church-1.jpg",
-    title: "Bem-vindo à IASD Central Russas",
-    info: "Unidos em fé, esperança e amor"
+    title: "Bem-vindo à Igreja Adventista do Sétimo Dia Central Russas",
+    info: "Unidos em fé, esperança e amor."
   },
   {
     image: "/images/church-2.jpg",
