@@ -38,27 +38,27 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <NavLink to="/quem-somos" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Quem Somos
+                  Quem somos
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/estrutura" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Estrutura Organizacional
+                  Estrutura organizacional
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/missao" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Missão e Serviço
+                  Missão e serviço
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/crencas" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Nossas Crenças
+                  Nossas crenças
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/cultos" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Nossos Cultos
+                  Nossos cultos
                 </NavLink>
               </li>
             </ul>
@@ -120,15 +120,9 @@ export default function Footer() {
               &copy; {currentYear} Igreja Adventista do Sétimo Dia. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-base transition-colors">
+              <NavLink to="/privacidade" className="text-gray-400 hover:text-white text-base transition-colors">
                 Política de Privacidade
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-base transition-colors">
-                Termos de Uso
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-base transition-colors">
-                Cookies
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>

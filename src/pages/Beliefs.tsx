@@ -149,7 +149,7 @@ const Beliefs = () => {
       ]
     },
     {
-      category: "Eventos Finais",
+      category: "Eventos finais",
       items: [
         {
           id: "24",
@@ -173,7 +173,7 @@ const Beliefs = () => {
         },
         {
           id: "28",
-          title: "A Nova Terra",
+          title: "A nova terra",
           content: "Na Nova Terra, em que habita justiça, Deus proverá um lar eterno para os remidos e um ambiente perfeito para vida, amor, alegria e aprendizado eternos, em Sua presença. Deus mesmo habitará com Seu povo, e o sofrimento e a morte terão passado. O grande conflito estará terminado e não mais existirá pecado. Todas as coisas, animadas e inanimadas, declararão que Deus é amor; e Ele reinará para todo o sempre. Amém."
         }
       ]
@@ -183,7 +183,7 @@ const Beliefs = () => {
   return (
     <PageLayout>
       <Hero 
-        title="Nossas Crenças"
+        title="Nossas crenças"
         subtitle="Conheça as 28 crenças fundamentais que orientam nossa fé"
         backgroundImage="https://images.unsplash.com/photo-1470859624578-4bb64aaef791?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
@@ -192,7 +192,7 @@ const Beliefs = () => {
       <section id="content-section" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <SectionTitle 
-            title="Crenças Fundamentais"
+            title="Crenças fundamentais"
             subtitle="Como adventistas do sétimo dia, aceitamos a Bíblia como nosso único credo e mantemos um conjunto de crenças fundamentais baseadas nos ensinos das Escrituras Sagradas."
             accent={true}
           />

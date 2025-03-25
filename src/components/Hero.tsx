@@ -12,17 +12,13 @@ const churchSlides = [
   {
     image: "/images/church-2.jpg",
     title: "Horários de culto",
-    info: "Sábados: Escola Sabatina 9h | Culto Divino 10h\nQuartas: Culto de Oração 19h\nSextas: Pequenos Grupos 19h00"
+    info: "Sábados: Adoração 8h30 | Culto Divino 10h\nQuartas: Culto de agradecimento 19h\nSexta: Pequenos grupos 19h"
   },
-  {
-    image: "/images/church-3.jpg",
-    title: "Atividades da Igreja",
-    info: "Classe Bíblica: Domingos 18h\nDesbravadores: Domingos 9h\nPequenos Grupos: Terças 19h30"
-  },
+  
   {
     image: "/images/church-4.jpg",
-    title: "Nossa Missão",
-    info: "Proclamar o evangelho eterno no contexto da mensagem dos três anjos de Apocalipse 14"
+    title: "Nossa missão",
+    info: "Proclamar o evangelho eterno no contexto da mensagem dos três anjos de Apocalipse 14."
   }
 ];
 

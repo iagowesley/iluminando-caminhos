@@ -17,7 +17,7 @@ const Mission = () => {
   return (
     <PageLayout>
       <Hero 
-        title="Nossa Missão e Valores"
+        title="Nossa missão e valores"
         subtitle="Proclamando o evangelho eterno ao mundo"
         backgroundImage="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
@@ -26,7 +26,7 @@ const Mission = () => {
       <section id="content-section" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-church-darkBlue mb-6 text-center">Nossa Missão</h2>
+            <h2 className="text-3xl font-bold text-church-darkBlue mb-6 text-center">Nossa missão</h2>
             <div className="h-1 w-20 bg-church-accent mb-8 mx-auto"></div>
             
             <blockquote className="italic text-xl text-gray-700 mb-8 border-l-4 border-church-accent pl-4 py-2 max-w-3xl mx-auto">

@@ -18,14 +18,14 @@ const navigation: NavigationItem[] = [
     submenu: false
   },
   { 
-    name: "Quem Somos", 
+    name: "Quem somos", 
     href: "/quem-somos",
     submenu: true,
     items: [
-      { name: "Nossa História", href: "/quem-somos#historia" },
-      { name: "Visão e Missão", href: "/quem-somos#visao" },
+      { name: "Nossa história", href: "/quem-somos#historia" },
+      { name: "Visão e missão", href: "/quem-somos#visao" },
       { name: "Liderança", href: "/lideranca" },
-      { name: "Galeria de Fotos", href: "/galeria" }
+      { name: "Galeria de fotos", href: "/galeria" }
     ]
   },
   { 
@@ -34,28 +34,29 @@ const navigation: NavigationItem[] = [
     submenu: false
   },
   { 
-    name: "Missão e Serviço", 
+    name: "Missão e serviço", 
     href: "/missao",
     submenu: false
   },
   { 
-    name: "Nossas Crenças", 
+    name: "Nossas crenças", 
     href: "/crencas",
     submenu: true,
     items: [
-      { name: "As 28 Crenças", href: "/crencas#fundamentais" },
-      { name: "Estudo Bíblico", href: "/estudos-biblicos" },
-      { name: "Perguntas Frequentes", href: "/faq" }
+      { name: "As 28 crenças", href: "/crencas#fundamentais" },
+      { name: "Estudo bíblico", href: "/estudos-biblicos" },
+      { name: "Perguntas frequentes", href: "/faq" }
     ]
   },
   { 
-    name: "Nossos Cultos", 
+    name: "Nossos cultos", 
     href: "/cultos",
     submenu: true,
     items: [
       { name: "Horários", href: "/cultos#horarios" },
       { name: "Música", href: "/musica" },
-      { name: "Eventos", href: "/eventos" }
+      { name: "Eventos", href: "/eventos" },
+      { name: "Escalas", href: "/escalas" }
     ]
   },
   { 

@@ -18,6 +18,8 @@ import FAQ from "./pages/FAQ";
 import Music from "./pages/Music";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Schedules from "./pages/Schedules";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const App = () => (
           <Route path="/faq" element={<FAQ />} />
           <Route path="/musica" element={<Music />} />
           <Route path="/contato" element={<Contact />} />
+          <Route path="/escalas" element={<Schedules />} />
+          <Route path="/privacidade" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -71,28 +71,28 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <SectionTitle 
             title="Bem-vindo à Igreja Adventista do Sétimo Dia"
-            subtitle="Somos uma comunidade cristã mundial que se dedica a compartilhar a mensagem de esperança e restauração."
+            subtitle="Somos uma igreja que proclama a esperança e a restauração em Cristo."
             accent={true}
             ornate={true}
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             <FeatureCard
-              title="Quem Somos"
+              title="Quem somos"
               description="Conheça nossa identidade, história e visão como uma denominação cristã global presente em mais de 200 países."
               icon={<Users className="h-6 w-6" />}
               image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800&h=500&auto=format&fit=crop"
             />
             
             <FeatureCard
-              title="Nossas Crenças"
+              title="Nossas crenças"
               description="Explore as 28 crenças fundamentais baseadas nas Escrituras Sagradas que orientam nossa fé e prática."
               icon={<Book className="h-6 w-6" />}
               image="https://images.unsplash.com/photo-1558021211-6d1403321394?q=80&w=800&h=500&auto=format&fit=crop"
             />
             
             <FeatureCard
-              title="Missão Global"
+              title="Missão global"
               description="Descubra como estamos compartilhando o amor de Cristo através de projetos missionários, educacionais e humanitários."
               icon={<Globe className="h-6 w-6" />}
               image="https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=800&h=500&auto=format&fit=crop"
@@ -106,7 +106,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <h2 className="text-3xl font-bold text-church-darkBlue mb-6">Nossa Missão</h2>
+              <h2 className="text-3xl font-bold text-church-darkBlue mb-6">Nossa missão</h2>
               <div className="h-1 w-20 bg-church-accent mb-8"></div>
               
               <p className="text-gray-700 mb-6">
@@ -145,7 +145,7 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <SectionTitle 
-            title="Explore Nossa Organização"
+            title="Explore nossa organização"
             subtitle="Conheça mais sobre os diferentes aspectos da Igreja Adventista do Sétimo Dia"
             accent={true}
           />
@@ -153,7 +153,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             <div className="bg-church-gray p-8 rounded-lg transition-all hover:shadow-md">
               <Church className="h-10 w-10 text-church-blue mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Estrutura Organizacional</h3>
+              <h3 className="text-xl font-semibold mb-3">Estrutura organizacional</h3>
               <p className="text-gray-600 mb-4">
                 Entenda como nossa igreja está estruturada globalmente, desde congregações locais até a Conferência Geral.
               </p>
@@ -164,7 +164,7 @@ const Index = () => {
             
             <div className="bg-church-gray p-8 rounded-lg transition-all hover:shadow-md">
               <Heart className="h-10 w-10 text-church-blue mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Serviço Humanitário</h3>
+              <h3 className="text-xl font-semibold mb-3">Serviço humanitário</h3>
               <p className="text-gray-600 mb-4">
                 Descubra como estamos fazendo a diferença através de projetos sociais, assistência humanitária e desenvolvimento comunitário.
               </p>
@@ -175,7 +175,7 @@ const Index = () => {
             
             <div className="bg-church-gray p-8 rounded-lg transition-all hover:shadow-md">
               <Calendar className="h-10 w-10 text-church-blue mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Nossos Cultos</h3>
+              <h3 className="text-xl font-semibold mb-3">Nossos cultos</h3>
               <p className="text-gray-600 mb-4">
                 Conheça nossa programação de cultos, atividades e estudos bíblicos disponíveis para toda a família.
               </p>
@@ -194,7 +194,7 @@ const Index = () => {
             <div className="flex items-center mb-6 md:mb-0">
               <Sunset className="h-16 w-16 text-white mr-6" />
               <div>
-                <h2 className="text-2xl font-bold text-white mb-2 font-adventist">Pôr do Sol</h2>
+                <h2 className="text-2xl font-bold text-white mb-2 font-adventist">Pôr do sol</h2>
                 <p className="text-white text-lg font-adventist">{currentDate}</p>
                 <p className="text-white text-xl font-bold font-adventist">
                   Horário: {isLoading ? 'Carregando...' : sunsetTime}
@@ -212,7 +212,7 @@ const Index = () => {
                 size="lg" 
                 className="border-white text-white hover:bg-white/20"
               >
-                <a href="/downloads/meditacao.pdf.txt" download className="flex items-center">
+                <a href="/downloads/meditacao-por-do-sol-2025.pdf" download className="flex items-center">
                   <Download className="mr-2 h-5 w-5" />
                   Baixar Meditação do Pôr do Sol
                 </a>
@@ -225,13 +225,13 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-church-blue text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Junte-se a Nós em Nossa Jornada de Fé</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Junte-se a nós em nossa jornada de fé</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
             Faça parte de uma comunidade global de fé que busca seguir os ensinamentos de Cristo e compartilhar Seu amor com o mundo.
           </p>
           <div className="space-x-4">
             <Button asChild variant="churchOutline" size="church" className="border-white text-white hover:bg-white/10">
-              <Link to="/crencas">Nossas Crenças</Link>
+              <Link to="/crencas">Nossas crenças</Link>
             </Button>
           </div>
         </div>
