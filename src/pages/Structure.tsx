@@ -14,8 +14,8 @@ const Structure = () => {
         size="medium"
       />
       
-      <section id="content-section" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
+      <section id="content-section" className="py-16 sm:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionTitle 
             title="Nossa Estrutura Global"
             subtitle="Uma estrutura organizada para cumprir nossa missão mundialmente"
@@ -23,8 +23,8 @@ const Structure = () => {
             ornate={true}
           />
           
-          <div className="mt-12 max-w-3xl mx-auto text-center">
-            <p className="text-gray-700 mb-8">
+          <div className="mt-12 max-w-4xl mx-auto">
+            <p className="text-gray-700 mb-8 text-center">
               A Igreja Adventista do Sétimo Dia adota um sistema representativo de governança eclesiástica. A autoridade na igreja é concedida aos membros, que delegam responsabilidades a corpos representativos e oficiais para o governo da igreja em cada nível.
             </p>
             
@@ -42,6 +42,76 @@ const Structure = () => {
               <div className="bg-church-gray rounded-lg p-6 flex flex-col items-center">
                 <div className="text-4xl font-bold text-church-blue mb-2">150K+</div>
                 <p className="text-gray-700">Congregações</p>
+              </div>
+            </div>
+            
+            {/* Organograma da Liderança */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-church-darkBlue mb-8 text-center">Liderança Atual</h3>
+              
+              <div className="flex flex-col items-center">
+                {/* Associação Geral */}
+                <div className="bg-church-blue text-white p-5 rounded-lg shadow-lg mb-8 w-full max-w-xl text-center">
+                  <h4 className="font-bold text-xl mb-3 border-b border-white/20 pb-2">ASSOCIAÇÃO GERAL</h4>
+                  <div className="space-y-1">
+                    <p><span className="font-semibold">Presidente:</span> Ted N.C. Wilson</p>
+                    <p><span className="font-semibold">Vice-presidente:</span> Pierre E. Omeler</p>
+                  </div>
+                </div>
+                
+                {/* Seta de conexão */}
+                <div className="w-px h-8 bg-church-blue/60"></div>
+                <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-church-blue/60 mb-8"></div>
+                
+                {/* Divisão Sul-Americana */}
+                <div className="bg-church-blue/90 text-white p-5 rounded-lg shadow-lg mb-8 w-full max-w-xl text-center">
+                  <h4 className="font-bold text-xl mb-3 border-b border-white/20 pb-2">DIVISÃO SUL-AMERICANA</h4>
+                  <div className="space-y-1">
+                    <p><span className="font-semibold">Presidente:</span> Stanley Arco</p>
+                    <p><span className="font-semibold">Secretário Executivo:</span> Edward Heidinger</p>
+                    <p><span className="font-semibold">Líder Desbravadores e Aventureiros:</span> Udolcy Zukowski</p>
+                    <p><span className="font-semibold">Líder Jovens:</span> Carlos Humberto Campitelli</p>
+                  </div>
+                </div>
+                
+                {/* Seta de conexão */}
+                <div className="w-px h-8 bg-church-blue/60"></div>
+                <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-church-blue/60 mb-8"></div>
+                
+                {/* União Nordeste Brasileira */}
+                <div className="bg-church-blue/80 text-white p-5 rounded-lg shadow-lg mb-8 w-full max-w-xl text-center">
+                  <h4 className="font-bold text-xl mb-3 border-b border-white/20 pb-2">UNIÃO NORDESTE BRASILEIRA</h4>
+                  <div className="space-y-1">
+                    <p><span className="font-semibold">Presidente:</span> Pr. Alijofran Brandão</p>
+                    <p><span className="font-semibold">Secretária:</span> Talita Ferreira</p>
+                    <p><span className="font-semibold">Líder de Jovens, Aventureiros e Desbravadores:</span> Pr. Rafael Santos</p>
+                  </div>
+                </div>
+                
+                {/* Seta de conexão */}
+                <div className="w-px h-8 bg-church-blue/60"></div>
+                <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-church-blue/60 mb-8"></div>
+                
+                {/* Associação Cearense */}
+                <div className="bg-church-blue/70 text-white p-5 rounded-lg shadow-lg mb-8 w-full max-w-xl text-center">
+                  <h4 className="font-bold text-xl mb-3 border-b border-white/20 pb-2">ASSOCIAÇÃO CEARENSE</h4>
+                  <div className="space-y-1">
+                    <p><span className="font-semibold">Presidente:</span> Pr. Marcos Militão</p>
+                    <p><span className="font-semibold">Secretário:</span> Pr. Thendyson Bezerra</p>
+                    <p><span className="font-semibold">Líder de Jovens:</span> Pr. Leandro Santos</p>
+                    <p><span className="font-semibold">Líder de Desbravadores e Aventureiros:</span> Pr. Wellington Costa</p>
+                  </div>
+                </div>
+                
+                {/* Seta de conexão */}
+                <div className="w-px h-8 bg-church-blue/60"></div>
+                <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-church-blue/60 mb-8"></div>
+                
+                {/* Igreja Local */}
+                <div className="bg-church-blue/60 text-white p-5 rounded-lg shadow-lg w-full max-w-xl text-center">
+                  <h4 className="font-bold text-xl mb-2 border-b border-white/20 pb-2">IGREJA LOCAL</h4>
+                  <p className="text-sm">A comunidade de fiéis liderada por pastores e anciãos locais</p>
+                </div>
               </div>
             </div>
             
@@ -78,9 +148,12 @@ const Structure = () => {
                     
                     <div className="mt-6">
                       <img 
-                        src="https://via.placeholder.com/800x400/F4F7F9/003366?text=Estrutura+Organizacional" 
+                        src="/images/structure/iasd-organization-chart.png" 
                         alt="Estrutura Organizacional" 
-                        className="w-full h-auto rounded-md"
+                        className="w-full h-auto rounded-md shadow-md border border-gray-100"
+                        onError={(e) => {
+                          e.currentTarget.src = "https://via.placeholder.com/800x400/F4F7F9/003366?text=Estrutura+Organizacional";
+                        }}
                       />
                     </div>
                   </CardContent>
@@ -132,6 +205,16 @@ const Structure = () => {
                     <p className="text-gray-700 mt-4">
                       As decisões nas Associações são tomadas por delegados eleitos pelas igrejas locais durante assembleias periódicas (geralmente a cada 3-4 anos).
                     </p>
+                    
+                    <div className="mt-6 p-4 bg-church-gray/40 rounded-lg">
+                      <h5 className="font-medium text-church-darkBlue mb-2">Associação Cearense</h5>
+                      <ul className="text-sm space-y-1">
+                        <li><span className="font-medium">Presidente:</span> Pr. Marcos Militão</li>
+                        <li><span className="font-medium">Secretário:</span> Pr. Thendyson Bezerra</li>
+                        <li><span className="font-medium">Líder de Jovens:</span> Pr. Leandro Santos</li>
+                        <li><span className="font-medium">Líder de Desbravadores e Aventureiros:</span> Pr. Wellington Costa</li>
+                      </ul>
+                    </div>
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -162,6 +245,15 @@ const Structure = () => {
                     <p className="text-gray-700 mt-4">
                       A liderança das Uniões é eleita durante assembleias quinquenais por delegados das Associações e Missões.
                     </p>
+                    
+                    <div className="mt-6 p-4 bg-church-gray/40 rounded-lg">
+                      <h5 className="font-medium text-church-darkBlue mb-2">União Nordeste Brasileira</h5>
+                      <ul className="text-sm space-y-1">
+                        <li><span className="font-medium">Presidente:</span> Pr. Alijofran Brandão</li>
+                        <li><span className="font-medium">Secretária:</span> Talita Ferreira</li>
+                        <li><span className="font-medium">Líder de Jovens, Aventureiros e Desbravadores:</span> Pr. Rafael Santos</li>
+                      </ul>
+                    </div>
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -173,6 +265,24 @@ const Structure = () => {
                     <p className="text-gray-700 mb-4">
                       A Conferência Geral é a autoridade máxima administrativa da Igreja Adventista do Sétimo Dia, representando a igreja global.
                     </p>
+                    
+                    <div className="mt-4 mb-6 p-4 bg-church-gray/40 rounded-lg">
+                      <h5 className="font-medium text-church-darkBlue mb-2">Associação Geral</h5>
+                      <ul className="text-sm space-y-1">
+                        <li><span className="font-medium">Presidente:</span> Ted N.C. Wilson</li>
+                        <li><span className="font-medium">Vice-presidente:</span> Pierre E. Omeler</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="mb-6 p-4 bg-church-gray/40 rounded-lg">
+                      <h5 className="font-medium text-church-darkBlue mb-2">Divisão Sul-Americana</h5>
+                      <ul className="text-sm space-y-1">
+                        <li><span className="font-medium">Presidente:</span> Stanley Arco</li>
+                        <li><span className="font-medium">Secretário Executivo:</span> Edward Heidinger</li>
+                        <li><span className="font-medium">Líder Desbravadores e Aventureiros:</span> Udolcy Zukowski</li>
+                        <li><span className="font-medium">Líder Jovens:</span> Carlos Humberto Campitelli</li>
+                      </ul>
+                    </div>
                     
                     <h4 className="text-lg font-medium text-church-blue mt-4 mb-2">Divisões Mundiais</h4>
                     <p className="text-gray-700 mb-2">
@@ -207,8 +317,8 @@ const Structure = () => {
         </div>
       </section>
       
-      <section className="py-20 bg-church-gray">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-20 bg-church-gray">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionTitle 
             title="Princípios de Organização"
             subtitle="Fundamentos que guiam nossa estrutura denominacional"
