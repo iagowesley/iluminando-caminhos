@@ -185,7 +185,7 @@ const Beliefs = () => {
       <Hero 
         title="Nossas crenças"
         subtitle="Conheça as 28 crenças fundamentais que orientam nossa fé"
-        backgroundImage="https://images.unsplash.com/photo-1470859624578-4bb64aaef791?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+        backgroundImage="/images/church-4.jpg"
         size="medium"
       />
       

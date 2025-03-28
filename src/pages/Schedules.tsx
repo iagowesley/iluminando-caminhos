@@ -189,7 +189,7 @@ export default function Schedules() {
       <Hero 
         title="Escalas de Cultos"
         subtitle="Organização e participação nos nossos momentos de adoração"
-        backgroundImage="https://images.unsplash.com/photo-1465919292275-c60ba49da6ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+        backgroundImage="/images/church-2.jpg"
         size="medium"
       />
       

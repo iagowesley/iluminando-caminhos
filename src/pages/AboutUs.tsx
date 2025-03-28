@@ -68,7 +68,7 @@ const AboutUs = () => {
         size="medium"
         title="Quem somos"
         subtitle="Conheça nossa identidade, história e visão como uma denominação cristã global"
-        backgroundImage="https://images.unsplash.com/photo-1438032005730-c779502df39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+        backgroundImage="/images/quem-somos.jpg"
       />
       
       <section id="content-section" className="py-20 bg-white">

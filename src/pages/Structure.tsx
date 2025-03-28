@@ -10,7 +10,7 @@ const Structure = () => {
       <Hero 
         title="Estrutura Organizacional"
         subtitle="Como a Igreja Adventista está organizada no mundo todo"
-        backgroundImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+        backgroundImage="/images/estrutura-organizacional.jpeg"
         size="medium"
       />
       

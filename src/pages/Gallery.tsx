@@ -130,7 +130,7 @@ export default function Gallery() {
       <Hero 
         title="Galeria de Fotos"
         subtitle="Momentos especiais de nossa comunidade"
-        backgroundImage="https://images.unsplash.com/photo-1540927067149-024859a7f799?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+        backgroundImage="/images/galeria-fotos.jpg"
         size="medium"
       />
 

@@ -112,7 +112,7 @@ export default function FAQ() {
       <Hero 
         title="Perguntas Frequentes"
         subtitle="Respostas para dúvidas comuns sobre nossa fé e igreja"
-        backgroundImage="https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+        backgroundImage="/images/faq.jpeg"
         size="medium"
       />
       

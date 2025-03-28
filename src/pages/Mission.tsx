@@ -19,8 +19,7 @@ const Mission = () => {
       <Hero 
         title="Nossa missão e valores"
         subtitle="Proclamando o evangelho eterno ao mundo"
-        backgroundImage="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
-        size="medium"
+        backgroundImage="/images/missao-serviços.png" size="medium"
       />
       
       <section id="content-section" className="py-20 bg-white">
@@ -93,14 +92,14 @@ const Mission = () => {
               title="Educação"
               description="Operamos mais de 8.500 instituições educacionais, de escolas primárias a universidades, proporcionando educação de qualidade baseada em valores cristãos."
               icon={<GraduationCap className="h-6 w-6" />}
-              image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              image="/images/educacao.jpg"
             />
             
             <FeatureCard
               title="Saúde e Bem-estar"
               description="Promovemos estilo de vida saudável e oferecemos assistência médica através de nossa rede de hospitais, clínicas e centros de vida saudável."
               icon={<Apple className="h-6 w-6" />}
-              image="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              image="/images/saude.jpg"
             />
             
             <FeatureCard
@@ -140,7 +139,7 @@ const Mission = () => {
             <Card className="overflow-hidden border-none shadow-lg">
               <div className="h-64 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1593113598332-cd59a93c6138?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src="/images/adra.jpg"
                   alt="ADRA em ação"
                   className="w-full h-full object-cover"
                 />

@@ -95,7 +95,7 @@ export default function Contact() {
       <Hero 
         title="Entre em contato"
         subtitle="Estamos aqui para responder suas dúvidas e receber seus comentários"
-        backgroundImage="https://images.unsplash.com/photo-1560174946-872aa33e4865?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+        backgroundImage="/images/contato.jpg"
         size="medium"
       />
       
@@ -110,87 +110,121 @@ export default function Contact() {
           
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-xl font-adventist text-church-blue mb-6 text-center">Informações de Contato</h3>
-              
-              <div className="space-y-6 max-w-md mx-auto">
-                <div className="flex items-start">
-                  <MapPin className="h-4 w-4 mr-3 text-church-blue flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-medium">Endereço</h4>
-                    <p className="text-gray-700 mt-1">
-                      R. André Moreira - Planalto da Catumbela
-                      <br />
-                      Russas - CE, 62900-000
-                    </p>
-                  </div>
-                </div>
+              <div className="bg-white shadow-lg rounded-xl p-8 border border-gray-100">
+                <h3 className="text-2xl font-bold text-church-blue mb-8 text-center">Informações de Contato</h3>
                 
-                <div className="flex items-start">
-                  <Phone className="h-4 w-4 mr-3 text-church-blue flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-medium">Telefone</h4>
-                    <p className="text-gray-700 mt-1">
-                      <a href="tel:+556133456789" className="hover:text-church-blue transition-colors">
-                        (61) 3345-6789
-                      </a>
-                    </p>
+                <div className="space-y-8 max-w-md mx-auto">
+                  <div className="flex items-start bg-church-gray/30 p-4 rounded-lg hover:bg-church-gray/50 transition-colors">
+                    <div className="bg-church-blue rounded-full p-3 text-white mr-4 flex-shrink-0">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-church-darkBlue">Endereço</h4>
+                      <p className="text-gray-700 mt-1">
+                        Igreja Adventista do Sétimo Dia
+                        <br />
+                        Russas - CE, 62900-000
+                      </p>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <Mail className="h-4 w-4 mr-3 text-church-blue flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-medium">E-mail</h4>
-                    <p className="text-gray-700 mt-1">
-                      <a href="mailto:contato@adventistas.org" className="hover:text-church-blue transition-colors">
-                        contato@adventistas.org
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-10 max-w-md mx-auto">
-                <h3 className="text-xl font-adventist text-church-blue mb-6 text-center">Horário de Atendimento</h3>
-                <div className="bg-church-gray p-6 rounded-lg">
-                  <p className="mb-2"><span className="font-medium">Segunda a Quinta:</span> 9h às 17h</p>
-                  <p className="mb-2"><span className="font-medium">Sexta:</span> 9h às 12h</p>
-                  <p><span className="font-medium">Sábado e Domingo:</span> Apenas durante os cultos</p>
-                </div>
-              </div>
-              
-              <div className="mt-10 max-w-md mx-auto">
-                <h3 className="text-xl font-adventist text-church-blue mb-6 text-center">Redes Sociais</h3>
-                <div className="flex justify-center space-x-4">
-                  <a 
-                    href="https://www.instagram.com/iasdcentralrussas/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-church-blue text-white p-3 rounded-full hover:bg-church-darkBlue transition-colors"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                  </a>
                   
-                  <a 
-                    href="#" 
-                    className="bg-church-blue text-white p-3 rounded-full hover:bg-church-darkBlue transition-colors"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                    </svg>
-                  </a>
+                  <div className="flex items-start bg-church-gray/30 p-4 rounded-lg hover:bg-church-gray/50 transition-colors">
+                    <div className="bg-church-blue rounded-full p-3 text-white mr-4 flex-shrink-0">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-church-darkBlue">Telefone</h4>
+                      <p className="text-gray-700 mt-1">
+                        <a href="tel:+556133456789" className="hover:text-church-blue transition-colors">
+                          (61) 3345-6789
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start bg-church-gray/30 p-4 rounded-lg hover:bg-church-gray/50 transition-colors">
+                    <div className="bg-church-blue rounded-full p-3 text-white mr-4 flex-shrink-0">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-church-darkBlue">E-mail</h4>
+                      <p className="text-gray-700 mt-1">
+                        <a href="mailto:contato@adventistas.org" className="hover:text-church-blue transition-colors">
+                          contato@adventistas.org
+                        </a>
+                      </p>
+                    </div>
+                  </div>
                 </div>
+              
+                <div className="mt-10">
+                  <h3 className="text-xl font-bold text-church-blue mb-6 text-center">Redes Sociais</h3>
+                  <div className="flex justify-center space-x-5">
+                    <a 
+                      href="https://www.instagram.com/iasdcentralrussas/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-church-gray/20 p-3 rounded-xl hover:bg-church-gray/40 transition-all duration-300 text-church-darkBlue"
+                      aria-label="Instagram"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                      </svg>
+                    </a>
+                    
+                    <a 
+                      href="#" 
+                      className="bg-church-gray/20 p-3 rounded-xl hover:bg-church-gray/40 transition-all duration-300 text-church-darkBlue"
+                      aria-label="YouTube"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                      </svg>
+                    </a>
+                    
+                    <a 
+                      href="#" 
+                      className="bg-church-gray/20 p-3 rounded-xl hover:bg-church-gray/40 transition-all duration-300 text-church-darkBlue"
+                      aria-label="Facebook"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                      </svg>
+                    </a>
+                    
+                    <a 
+                      href="#" 
+                      className="bg-church-gray/20 p-3 rounded-xl hover:bg-church-gray/40 transition-all duration-300 text-church-darkBlue"
+                      aria-label="WhatsApp"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.8290011052017!2d-37.9743084!3d-4.950107599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b99aad7f4c6d67%3A0x23336c1bdd7cedc8!2sIgreja%20Adventista%20de%20Russas!5e0!3m2!1spt-BR!2sbr!4v1679933357766!5m2!1spt-BR!2sbr" 
+                  className="w-full h-64 rounded-xl shadow-lg" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localização da Igreja Adventista de Russas"
+                ></iframe>
               </div>
             </div>
             
             <div>
-              <Card>
+              <Card className="shadow-lg border-0">
                 <CardContent className="pt-10 sm:pt-6">
+                  <h3 className="text-2xl font-bold text-church-blue mb-6 text-center">Envie sua Mensagem</h3>
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                       <FormField
@@ -442,18 +476,6 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </section>
-      
-      <section className="relative h-[400px]" id="localizacao">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d472.28826604663175!2d-37.98106365263381!3d-4.94212545616354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b978751935d551%3A0x5fa3df5827ac75db!2sIgreja%20Adventista%20do%20S%C3%A9timo%20Dia!5e1!3m2!1spt-BR!2sbr!4v1742863223631!5m2!1spt-BR!2sbr" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
       </section>
     </PageLayout>
   );

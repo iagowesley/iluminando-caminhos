@@ -11,7 +11,7 @@ const Worship = () => {
       <Hero 
         title="Cultos e Atividades"
         subtitle="Momentos de adoração, edificação e comunhão"
-        backgroundImage="https://images.unsplash.com/photo-1546484488-2a1430996887?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+        backgroundImage="/images/nossos-cultos.jpeg"
         size="medium"
       />
       
@@ -394,51 +394,170 @@ const Worship = () => {
         </div>
       </section>
       
-      <section className="py-20 bg-church-gray">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-church-darkBlue mb-6">Cerimônias Especiais</h2>
-              <div className="h-1 w-20 bg-church-accent mb-8"></div>
+      <section className="py-16 sm:py-20 bg-church-gray">
+        <div className="container mx-auto px-4 sm:px-6">
+          <SectionTitle 
+            title="Cerimônias Especiais"
+            subtitle="Momentos sagrados que marcam nossa jornada de fé"
+            accent={true}
+            ornate={true}
+          />
+          
+          <div className="mt-12 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img 
+                  src="/images/santa-ceia.jpeg" 
+                  alt="Santa Ceia" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end">
+                  <div className="p-6 text-white">
+                    <h3 className="text-2xl font-bold mb-2">Santa Ceia</h3>
+                    <p className="text-sm text-white/90">
+                      Momento de renovação espiritual e comunhão com Cristo.
+                    </p>
+                  </div>
+                </div>
+              </div>
               
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-church-blue mb-2">Santa Ceia</h3>
-                  <p className="text-gray-700">
+              <div className="flex flex-col justify-between h-full">
+                <div className="bg-white rounded-2xl shadow-md p-6 mb-4 flex items-start">
+                  <div className="flex-shrink-0 mr-4">
+                    <div className="w-12 h-12 bg-church-blue rounded-full flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-church-darkBlue mb-2">Frequência</h3>
+                    <p className="text-gray-700">
+                      A Santa Ceia é celebrada trimestralmente, geralmente no último sábado de cada trimestre.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-2xl shadow-md p-6">
+                  <h3 className="text-xl font-bold text-church-darkBlue mb-3">Significado</h3>
+                  <p className="text-gray-700 mb-4">
                     Celebrada trimestralmente, a Santa Ceia é precedida pelo rito de humildade (lava-pés), simbolizando purificação e serviço. A cerimônia inclui o pão sem fermento e o suco de uva, representando o corpo e o sangue de Cristo.
                   </p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-church-blue mb-2">Batismo</h3>
-                  <p className="text-gray-700">
-                    Realizado por imersão, o batismo representa a morte para o pecado e o nascimento para uma nova vida em Cristo. É precedido por estudos bíblicos e preparação espiritual.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-church-blue mb-2">Dedicação de Crianças</h3>
-                  <p className="text-gray-700">
-                    Cerimônia de consagração de bebês e crianças pequenas a Deus, em que os pais dedicam-se a criá-los nos caminhos do Senhor, com o apoio da comunidade de fé.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-church-blue mb-2">Casamento</h3>
-                  <p className="text-gray-700">
-                    Cerimônia que celebra a união sagrada entre um homem e uma mulher, fundamentada nos princípios bíblicos de amor, respeito e compromisso vitalício.
-                  </p>
+                  <div className="flex items-center text-church-blue">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-sm font-medium">Baseada em 1 Coríntios 11:23-26</p>
+                  </div>
                 </div>
               </div>
             </div>
             
-            <div>
-              <div className="rounded-xl overflow-hidden shadow-xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&q=75&fit=crop&w=800" 
-                  alt="Cerimônias da Igreja" 
-                  className="w-full h-auto"
-                />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src="/images/batismo.jpeg" 
+                    alt="Batismo" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80";
+                    }}
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-church-darkBlue mb-3">Batismo</h3>
+                  <p className="text-gray-700">
+                    Realizado por imersão, o batismo representa a morte para o pecado e o nascimento para uma nova vida em Cristo. É precedido por estudos bíblicos e preparação espiritual.
+                  </p>
+                  <div className="mt-4 flex items-center text-church-blue">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <p className="text-sm font-medium">Agendado por solicitação</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src="/images/dedicacao-criancas.jpeg" 
+                    alt="Dedicação de Crianças" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1470116945706-e6bf5d5a53ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80";
+                    }}
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-church-darkBlue mb-3">Dedicação de Crianças</h3>
+                  <p className="text-gray-700">
+                    Cerimônia de consagração de bebês e crianças pequenas a Deus, em que os pais dedicam-se a criá-los nos caminhos do Senhor, com o apoio da comunidade de fé.
+                  </p>
+                  <div className="mt-4 flex items-center text-church-blue">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <p className="text-sm font-medium">Agendada em cultos especiais</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src="/images/casamento.jpeg" 
+                    alt="Casamento" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80";
+                    }}
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-church-darkBlue mb-3">Casamento</h3>
+                  <p className="text-gray-700">
+                    Cerimônia que celebra a união sagrada entre um homem e uma mulher, fundamentada nos princípios bíblicos de amor, respeito e compromisso vitalício.
+                  </p>
+                  <div className="mt-4 flex items-center text-church-blue">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <p className="text-sm font-medium">Agendado mediante aconselhamento</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-md">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-6">
+                <div className="flex-shrink-0 w-16 h-16 bg-church-blue/10 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-church-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-church-darkBlue">Como Participar</h3>
+                  <p className="text-gray-700 mt-2">
+                    Para mais informações sobre qualquer uma das cerimônias ou para agendar sua participação, entre em contato com a secretaria da igreja ou fale com um de nossos pastores após os cultos.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="/contato" className="inline-flex items-center justify-center py-3 px-6 bg-church-blue text-white rounded-lg hover:bg-church-darkBlue transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  Entre em Contato
+                </a>
+                <a href="/eventos" className="inline-flex items-center justify-center py-3 px-6 bg-white border border-church-blue text-church-blue rounded-lg hover:bg-church-blue/5 transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Ver Calendário de Eventos
+                </a>
               </div>
             </div>
           </div>
