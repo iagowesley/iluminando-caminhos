@@ -162,10 +162,10 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`
-                      text-sm font-medium transition-colors duration-200 ease-in-out flex items-center
+                      text-base font-medium transition-colors duration-200 ease-in-out flex items-center
                       ${scrolled || !isHomePage
                         ? "text-gray-600 hover:text-church-blue" 
-                        : "text-white/80 hover:text-white"}
+                        : "text-white hover:text-white"}
                     `}
                   >
                     <MapPin className="mr-1 h-4 w-4" />
@@ -175,10 +175,10 @@ export default function Navbar() {
                   <NavLink
                     to={item.href}
                     className={({ isActive }) => `
-                      text-sm font-medium transition-colors duration-200 ease-in-out flex items-center
+                      text-base font-medium transition-colors duration-200 ease-in-out flex items-center
                       ${scrolled || !isHomePage
                         ? (isActive ? "text-church-blue" : "text-gray-600 hover:text-church-blue") 
-                        : (isActive ? "text-white font-semibold" : "text-white/80 hover:text-white")}
+                        : (isActive ? "text-white font-semibold" : "text-white hover:text-white")}
                     `}
                   >
                     {item.name}
@@ -200,7 +200,7 @@ export default function Navbar() {
                           key={subItem.name}
                           to={subItem.href}
                           className={({ isActive }) => `
-                            block px-4 py-2 text-sm text-gray-700 hover:bg-church-blue hover:text-white
+                            block px-4 py-2 text-base text-gray-700 hover:bg-church-blue hover:text-white
                             ${isActive ? "bg-church-gray text-church-blue font-medium" : ""}
                           `}
                           onClick={() => setActiveSubmenu(null)}
@@ -266,7 +266,7 @@ export default function Navbar() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block py-2 text-lg font-medium transition-colors text-gray-600 hover:text-church-blue"
+                      className="block py-2 text-xl font-medium transition-colors text-gray-600 hover:text-church-blue"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
@@ -278,7 +278,7 @@ export default function Navbar() {
                     <NavLink
                       to={item.href}
                       className={({ isActive }) =>
-                        `block py-2 text-lg font-medium transition-colors ${
+                        `block py-2 text-xl font-medium transition-colors ${
                           isActive ? "text-church-blue" : "text-gray-600 hover:text-church-blue"
                         }`
                       }
