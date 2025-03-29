@@ -3,30 +3,34 @@ import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
 import PageLayout from "@/components/PageLayout";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface LeaderProps {
   name: string;
   role: string;
   image: string;
-  description: string;
+  shortDescription: string;
 }
 
-const Leader = ({ name, role, image, description }: LeaderProps) => {
+const Leader = ({ name, role, image, shortDescription }: LeaderProps) => {
   return (
-    <div className="flex flex-col md:flex-row gap-6 mb-12 bg-white p-6 rounded-lg shadow-md">
-      <div className="w-full md:w-1/4">
+    <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 rounded-2xl">
+      <div className="relative h-64">
         <img 
           src={image} 
           alt={name} 
-          className="w-full h-auto aspect-square object-cover object-center rounded-md"
+          className="w-full h-full object-cover rounded-t-2xl"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-t-2xl" />
+        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 className="text-xl font-semibold">{name}</h3>
+          <p className="text-sm opacity-90">{role}</p>
+        </div>
       </div>
-      <div className="w-full md:w-3/4">
-        <h3 className="text-2xl font-serif font-semibold text-church-blue mb-1">{name}</h3>
-        <p className="text-lg text-church-accent font-medium mb-4">{role}</p>
-        <p className="text-gray-700">{description}</p>
-      </div>
-    </div>
+      <CardContent className="p-4">
+        <p className="text-gray-600 text-sm">{shortDescription}</p>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -34,32 +38,32 @@ const leaders = [
   {
     name: "Pr. José Carlos Silva",
     role: "Pastor Titular",
-    image: "/images/pastors/pastor1.jpg",
-    description: "Pastor José Carlos Silva dedica-se ao ministério há mais de 20 anos. Formado em Teologia pelo Seminário Adventista Latino-Americano, lidera nossa congregação desde 2018. Casado com Maria e pai de dois filhos, o Pastor José Carlos é conhecido por sua paixão pela pregação bíblica e seu compromisso com o discipulado."
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    shortDescription: "Lidera nossa congregação desde 2018, dedicado ao ministério há mais de 20 anos."
   },
   {
     name: "Pr. André Oliveira",
     role: "Pastor Associado",
-    image: "/images/pastors/pastor2.jpg",
-    description: "Pastor André Oliveira é responsável pelos ministérios jovens e familiares. Formado em Teologia e com especialização em Aconselhamento Familiar, ele traz energia e inovação aos nossos programas. Casado com Raquel, dedica-se especialmente ao fortalecimento das famílias e ao desenvolvimento espiritual dos jovens."
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    shortDescription: "Responsável pelos ministérios jovens e familiares, trazendo energia e inovação aos nossos programas."
   },
   {
     name: "Diác. Antônio Ferreira",
     role: "Primeiro Ancião",
-    image: "/images/pastors/elder1.jpg",
-    description: "O irmão Antônio serve como primeiro ancião de nossa igreja há 8 anos. Empresário e líder comunitário, ele dedica grande parte de seu tempo ao serviço da igreja. Sua liderança sábia e equilibrada tem sido fundamental para o crescimento espiritual de nossa congregação. É casado com Lúcia e pai de três filhos."
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    shortDescription: "Liderança sábia e equilibrada, fundamental para o crescimento espiritual de nossa congregação."
   },
   {
     name: "Roberta Santos",
     role: "Diretora de Música",
-    image: "/images/pastors/music-director.jpg",
-    description: "Roberta coordena todo o ministério musical da igreja. Formada em Música Sacra, ela dirige o coral, a orquestra e as equipes de louvor. Seu talento e dedicação têm enriquecido profundamente nossos momentos de adoração. Além de musicista, Roberta também leciona na escola adventista local."
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    shortDescription: "Coordena o ministério musical, enriquecendo nossos momentos de adoração com seu talento."
   },
   {
     name: "Daniel Costa",
     role: "Diretor de Jovens",
-    image: "/images/pastors/youth-director.jpg",
-    description: "Daniel lidera o ministério jovem com entusiasmo e criatividade. Professor de profissão, ele tem um dom especial para conectar-se com adolescentes e jovens adultos. Sob sua liderança, o departamento jovem tem crescido e se tornado uma referência na região pela qualidade de seus programas e pelo engajamento missionário."
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    shortDescription: "Lidera o ministério jovem com entusiasmo e criatividade, promovendo engajamento missionário."
   }
 ];
 
@@ -82,19 +86,21 @@ export default function Leadership() {
             ornate={true}
           />
           
-          <div className="mt-16 space-y-12">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {leaders.map((leader, index) => (
               <Leader key={index} {...leader} />
             ))}
           </div>
           
           <div className="mt-16 text-center">
-            <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
-              Nossa estrutura de liderança segue o modelo bíblico e as orientações da Igreja Adventista do Sétimo Dia mundial. Todos os líderes são eleitos pela igreja local e trabalham em conjunto para o crescimento e desenvolvimento espiritual da congregação.
-            </p>
-            <Button asChild variant="church" size="church">
-              <Link to="/contato">Entre em Contato com Nossa Liderança</Link>
-            </Button>
+            <div className="bg-white rounded-2xl p-8 shadow-md max-w-3xl mx-auto">
+              <p className="text-lg text-gray-700 mb-6">
+                Nossa estrutura de liderança segue o modelo bíblico e as orientações da Igreja Adventista do Sétimo Dia mundial. Todos os líderes são eleitos pela igreja local e trabalham em conjunto para o crescimento e desenvolvimento espiritual da congregação.
+              </p>
+              <Button asChild variant="church" size="church" className="rounded-full">
+                <Link to="/contato">Entre em Contato com Nossa Liderança</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
