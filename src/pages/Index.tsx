@@ -131,7 +131,7 @@ const Index = () => {
             <div className="order-1 lg:order-2">
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=800&h=500&auto=format&fit=crop" 
+                  src="/images/nossa-missao.jpeg" 
                   alt="Missão Adventista" 
                   className="w-full h-auto"
                 />
