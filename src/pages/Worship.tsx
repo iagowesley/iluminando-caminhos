@@ -457,11 +457,19 @@ const Worship = () => {
               <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="h-48 overflow-hidden">
                   <img 
+<<<<<<< HEAD
                     src="/images/batismo.jpg" 
                     alt="Batismo" 
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.currentTarget.src = "/images/batismo.jpg";
+=======
+                    src="/images/batismo.jpeg" 
+                    alt="Batismo" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80";
+>>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
                     }}
                   />
                 </div>
