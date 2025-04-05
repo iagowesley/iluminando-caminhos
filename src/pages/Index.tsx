@@ -81,7 +81,7 @@ const Index = () => {
               title="Quem somos"
               description="Conheça nossa identidade, história e visão como uma denominação cristã global presente em mais de 200 países."
               icon={<Users className="h-6 w-6" />}
-              image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800&h=500&auto=format&fit=crop"
+              image="/images/quem-somos1.jpeg"
             />
             
             <FeatureCard
@@ -95,7 +95,7 @@ const Index = () => {
               title="Missão global"
               description="Descubra como estamos compartilhando o amor de Cristo através de projetos missionários, educacionais e humanitários."
               icon={<Globe className="h-6 w-6" />}
-              image="https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=800&h=500&auto=format&fit=crop"
+              image="/images/Logo-Eu-Vou.jpg" 
             />
           </div>
         </div>

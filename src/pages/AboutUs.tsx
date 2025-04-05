@@ -174,9 +174,14 @@ const AboutUs = () => {
                 <h3 className="text-2xl font-semibold text-church-darkBlue mb-4">
                   "Transformados pela graça de Deus para transformar o mundo."
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 mb-6">
                   Em cada interação e ministério, buscamos demonstrar o caráter amoroso de Cristo, levando esperança e cura a um mundo em necessidade. Convidamos você a se juntar a nós nesta jornada de fé, serviço e expectativa.
                 </p>
+                <div className="flex justify-center mt-3">
+                  <a href="/missao" className="flex items-center text-church-blue hover:text-church-accent transition-colors">
+                    Saiba mais sobre nossa Missão e Serviço <ChevronRight className="ml-1 h-4 w-4" />
+                  </a>
+                </div>
               </CardContent>
             </Card>
           </div>

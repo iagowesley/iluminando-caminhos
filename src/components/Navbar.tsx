@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, MapPin } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type NavigationItem = {
@@ -8,7 +8,7 @@ type NavigationItem = {
   href: string;
   submenu: boolean;
   external?: boolean;
-  items?: { name: string; href: string }[];
+  items?: { name: string; href: string; external?: boolean }[];
 };
 
 const navigation: NavigationItem[] = [
@@ -25,17 +25,13 @@ const navigation: NavigationItem[] = [
       { name: "Nossa história", href: "/quem-somos#historia" },
       { name: "Visão e missão", href: "/quem-somos#visao" },
       { name: "Liderança", href: "/lideranca" },
-      { name: "Galeria de fotos", href: "/galeria" }
+      { name: "Galeria de fotos", href: "/galeria" },
+      { name: "Missão e serviço", href: "/missao" }
     ]
   },
   { 
     name: "Estrutura", 
     href: "/estrutura",
-    submenu: false
-  },
-  { 
-    name: "Missão e serviço", 
-    href: "/missao",
     submenu: false
   },
   { 
@@ -63,6 +59,15 @@ const navigation: NavigationItem[] = [
     name: "Contato", 
     href: "/contato",
     submenu: false
+  },
+  { 
+    name: "Dízimos e Ofertas", 
+    href: "/dizimos-ofertas",
+    submenu: true,
+    items: [
+      { name: "Sobre Dízimos e Ofertas", href: "/dizimos-ofertas" },
+      { name: "Contribuir Agora", href: "https://giving.7me.app/guest-donation/church/fa6d3669-cc8a-4f33-8eae-a68136df3af9", external: true }
+    ]
   }
 ];
 
@@ -163,12 +168,18 @@ export default function Navbar() {
                     rel="noopener noreferrer"
                     className={`
                       text-base font-medium transition-colors duration-200 ease-in-out flex items-center
-                      ${scrolled || !isHomePage
-                        ? "text-gray-600 hover:text-church-blue" 
-                        : "text-white hover:text-white"}
+                      ${item.name === "Dízimos e Ofertas"
+                        ? "bg-church-blue text-white hover:bg-church-darkBlue px-4 py-2 rounded-full"
+                        : scrolled || !isHomePage
+                          ? "text-gray-600 hover:text-church-blue" 
+                          : "text-white hover:text-white"}
                     `}
                   >
-                    <MapPin className="mr-1 h-4 w-4" />
+                    {item.name === "Dízimos e Ofertas" ? (
+                      <Heart className="mr-1 h-4 w-4" />
+                    ) : (
+                      <MapPin className="mr-1 h-4 w-4" />
+                    )}
                     {item.name}
                   </a>
                 ) : (
@@ -196,17 +207,30 @@ export default function Navbar() {
                   >
                     <div className="py-1">
                       {item.items?.map((subItem) => (
-                        <NavLink
-                          key={subItem.name}
-                          to={subItem.href}
-                          className={({ isActive }) => `
-                            block px-4 py-2 text-base text-gray-700 hover:bg-church-blue hover:text-white
-                            ${isActive ? "bg-church-gray text-church-blue font-medium" : ""}
-                          `}
-                          onClick={() => setActiveSubmenu(null)}
-                        >
-                          {subItem.name}
-                        </NavLink>
+                        subItem.external ? (
+                          <a
+                            key={subItem.name}
+                            href={subItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block px-4 py-2 text-base text-gray-700 hover:bg-church-blue hover:text-white"
+                            onClick={() => setActiveSubmenu(null)}
+                          >
+                            {subItem.name}
+                          </a>
+                        ) : (
+                          <NavLink
+                            key={subItem.name}
+                            to={subItem.href}
+                            className={({ isActive }) => `
+                              block px-4 py-2 text-base text-gray-700 hover:bg-church-blue hover:text-white
+                              ${isActive ? "bg-church-gray text-church-blue font-medium" : ""}
+                            `}
+                            onClick={() => setActiveSubmenu(null)}
+                          >
+                            {subItem.name}
+                          </NavLink>
+                        )
                       ))}
                     </div>
                   </div>
@@ -266,11 +290,19 @@ export default function Navbar() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block py-2 text-xl font-medium transition-colors text-gray-600 hover:text-church-blue"
+                      className={`block py-2 text-xl font-medium transition-colors ${
+                        item.name === "Dízimos e Ofertas"
+                          ? "text-white bg-church-blue px-4 py-2 rounded-md"
+                          : "text-gray-600 hover:text-church-blue"
+                      }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
-                        <MapPin className="mr-2 h-5 w-5" />
+                        {item.name === "Dízimos e Ofertas" ? (
+                          <Heart className="mr-2 h-5 w-5" />
+                        ) : (
+                          <MapPin className="mr-2 h-5 w-5" />
+                        )}
                         {item.name}
                       </div>
                     </a>
@@ -303,17 +335,30 @@ export default function Navbar() {
                   {item.submenu && activeSubmenu === index && (
                     <div className="ml-4 mt-2 space-y-1 border-l-2 border-church-gray pl-4">
                       {item.items?.map((subItem) => (
-                        <NavLink
-                          key={subItem.name}
-                          to={subItem.href}
-                          className={({ isActive }) => `
-                            block py-2 text-base transition-colors
-                            ${isActive ? "text-church-blue font-medium" : "text-gray-600 hover:text-church-blue"}
-                          `}
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {subItem.name}
-                        </NavLink>
+                        subItem.external ? (
+                          <a
+                            key={subItem.name}
+                            href={subItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block py-2 text-base transition-colors text-gray-600 hover:text-church-blue"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subItem.name}
+                          </a>
+                        ) : (
+                          <NavLink
+                            key={subItem.name}
+                            to={subItem.href}
+                            className={({ isActive }) => `
+                              block py-2 text-base transition-colors
+                              ${isActive ? "text-church-blue font-medium" : "text-gray-600 hover:text-church-blue"}
+                            `}
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subItem.name}
+                          </NavLink>
+                        )
                       ))}
                     </div>
                   )}

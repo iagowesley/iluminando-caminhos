@@ -20,6 +20,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Schedules from "./pages/Schedules";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Tithes from "./pages/Tithes";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/contato" element={<Contact />} />
           <Route path="/escalas" element={<Schedules />} />
           <Route path="/privacidade" element={<PrivacyPolicy />} />
+          <Route path="/dizimos-ofertas" element={<Tithes />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

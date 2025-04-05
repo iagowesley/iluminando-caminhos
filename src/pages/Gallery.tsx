@@ -15,13 +15,13 @@ interface PhotoProps {
 const photos: PhotoProps[] = [
   { 
     id: 1, 
-    src: "/images/gallery/church-building.jpg", 
+    src: "/images/fachada.jpg", 
     alt: "Fachada da Igreja", 
     category: "igreja" 
   },
   { 
     id: 2, 
-    src: "/images/gallery/worship.jpg", 
+    src: "/images/adoraçao.jpg", 
     alt: "Momento de Adoração", 
     category: "cultos" 
   },

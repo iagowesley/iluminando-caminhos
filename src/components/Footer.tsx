@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin, Heart } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -40,15 +40,22 @@ export default function Footer() {
                 <NavLink to="/quem-somos" className="text-gray-300 hover:text-white transition-colors text-base">
                   Quem somos
                 </NavLink>
+                <ul className="mt-1 ml-4 space-y-1 text-sm">
+                  <li>
+                    <NavLink to="/missao" className="text-gray-400 hover:text-white transition-colors">
+                      Missão e serviço
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/lideranca" className="text-gray-400 hover:text-white transition-colors">
+                      Liderança
+                    </NavLink>
+                  </li>
+                </ul>
               </li>
               <li>
                 <NavLink to="/estrutura" className="text-gray-300 hover:text-white transition-colors text-base">
                   Estrutura organizacional
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/missao" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Missão e serviço
                 </NavLink>
               </li>
               <li>
@@ -86,6 +93,14 @@ export default function Footer() {
               <li>
                 <NavLink to="/faq" className="text-gray-300 hover:text-white transition-colors text-base">
                   Perguntas Frequentes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink 
+                  to="/dizimos-ofertas"
+                  className="text-white hover:text-church-accent transition-colors text-base flex items-center bg-church-accent hover:bg-church-blue px-3 py-2 rounded-md inline-flex">
+                  <Heart className="mr-2 h-4 w-4" />
+                  Dízimos e Ofertas
                 </NavLink>
               </li>
             </ul>
