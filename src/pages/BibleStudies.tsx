@@ -50,11 +50,7 @@ const studies: StudyProps[] = [
     id: 2,
     title: "Apocalipse: Esperança para o Futuro",
     description: "Um estudo profundo sobre o livro do Apocalipse, desvendando suas profecias e símbolos de maneira clara. Descubra como este livro traz esperança em meio às previsões sobre o fim dos tempos.",
-<<<<<<< HEAD
     image: "/images/apocalipse.jpg",
-=======
-    image: "https://images.unsplash.com/photo-1498094596300-45f272292b29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
     instructor: "Diac. Fernanda Santos",
     lessons: [
       {
@@ -102,11 +98,7 @@ const studies: StudyProps[] = [
     id: 4,
     title: "Daniel: Profecias para Nosso Tempo",
     description: "Um estudo detalhado e interativo das profecias do livro de Daniel. Descubra como estas antigas profecias preveem eventos históricos com incrível precisão e oferecem orientação para os tempos finais da história da Terra.",
-<<<<<<< HEAD
     image: "/images/daniel.png",
-=======
-    image: "https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80",
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
     instructor: "Pr. Anderson Lima",
     lessons: [
       {

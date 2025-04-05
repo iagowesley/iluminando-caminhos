@@ -27,44 +27,28 @@ const musicGroups: MusicGroupProps[] = [
   {
     title: "Coral Principal",
     description: "O Coral da IASD Central Russas existe desde a fundação da igreja e é composto por mais de 30 membros dedicados ao louvor. O repertório inclui hinos tradicionais, músicas sacras contemporâneas e arranjos especiais para datas comemorativas.",
-<<<<<<< HEAD
     image: "/images/coral.jpg",
-=======
-    image: "https://images.unsplash.com/photo-1528642474498-1af0c17fd8c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80",
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
     schedule: "Ensaios: Quartas, 19h30 e Sábados, 15h",
     director: "Roberta Santos"
   },
   {
     title: "Grupo Jovem de Louvor",
     description: "Formado por jovens talentosos da igreja, o grupo lidera a adoração nos cultos jovens e programas especiais. Com instrumentação completa, oferece um louvor contemporâneo mantendo a reverência e foco espiritual.",
-<<<<<<< HEAD
     image: "/images/Coral-jovens.jpg",
-=======
-    image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
     schedule: "Ensaios: Sextas, 20h30",
     director: "Leonardo Mendes"
   },
   {
     title: "Conjunto Infantil",
     description: "As crianças da igreja participam ativamente do ministério musical através deste grupo. Com vozes angelicais, apresentam músicas especiais na Escola Sabatina infantil e em programações especiais, desenvolvendo desde cedo seus talentos musicais.",
-<<<<<<< HEAD
     image: "/images/coral-infantil.jpg",
-=======
-    image: "https://images.unsplash.com/photo-1505673542670-a5e3ff5b14a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1854&q=80",
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
     schedule: "Ensaios: Sábados, 14h",
     director: "Patrícia Oliveira"
   },
   {
     title: "Quarteto Masculino",
     description: "Um grupo tradicional que preserva a beleza da música a cappella e harmonizações em quatro vozes. Conhecido por suas interpretações profundas e espirituais de hinos tradicionais e contemporâneos.",
-<<<<<<< HEAD
     image: "/images/coral-homens.jpg",
-=======
-    image: "https://images.unsplash.com/photo-1566913485268-1287f64315e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
     schedule: "Ensaios: Domingos, 18h",
     director: "Ricardo Almeida"
   }

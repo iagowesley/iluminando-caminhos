@@ -19,11 +19,7 @@ const Mission = () => {
       <Hero 
         title="Nossa missão e valores"
         subtitle="Proclamando o evangelho eterno ao mundo"
-<<<<<<< HEAD
         backgroundImage="/images/foto.png" size="medium"
-=======
-        backgroundImage="/images/missao-serviços.png" size="medium"
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
       />
       
       <section id="content-section" className="py-20 bg-white">
@@ -89,11 +85,7 @@ const Mission = () => {
               title="Assistência Humanitária"
               description="Através da ADRA (Agência Adventista de Desenvolvimento e Recursos Assistenciais), fornecemos ajuda emergencial em desastres e desenvolvemos projetos sustentáveis em comunidades vulneráveis."
               icon={<HeartHandshake className="h-6 w-6" />}
-<<<<<<< HEAD
               image="/images/acao-social.jpg"
-=======
-              image="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
             />
             
             <FeatureCard
@@ -107,44 +99,28 @@ const Mission = () => {
               title="Saúde e Bem-estar"
               description="Promovemos estilo de vida saudável e oferecemos assistência médica através de nossa rede de hospitais, clínicas e centros de vida saudável."
               icon={<Apple className="h-6 w-6" />}
-<<<<<<< HEAD
               image="/images/saude-bemestar.jpg"
-=======
-              image="/images/saude.jpg"
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
             />
             
             <FeatureCard
               title="Liberdade Religiosa"
               description="Defendemos o direito à liberdade religiosa e de consciência para todas as pessoas, independentemente de sua crença."
               icon={<BookOpen className="h-6 w-6" />}
-<<<<<<< HEAD
               image="/images/liberdade-religiosa.jpg"
-=======
-              image="https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
             />
             
             <FeatureCard
               title="Desenvolvimento Comunitário"
               description="Trabalhamos com comunidades locais para desenvolver projetos que atendam às suas necessidades específicas de forma sustentável."
               icon={<Users className="h-6 w-6" />}
-<<<<<<< HEAD
               image="/images/desenvolvimento-comunitario.jpg"
-=======
-              image="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
             />
             
             <FeatureCard
               title="Missões Globais"
               description="Enviamos missionários para áreas não alcançadas, adaptando a mensagem de esperança aos diferentes contextos culturais."
               icon={<Globe className="h-6 w-6" />}
-<<<<<<< HEAD
               image="/images/desenvolvimento-voluntario.jpg"
-=======
-              image="https://images.unsplash.com/photo-1488197047962-b48492212cda?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
             />
           </div>
         </div>
