@@ -95,11 +95,7 @@ export default function Contact() {
       <Hero 
         title="Entre em contato"
         subtitle="Estamos aqui para responder suas dúvidas e receber seus comentários"
-<<<<<<< HEAD
         backgroundImage="/images/duvidas.jpg"
-=======
-        backgroundImage="/images/contato.jpg"
->>>>>>> 4491161a685edb1a8f0b1483922f41343e92e9f3
         size="medium"
       />
       
