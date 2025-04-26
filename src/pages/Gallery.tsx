@@ -27,37 +27,37 @@ const photos: PhotoProps[] = [
   },
   { 
     id: 3, 
-    src: "/images/gallery/youth-event.jpg", 
+    src: "/images/IMG_6038.png", 
     alt: "Evento Jovem", 
     category: "jovens" 
   },
   { 
     id: 4, 
-    src: "/images/gallery/baptism.jpg", 
+    src: "/images/IMG-20241124-WA0008.jpg", 
     alt: "Batismo", 
     category: "batismos" 
   },
   { 
     id: 5, 
-    src: "/images/gallery/kids-ministry.jpg", 
+    src: "/images/ministerioinfantil.jpeg", 
     alt: "Ministério Infantil", 
     category: "crianças" 
   },
   { 
     id: 6, 
-    src: "/images/gallery/community-service.jpg", 
+    src: "/images/IMG_5969.JPG", 
     alt: "Serviço Comunitário", 
     category: "serviço" 
   },
   { 
     id: 7, 
-    src: "/images/gallery/choir.jpg", 
+    src: "/images/CORAL.jpeg", 
     alt: "Coral da Igreja", 
     category: "cultos" 
   },
   { 
     id: 8, 
-    src: "/images/gallery/bible-study.jpg", 
+    src: "/images/IMG-20250418-WA0095.jpg", 
     alt: "Estudo Bíblico", 
     category: "estudo" 
   },

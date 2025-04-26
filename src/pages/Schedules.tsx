@@ -4,127 +4,63 @@ import SectionTitle from "@/components/SectionTitle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Calendar, Clock, Music, Mic, BookOpen, Heart, ChevronRight, ChevronLeft } from "lucide-react";
+import { Calendar, Clock, Music, Mic, BookOpen, Heart, ChevronRight, ChevronLeft, Users, Coffee } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-interface ScheduleItemProps {
+interface SundayWednesdayScheduleItemProps {
   date: string;
   preacher: string;
   worship: string;
-  deacons: string;
   reception: string;
-  multimedia: string;
+  opening: string;
 }
 
-// Dados das escalas (podem ser substituídos por dados reais)
-const sundaySchedule: ScheduleItemProps[] = [
+interface SabbathScheduleItemProps {
+  date: string;
+  preacher: string;
+  worship: string;
+  reception: string;
+  sabbathSchool: string;
+  deacons: string;
+  platform: string;
+}
+
+// Dados das escalas para domingo e quarta
+const sundaySchedule: SundayWednesdayScheduleItemProps[] = [
   {
-    date: "21/07/2024",
-    preacher: "Pr. Carlos Silva",
-    worship: "Grupo Adoração",
-    deacons: "João, Pedro",
-    reception: "Maria, Ana",
-    multimedia: "Felipe"
-  },
-  {
-    date: "28/07/2024",
-    preacher: "Anc. Roberto Oliveira",
-    worship: "Ministério Jovem",
-    deacons: "Mateus, Lucas",
-    reception: "Juliana, Roberta",
-    multimedia: "Gabriel"
-  },
-  {
-    date: "04/08/2024",
-    preacher: "Pr. Paulo Mendes",
-    worship: "Coral da Igreja",
-    deacons: "André, Tiago",
-    reception: "Sandra, Mônica",
-    multimedia: "Rafael"
-  },
-  {
-    date: "11/08/2024",
-    preacher: "Ev. Marcos Almeida",
-    worship: "Quarteto Masculino",
-    deacons: "Davi, Samuel",
-    reception: "Cristina, Patrícia",
-    multimedia: "Lucas"
+    date: "27/04/2025",
+    preacher: "Aline",
+    worship: "Ellen e Vitória",
+    reception: "Suely e Naraline",
+    opening: "Luciana e Rosana"
   }
 ];
 
-const wednesdaySchedule: ScheduleItemProps[] = [
+const wednesdaySchedule: SundayWednesdayScheduleItemProps[] = [
   {
-    date: "17/07/2024",
-    preacher: "Anc. José Ferreira",
-    worship: "Trio Esperança",
-    deacons: "Pedro, André",
-    reception: "Joana, Rebeca",
-    multimedia: "Mateus"
-  },
-  {
-    date: "24/07/2024",
-    preacher: "Pr. Carlos Silva",
-    worship: "Solista Mariana",
-    deacons: "Samuel, João",
-    reception: "Clara, Sara",
-    multimedia: "Daniel"
-  },
-  {
-    date: "31/07/2024",
-    preacher: "Anc. Guilherme Dias",
-    worship: "Grupo Família",
-    deacons: "Lucas, Tiago",
-    reception: "Beatriz, Ana",
-    multimedia: "Felipe"
-  },
-  {
-    date: "07/08/2024",
-    preacher: "Ev. Paulo Costa",
-    worship: "Jovens em Adoração",
-    deacons: "Roberto, Marcos",
-    reception: "Lúcia, Fernanda",
-    multimedia: "Gabriel"
+    date: "30/04/2025",
+    preacher: "Programação Quarta de Poder",
+    worship: "Josileuma e Patrícia",
+    reception: "Lara e Iago",
+    opening: "Patrícia e Alberto"
   }
 ];
 
-const sabbathSchedule: ScheduleItemProps[] = [
+const sabbathSchedule: SabbathScheduleItemProps[] = [
   {
-    date: "20/07/2024",
-    preacher: "Pr. Carlos Silva",
-    worship: "Coral da Igreja",
-    deacons: "Pedro, João, Samuel, André",
-    reception: "Maria, Ana, Joana",
-    multimedia: "Rafael"
-  },
-  {
-    date: "27/07/2024",
-    preacher: "Pr. Roberto Oliveira",
-    worship: "Grupo Adoração",
-    deacons: "Lucas, Mateus, Davi, Thiago",
-    reception: "Sandra, Mônica, Cristina",
-    multimedia: "Lucas"
-  },
-  {
-    date: "03/08/2024",
-    preacher: "Anc. Paulo Mendes",
-    worship: "Ministério Jovem",
-    deacons: "André, Tiago, Marcos, João",
-    reception: "Juliana, Roberta, Sara",
-    multimedia: "Mateus"
-  },
-  {
-    date: "10/08/2024",
-    preacher: "Pr. Carlos Silva",
-    worship: "Quarteto Esperança",
-    deacons: "Pedro, Samuel, Lucas, Gabriel",
-    reception: "Clara, Ana, Beatriz",
-    multimedia: "Felipe"
+    date: "03/05/2025",
+    preacher: "",
+    worship: "Gisele e João Victor",
+    reception: "De Assis e Sinhô",
+    sabbathSchool: "",
+    deacons: "",
+    platform: ""
   }
 ];
 
-// Formato alternativo para visualização móvel
-const MobileScheduleView = ({ data }: { data: ScheduleItemProps[] }) => {
+// Formato alternativo para visualização móvel para Domingo e Quarta
+const MobileSundayWednesdayView = ({ data }: { data: SundayWednesdayScheduleItemProps[] }) => {
   return (
     <div className="space-y-4 md:hidden">
       {data.map((item, index) => (
@@ -137,22 +73,15 @@ const MobileScheduleView = ({ data }: { data: ScheduleItemProps[] }) => {
               <div className="flex items-start">
                 <Mic className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
                 <div>
-                  <span className="font-medium text-gray-800">Pregador:</span>
+                  <span className="font-medium text-gray-800">Pregação:</span>
                   <p className="text-gray-700">{item.preacher}</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <Music className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
                 <div>
-                  <span className="font-medium text-gray-800">Louvor:</span>
+                  <span className="font-medium text-gray-800">Louvores:</span>
                   <p className="text-gray-700">{item.worship}</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <BookOpen className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
-                <div>
-                  <span className="font-medium text-gray-800">Diáconos:</span>
-                  <p className="text-gray-700">{item.deacons}</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -163,14 +92,71 @@ const MobileScheduleView = ({ data }: { data: ScheduleItemProps[] }) => {
                 </div>
               </div>
               <div className="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="8" y1="21" x2="16" y2="21"></line>
-                  <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
+                <Coffee className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
                 <div>
-                  <span className="font-medium text-gray-800">Multimídia:</span>
-                  <p className="text-gray-700">{item.multimedia}</p>
+                  <span className="font-medium text-gray-800">Abertura do Culto:</span>
+                  <p className="text-gray-700">{item.opening}</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
+};
+
+// Formato alternativo para visualização móvel para Sábado
+const MobileSabbathView = ({ data }: { data: SabbathScheduleItemProps[] }) => {
+  return (
+    <div className="space-y-4 md:hidden">
+      {data.map((item, index) => (
+        <Card key={index} className="border border-gray-200 shadow-sm hover:border-church-blue/30 transition-colors">
+          <CardContent className="p-4">
+            <div className="font-bold text-church-blue text-lg mb-3 border-b pb-2 flex items-center">
+              <Calendar className="h-4 w-4 mr-2" /> {item.date}
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-start">
+                <Mic className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-medium text-gray-800">Pregação:</span>
+                  <p className="text-gray-700">{item.preacher || "A definir"}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Music className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-medium text-gray-800">Louvores:</span>
+                  <p className="text-gray-700">{item.worship}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Heart className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-medium text-gray-800">Recepção:</span>
+                  <p className="text-gray-700">{item.reception}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <BookOpen className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-medium text-gray-800">Escola Sabatina:</span>
+                  <p className="text-gray-700">{item.sabbathSchool || "A definir"}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <Users className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-medium text-gray-800">Plataforma:</span>
+                  <p className="text-gray-700">{item.platform || "A definir"}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <BookOpen className="h-4 w-4 text-church-accent mr-2 mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-medium text-gray-800">Diáconos/Diaconisas:</span>
+                  <p className="text-gray-700">{item.deacons || "A definir"}</p>
                 </div>
               </div>
             </div>
@@ -182,7 +168,7 @@ const MobileScheduleView = ({ data }: { data: ScheduleItemProps[] }) => {
 };
 
 export default function Schedules() {
-  const [activeTab, setActiveTab] = useState<string>("sabbath");
+  const [activeTab, setActiveTab] = useState<string>("sunday");
   
   return (
     <PageLayout>
@@ -212,94 +198,12 @@ export default function Schedules() {
 
             {/* Navegação de abas para telas médias/grandes */}
             <div className="hidden md:block">
-              <Tabs defaultValue="sabbath" className="w-full" onValueChange={setActiveTab}>
+              <Tabs defaultValue="sunday" className="w-full" onValueChange={setActiveTab}>
                 <TabsList className="grid grid-cols-3 mb-10">
-                  <TabsTrigger value="sabbath" className="text-sm sm:text-base">Culto de Sábado</TabsTrigger>
-                  <TabsTrigger value="wednesday" className="text-sm sm:text-base">Culto de Quarta</TabsTrigger>
                   <TabsTrigger value="sunday" className="text-sm sm:text-base">Culto de Domingo</TabsTrigger>
+                  <TabsTrigger value="wednesday" className="text-sm sm:text-base">Culto de Quarta</TabsTrigger>
+                  <TabsTrigger value="sabbath" className="text-sm sm:text-base">Culto de Sábado</TabsTrigger>
                 </TabsList>
-                
-                <TabsContent value="sabbath">
-                  <Card>
-                    <CardContent className="pt-6">
-                      <div className="flex items-center mb-6">
-                        <Clock className="h-5 w-5 text-church-blue mr-2" />
-                        <span className="font-medium">Horário: 9h (Escola Sabatina) e 11h (Culto Divino)</span>
-                      </div>
-                      
-                      <div className="overflow-x-auto -mx-6 px-6 pb-4">
-                        <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
-                          <span>← Deslize para visualizar toda a tabela →</span>
-                        </div>
-                        <Table className="min-w-[800px]">
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead className="w-[120px]"><Calendar className="h-4 w-4 inline mr-2" /> Data</TableHead>
-                              <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregador</TableHead>
-                              <TableHead><Music className="h-4 w-4 inline mr-2" /> Louvor</TableHead>
-                              <TableHead><BookOpen className="h-4 w-4 inline mr-2" /> Diáconos</TableHead>
-                              <TableHead><Heart className="h-4 w-4 inline mr-2" /> Recepção</TableHead>
-                              <TableHead>Multimídia</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {sabbathSchedule.map((item, index) => (
-                              <TableRow key={index}>
-                                <TableCell className="font-medium">{item.date}</TableCell>
-                                <TableCell>{item.preacher}</TableCell>
-                                <TableCell>{item.worship}</TableCell>
-                                <TableCell>{item.deacons}</TableCell>
-                                <TableCell>{item.reception}</TableCell>
-                                <TableCell>{item.multimedia}</TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                
-                <TabsContent value="wednesday">
-                  <Card>
-                    <CardContent className="pt-6">
-                      <div className="flex items-center mb-6">
-                        <Clock className="h-5 w-5 text-church-blue mr-2" />
-                        <span className="font-medium">Horário: 19h30</span>
-                      </div>
-                      
-                      <div className="overflow-x-auto -mx-6 px-6 pb-4">
-                        <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
-                          <span>← Deslize para visualizar toda a tabela →</span>
-                        </div>
-                        <Table className="min-w-[800px]">
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead className="w-[120px]"><Calendar className="h-4 w-4 inline mr-2" /> Data</TableHead>
-                              <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregador</TableHead>
-                              <TableHead><Music className="h-4 w-4 inline mr-2" /> Louvor</TableHead>
-                              <TableHead><BookOpen className="h-4 w-4 inline mr-2" /> Diáconos</TableHead>
-                              <TableHead><Heart className="h-4 w-4 inline mr-2" /> Recepção</TableHead>
-                              <TableHead>Multimídia</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {wednesdaySchedule.map((item, index) => (
-                              <TableRow key={index}>
-                                <TableCell className="font-medium">{item.date}</TableCell>
-                                <TableCell>{item.preacher}</TableCell>
-                                <TableCell>{item.worship}</TableCell>
-                                <TableCell>{item.deacons}</TableCell>
-                                <TableCell>{item.reception}</TableCell>
-                                <TableCell>{item.multimedia}</TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
                 
                 <TabsContent value="sunday">
                   <Card>
@@ -317,22 +221,102 @@ export default function Schedules() {
                           <TableHeader>
                             <TableRow>
                               <TableHead className="w-[120px]"><Calendar className="h-4 w-4 inline mr-2" /> Data</TableHead>
-                              <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregador</TableHead>
-                              <TableHead><Music className="h-4 w-4 inline mr-2" /> Louvor</TableHead>
-                              <TableHead><BookOpen className="h-4 w-4 inline mr-2" /> Diáconos</TableHead>
+                              <TableHead><Music className="h-4 w-4 inline mr-2" /> Louvores</TableHead>
                               <TableHead><Heart className="h-4 w-4 inline mr-2" /> Recepção</TableHead>
-                              <TableHead>Multimídia</TableHead>
+                              <TableHead><Coffee className="h-4 w-4 inline mr-2" /> Abertura do Culto</TableHead>
+                              <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregação</TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
                             {sundaySchedule.map((item, index) => (
                               <TableRow key={index}>
                                 <TableCell className="font-medium">{item.date}</TableCell>
-                                <TableCell>{item.preacher}</TableCell>
                                 <TableCell>{item.worship}</TableCell>
-                                <TableCell>{item.deacons}</TableCell>
                                 <TableCell>{item.reception}</TableCell>
-                                <TableCell>{item.multimedia}</TableCell>
+                                <TableCell>{item.opening}</TableCell>
+                                <TableCell>{item.preacher}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+                
+                <TabsContent value="wednesday">
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="flex items-center mb-6">
+                        <Clock className="h-5 w-5 text-church-blue mr-2" />
+                        <span className="font-medium">Horário: 19h</span>
+                      </div>
+                      
+                      <div className="overflow-x-auto -mx-6 px-6 pb-4">
+                        <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
+                          <span>← Deslize para visualizar toda a tabela →</span>
+                        </div>
+                        <Table className="min-w-[800px]">
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead className="w-[120px]"><Calendar className="h-4 w-4 inline mr-2" /> Data</TableHead>
+                              <TableHead><Music className="h-4 w-4 inline mr-2" /> Louvores</TableHead>
+                              <TableHead><Heart className="h-4 w-4 inline mr-2" /> Recepção</TableHead>
+                              <TableHead><Coffee className="h-4 w-4 inline mr-2" /> Abertura do Culto</TableHead>
+                              <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregação</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {wednesdaySchedule.map((item, index) => (
+                              <TableRow key={index}>
+                                <TableCell className="font-medium">{item.date}</TableCell>
+                                <TableCell>{item.worship}</TableCell>
+                                <TableCell>{item.reception}</TableCell>
+                                <TableCell>{item.opening}</TableCell>
+                                <TableCell>{item.preacher}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+                
+                <TabsContent value="sabbath">
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="flex items-center mb-6">
+                        <Clock className="h-5 w-5 text-church-blue mr-2" />
+                        <span className="font-medium">Horário: 8h30</span>
+                      </div>
+                      
+                      <div className="overflow-x-auto -mx-6 px-6 pb-4">
+                        <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
+                          <span>← Deslize para visualizar toda a tabela →</span>
+                        </div>
+                        <Table className="min-w-[800px]">
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead className="w-[120px]"><Calendar className="h-4 w-4 inline mr-2" /> Data</TableHead>
+                              <TableHead><Music className="h-4 w-4 inline mr-2" /> Louvores</TableHead>
+                              <TableHead><Heart className="h-4 w-4 inline mr-2" /> Recepção</TableHead>
+                              <TableHead><BookOpen className="h-4 w-4 inline mr-2" /> Escola Sabatina</TableHead>
+                              <TableHead><Users className="h-4 w-4 inline mr-2" /> Plataforma</TableHead>
+                              <TableHead><BookOpen className="h-4 w-4 inline mr-2" /> Diáconos/Diaconisas</TableHead>
+                              <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregação</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {sabbathSchedule.map((item, index) => (
+                              <TableRow key={index}>
+                                <TableCell className="font-medium">{item.date}</TableCell>
+                                <TableCell>{item.worship}</TableCell>
+                                <TableCell>{item.reception}</TableCell>
+                                <TableCell>{item.sabbathSchool || "A definir"}</TableCell>
+                                <TableCell>{item.platform || "A definir"}</TableCell>
+                                <TableCell>{item.deacons || "A definir"}</TableCell>
+                                <TableCell>{item.preacher || "A definir"}</TableCell>
                               </TableRow>
                             ))}
                           </TableBody>
@@ -350,7 +334,7 @@ export default function Schedules() {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  onClick={() => setActiveTab(activeTab === "sabbath" ? "sunday" : activeTab === "wednesday" ? "sabbath" : "wednesday")}
+                  onClick={() => setActiveTab(activeTab === "sunday" ? "sabbath" : activeTab === "wednesday" ? "sunday" : "wednesday")}
                   className="h-8 w-8 hover:bg-white/50"
                   aria-label="Culto anterior"
                 >
@@ -358,15 +342,15 @@ export default function Schedules() {
                 </Button>
                 
                 <div className="font-semibold text-church-darkBlue text-center">
-                  {activeTab === "sabbath" && "Culto de Sábado"}
-                  {activeTab === "wednesday" && "Culto de Quarta"}
                   {activeTab === "sunday" && "Culto de Domingo"}
+                  {activeTab === "wednesday" && "Culto de Quarta"}
+                  {activeTab === "sabbath" && "Culto de Sábado"}
                 </div>
                 
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  onClick={() => setActiveTab(activeTab === "sabbath" ? "wednesday" : activeTab === "wednesday" ? "sunday" : "sabbath")}
+                  onClick={() => setActiveTab(activeTab === "sunday" ? "wednesday" : activeTab === "wednesday" ? "sabbath" : "sunday")}
                   className="h-8 w-8 hover:bg-white/50"
                   aria-label="Próximo culto"
                 >
@@ -377,7 +361,7 @@ export default function Schedules() {
               {/* Indicadores de página */}
               <div className="flex justify-center space-x-2 mb-4">
                 <div 
-                  className={`h-2 w-2 rounded-full ${activeTab === "sabbath" ? "bg-church-blue" : "bg-gray-300"}`}
+                  className={`h-2 w-2 rounded-full ${activeTab === "sunday" ? "bg-church-blue" : "bg-gray-300"}`}
                   aria-hidden="true"
                 />
                 <div 
@@ -385,7 +369,7 @@ export default function Schedules() {
                   aria-hidden="true"
                 />
                 <div 
-                  className={`h-2 w-2 rounded-full ${activeTab === "sunday" ? "bg-church-blue" : "bg-gray-300"}`}
+                  className={`h-2 w-2 rounded-full ${activeTab === "sabbath" ? "bg-church-blue" : "bg-gray-300"}`}
                   aria-hidden="true"
                 />
               </div>
@@ -394,16 +378,16 @@ export default function Schedules() {
                 <div className="flex items-center">
                   <Clock className="h-5 w-5 text-church-blue mr-2 flex-shrink-0" />
                   <span className="font-medium text-sm">
-                    {activeTab === "sabbath" && "Horário: 9h (Escola Sabatina) e 11h (Culto Divino)"}
-                    {activeTab === "wednesday" && "Horário: 19h30"}
                     {activeTab === "sunday" && "Horário: 19h"}
+                    {activeTab === "wednesday" && "Horário: 19h30"}
+                    {activeTab === "sabbath" && "Horário: 9h (Escola Sabatina) e 11h (Culto Divino)"}
                   </span>
                 </div>
               </div>
               
-              {activeTab === "sabbath" && <MobileScheduleView data={sabbathSchedule} />}
-              {activeTab === "wednesday" && <MobileScheduleView data={wednesdaySchedule} />}
-              {activeTab === "sunday" && <MobileScheduleView data={sundaySchedule} />}
+              {activeTab === "sunday" && <MobileSundayWednesdayView data={sundaySchedule} />}
+              {activeTab === "wednesday" && <MobileSundayWednesdayView data={wednesdaySchedule} />}
+              {activeTab === "sabbath" && <MobileSabbathView data={sabbathSchedule} />}
             </div>
             
             <div className="mt-8 sm:mt-12 bg-church-gray p-4 sm:p-6 rounded-lg shadow-sm">
