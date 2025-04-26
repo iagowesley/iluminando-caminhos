@@ -45,7 +45,7 @@ const Worship = () => {
                         
                         <div className="pl-9">
                           <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">19h30 - Culto de Oração</h5>
+                            <h5 className="font-medium text-church-blue">19h - Culto de Oração</h5>
                             <p className="text-gray-700 mt-1">
                               Momento de meditação na Palavra de Deus, testemunhos e intercessão.
                             </p>
@@ -61,7 +61,7 @@ const Worship = () => {
                         
                         <div className="pl-9">
                           <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">19h30 - Culto de Pôr-do-Sol</h5>
+                            <h5 className="font-medium text-church-blue">19h - Pequenos Grupos</h5>
                             <p className="text-gray-700 mt-1">
                               Recepção do sábado com louvor, mensagem espiritual e preparação para o dia de adoração.
                             </p>
@@ -77,7 +77,7 @@ const Worship = () => {
                         
                         <div className="pl-9">
                           <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">9h00 - Escola Sabatina</h5>
+                            <h5 className="font-medium text-church-blue">8h30 - Escola Sabatina</h5>
                             <p className="text-gray-700 mt-1">
                               Estudo sistemático da Bíblia em classes por faixa etária.
                             </p>
@@ -91,7 +91,7 @@ const Worship = () => {
                           </div>
                           
                           <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">16h00 - Sociedade Jovem</h5>
+                            <h5 className="font-medium text-church-blue">16h00 - Culto Jovem</h5>
                             <p className="text-gray-700 mt-1">
                               Programação especial para jovens e adolescentes com música, testemunhos e atividades.
                             </p>
@@ -114,9 +114,9 @@ const Worship = () => {
                         
                         <div className="pl-9">
                           <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">9h00 - Atividades Missionárias</h5>
+                            <h5 className="font-medium text-church-blue">8h00 - Clube de Desbravadores</h5>
                             <p className="text-gray-700 mt-1">
-                              Projetos comunitários, visitação e distribuição de literatura.
+                              Projetos para crianças e adolescentes entre 10 a 15 anos.
                             </p>
                           </div>
                         </div>
