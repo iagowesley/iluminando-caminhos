@@ -29,32 +29,32 @@ interface SabbathScheduleItemProps {
 // Dados das escalas para domingo e quarta
 const sundaySchedule: SundayWednesdayScheduleItemProps[] = [
   {
-    date: "27/04/2025",
-    preacher: "Aline",
-    worship: "Ellen e Vitória",
-    reception: "Suely e Naraline",
-    opening: "Luciana e Rosana"
+    date: "04/05/2025",
+    preacher: "",
+    worship: "Suely e Davi",
+    reception: "Vitória e Paloma",
+    opening: "Marcelo e Rosana"
   }
 ];
 
 const wednesdaySchedule: SundayWednesdayScheduleItemProps[] = [
   {
-    date: "30/04/2025",
-    preacher: "Programação Quarta de Poder",
-    worship: "Josileuma e Patrícia",
-    reception: "Lara e Iago",
-    opening: "Patrícia e Alberto"
+    date: "07/05/2025",
+    preacher: "",
+    worship: "De Assis e Paloma",
+    reception: "Naraline e Mariana",
+    opening: "Aline e Caio"
   }
 ];
 
 const sabbathSchedule: SabbathScheduleItemProps[] = [
   {
-    date: "03/05/2025",
+    date: "10/05/2025",
     preacher: "",
-    worship: "Gisele e João Victor",
-    reception: "De Assis e Sinhô",
-    sabbathSchool: "",
-    deacons: "",
+    worship: "Luana e Jomar",
+    reception: "Eliete e Luciana",
+    sabbathSchool: "Ministério Jovem",
+    deacons: "Iago e Lara",
     platform: ""
   }
 ];
