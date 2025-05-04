@@ -13,6 +13,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Loader2, Pencil, Trash2, Plus, Save, X, Upload, Calendar, Clock, MapPin, Users, Star } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import PageLayout from "@/components/PageLayout";
+import AdminAuth from "@/components/AdminAuth";
 
 export default function AdminEvents() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -285,8 +286,9 @@ export default function AdminEvents() {
     : events.filter(event => event.category === activeCategory);
 
   return (
-    <PageLayout>
-      <div className="container mx-auto py-10 px-4">
+    <PageLayout isAdmin>
+      <AdminAuth pageName="Eventos" />
+      <div className="container mx-auto px-4 py-10">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-church-blue">Administração de Eventos</h1>
           <Button onClick={openAddDialog} className="rounded-full">

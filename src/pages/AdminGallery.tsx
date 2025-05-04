@@ -11,6 +11,8 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Loader2, Pencil, Trash2, Plus, Save, X, Upload, Image as ImageIcon, Filter } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import PageLayout from "@/components/PageLayout";
+import { supabaseAdmin } from "@/lib/supabase";
+import AdminAuth from "@/components/AdminAuth";
 
 export default function AdminGallery() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -240,8 +242,9 @@ export default function AdminGallery() {
     : photos.filter(photo => photo.category === filterCategory);
 
   return (
-    <PageLayout>
-      <div className="container mx-auto py-10 px-4">
+    <PageLayout isAdmin>
+      <AdminAuth pageName="Galeria de Fotos" />
+      <div className="container mx-auto px-4 py-10">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-church-blue">Administração da Galeria</h1>
           <Button onClick={openAddDialog} className="rounded-full">

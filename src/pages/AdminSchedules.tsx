@@ -14,6 +14,10 @@ import { useToast } from "@/components/ui/use-toast";
 import PageLayout from "@/components/PageLayout";
 import { format, parse } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { supabaseAdmin } from "@/lib/supabase";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import AdminAuth from "@/components/AdminAuth";
 
 export default function AdminSchedules() {
   const [serviceTypes, setServiceTypes] = useState<ServiceType[]>([]);
@@ -282,7 +286,8 @@ export default function AdminSchedules() {
   };
 
   return (
-    <PageLayout>
+    <PageLayout isAdmin>
+      <AdminAuth pageName="Escalas" />
       <div className="container mx-auto py-10 px-4">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-church-blue">Administração de Escalas</h1>

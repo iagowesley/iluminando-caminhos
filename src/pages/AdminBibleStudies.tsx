@@ -14,6 +14,7 @@ import { Loader2, Pencil, Trash2, Plus, Save, X, Upload, BookOpen, Book, GripVer
 import { useToast } from "@/components/ui/use-toast";
 import PageLayout from "@/components/PageLayout";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import AdminAuth from "@/components/AdminAuth";
 
 export default function AdminBibleStudies() {
   const [studies, setStudies] = useState<BibleStudy[]>([]);
@@ -474,8 +475,9 @@ export default function AdminBibleStudies() {
   }
 
   return (
-    <PageLayout>
-      <div className="container mx-auto py-10 px-4">
+    <PageLayout isAdmin>
+      <AdminAuth pageName="Estudos Bíblicos" />
+      <div className="container mx-auto px-4 py-10">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-church-blue">Administração de Estudos Bíblicos</h1>
           <Button onClick={openAddStudyDialog} className="rounded-full">

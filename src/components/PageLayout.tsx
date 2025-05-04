@@ -8,9 +8,10 @@ import ScrollToTop from "./ScrollToTop";
 interface PageLayoutProps {
   children: ReactNode;
   className?: string;
+  isAdmin?: boolean;
 }
 
-export default function PageLayout({ children, className }: PageLayoutProps) {
+export default function PageLayout({ children, className, isAdmin }: PageLayoutProps) {
   return (
     <div className="flex flex-col min-h-screen relative">
       <ScrollToTop />
