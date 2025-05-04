@@ -1,130 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, MapPin, Users, ChevronDown, X } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, ChevronDown, X, Loader2 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
-
-interface EventProps {
-  id: number;
-  title: string;
-  date: string;
-  time: string;
-  location: string;
-  description: string;
-  category: string;
-  image: string;
-  featured?: boolean;
-  audience?: string;
-}
-
-const events: EventProps[] = [
-  {
-    id: 1,
-    title: "Semana de Oração",
-    date: "10-17 de Abril, 2024",
-    time: "19h30",
-    location: "Igreja Central",
-    description: "Uma semana especial de renovação espiritual com mensagens inspiradoras e momentos de intercessão. Cada noite terá um tema específico abordando aspectos da vida cristã.",
-    category: "espiritual",
-    image: "/images/events/prayer-week.jpg",
-    featured: true,
-    audience: "Todos"
-  },
-  {
-    id: 2,
-    title: "Tarde de Louvor",
-    date: "18 de Maio, 2024",
-    time: "16h00",
-    location: "Igreja Central",
-    description: "Uma tarde especial dedicada ao louvor e adoração, com participação de todos os grupos musicais da igreja e convidados especiais. Venha participar deste momento de celebração!",
-    category: "musical",
-    image: "/images/events/praise.jpg",
-    featured: true,
-    audience: "Todos"
-  },
-  {
-    id: 3,
-    title: "Retiro Jovem",
-    date: "14-16 de Junho, 2024",
-    time: "Início: 18h (Sexta)",
-    location: "Acampamento Vale das Águas",
-    description: "Um fim de semana de comunhão, amizade e crescimento espiritual para jovens e adolescentes. Programação inclui estudos bíblicos, atividades recreativas, música e muito mais.",
-    category: "juventude",
-    image: "/images/events/youth-retreat.jpg",
-    audience: "Jovens e Adolescentes"
-  },
-  {
-    id: 4,
-    title: "Feira de Saúde",
-    date: "23 de Julho, 2024",
-    time: "08h às 17h",
-    location: "Praça Central da Cidade",
-    description: "Evento comunitário oferecendo exames básicos de saúde, orientações sobre estilo de vida saudável, atividades físicas, culinária vegetariana e atendimento médico gratuito.",
-    category: "comunidade",
-    image: "/images/events/health-fair.jpg",
-    featured: true,
-    audience: "Comunidade"
-  },
-  {
-    id: 5,
-    title: "Escola Cristã de Férias",
-    date: "8-12 de Julho, 2024",
-    time: "14h às 17h",
-    location: "Igreja Central",
-    description: "Programa especial para crianças durante as férias escolares com histórias bíblicas, músicas, brincadeiras, artes e lanche. Tema deste ano: 'Aventuras na Bíblia'.",
-    category: "infantil",
-    image: "/images/events/vacation-bible-school.jpg",
-    audience: "Crianças de 4 a 12 anos"
-  },
-  {
-    id: 6,
-    title: "Congresso da Família",
-    date: "25-27 de Agosto, 2024",
-    time: "Sexta 19h, Sábado 9h, Domingo 10h",
-    location: "Auditório Municipal",
-    description: "Palestras e workshops sobre relacionamento familiar, educação de filhos, finanças do lar e espiritualidade na família. Com a participação de oradores especialistas na área.",
-    category: "família",
-    image: "/images/events/family-congress.jpg",
-    featured: true,
-    audience: "Famílias"
-  },
-  {
-    id: 7,
-    title: "Dia dos Aventureiros",
-    date: "15 de Setembro, 2024",
-    time: "9h às 16h",
-    location: "Igreja Central",
-    description: "Celebração especial do Clube de Aventureiros com apresentações, investiduras, e atividades especiais para as crianças e seus familiares.",
-    category: "infantil",
-    image: "/images/events/adventurers-day.jpg",
-    audience: "Aventureiros e Familiares"
-  },
-  {
-    id: 8,
-    title: "Evangelismo de Primavera",
-    date: "1-8 de Outubro, 2024",
-    time: "19h30",
-    location: "Igreja Central",
-    description: "Série de estudos bíblicos profundos sobre profecias e verdades bíblicas para os últimos dias. Ideal para quem deseja aprofundar conhecimentos ou conhecer melhor as crenças adventistas.",
-    category: "espiritual",
-    image: "/images/events/evangelism.jpg",
-    audience: "Todos"
-  },
-  {
-    id: 9,
-    title: "Cantata de Natal",
-    date: "21 de Dezembro, 2024",
-    time: "19h00",
-    location: "Igreja Central",
-    description: "Apresentação musical especial de Natal com coral e orquestra, narrando a história do nascimento de Jesus através de belas músicas e encenações.",
-    category: "musical",
-    image: "/images/events/christmas-cantata.jpg",
-    featured: true,
-    audience: "Todos"
-  }
-];
+import { supabase, Event } from "@/lib/supabase";
 
 const categories = [
   { id: "todos", label: "Todos" },
@@ -137,9 +18,38 @@ const categories = [
 ];
 
 export default function Events() {
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState("todos");
   const [expandedEvent, setExpandedEvent] = useState<number | null>(null);
-  const [modalEvent, setModalEvent] = useState<EventProps | null>(null);
+  const [modalEvent, setModalEvent] = useState<Event | null>(null);
+  
+  // Carregar eventos do Supabase
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const { data, error } = await supabase
+          .from('events')
+          .select('*')
+          .order('created_at', { ascending: false });
+        
+        if (error) throw error;
+        
+        setEvents(data || []);
+      } catch (err) {
+        console.error('Erro ao buscar eventos:', err);
+        setError('Não foi possível carregar os eventos. Por favor, tente novamente mais tarde.');
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchEvents();
+  }, []);
   
   const toggleEvent = (id: number) => {
     if (expandedEvent === id) {
@@ -149,7 +59,7 @@ export default function Events() {
     }
   };
 
-  const openEventModal = (event: EventProps) => {
+  const openEventModal = (event: Event) => {
     setModalEvent(event);
     document.body.style.overflow = "hidden";
   };
@@ -186,234 +96,279 @@ export default function Events() {
             ornate={true}
           />
           
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredEvents.map((event) => (
-              <div key={event.id} className="group bg-white shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="relative h-64">
-                  <img 
-                    src={event.image} 
-                    alt={event.title} 
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-xl font-serif text-white">{event.title}</h3>
-                    <p className="text-white/80 text-sm">{event.date}</p>
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="h-8 w-8 text-church-blue animate-spin" />
+              <span className="ml-2">Carregando eventos...</span>
+            </div>
+          ) : error ? (
+            <div className="text-center py-10">
+              <p className="text-red-500">{error}</p>
+              <Button onClick={() => window.location.reload()} className="mt-4">
+                Tentar Novamente
+              </Button>
+            </div>
+          ) : featuredEvents.length === 0 ? (
+            <div className="text-center py-10">
+              <p className="text-gray-500">Não há eventos em destaque no momento.</p>
+            </div>
+          ) : (
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredEvents.map((event) => (
+                <div key={event.id} className="group bg-white shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="relative h-64">
+                    <img 
+                      src={event.image} 
+                      alt={event.title} 
+                      className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <h3 className="text-xl font-serif text-white">{event.title}</h3>
+                      <p className="text-white/80 text-sm">{event.date}</p>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />
+                        {event.time}
+                      </div>
+                      <span>•</span>
+                      <div className="flex items-center">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        {event.location}
+                      </div>
+                    </div>
+                    
+                    {event.audience && (
+                      <div className="mb-4 inline-flex items-center bg-church-blue/10 text-church-blue px-3 py-1 rounded-full text-xs">
+                        <Users className="h-3 w-3 mr-1" />
+                        {event.audience}
+                      </div>
+                    )}
+                    
+                    <p className="text-gray-600 line-clamp-3">{event.description}</p>
+                    
+                    <div className="mt-4">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="w-full"
+                        onClick={() => openEventModal(event)}
+                      >
+                        Ver Detalhes
+                      </Button>
+                    </div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
-                    <div className="flex items-center">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span>{event.time}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="h-4 w-4 mr-1" />
-                      <span>{event.location}</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 line-clamp-3">{event.description}</p>
-                  <div className="mt-4">
-                    <Button 
-                      variant="church" 
-                      className="w-full"
-                      onClick={() => openEventModal(event)}
-                    >
-                      Saiba Mais
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
-      
-      {/* Lista Completa de Eventos */}
-      <section className="py-20 bg-church-gray">
+
+      {/* Todos os Eventos */}
+      <section className="py-16 bg-church-gray">
         <div className="container mx-auto px-6">
-          <SectionTitle 
-            title="Calendário de Eventos"
-            subtitle="Confira todos os eventos programados"
-            accent={true}
-          />
-          
-          {/* Filtros por categoria */}
-          <div className="flex flex-wrap justify-center gap-2 mt-10 mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={activeCategory === category.id ? "church" : "churchOutline"}
-                onClick={() => setActiveCategory(category.id)}
-                className="mb-2"
-              >
-                {category.label}
-              </Button>
-            ))}
+          <div className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-church-blue mb-6">Todos os Eventos</h2>
+            
+            <div className="flex flex-wrap gap-2">
+              {categories.map(category => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                    activeCategory === category.id ? 
+                    'bg-church-blue text-white' : 
+                    'bg-white hover:bg-gray-100 text-gray-700'
+                  }`}
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
           </div>
           
-          {/* Lista de eventos */}
-          <div className="max-w-4xl mx-auto space-y-6">
-            {filteredEvents.length > 0 ? (
-              filteredEvents.map((event) => (
-                <div key={event.id} className="bg-white shadow-md overflow-hidden">
-                  <div className="flex flex-col md:flex-row">
-                    <div className="md:w-1/3 h-48 md:h-auto">
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="h-8 w-8 text-church-blue animate-spin" />
+              <span className="ml-2">Carregando eventos...</span>
+            </div>
+          ) : error ? (
+            <div className="text-center py-10">
+              <p className="text-red-500">{error}</p>
+              <Button onClick={() => window.location.reload()} className="mt-4">
+                Tentar Novamente
+              </Button>
+            </div>
+          ) : filteredEvents.length === 0 ? (
+            <div className="text-center py-10 bg-white rounded-xl shadow-sm">
+              <p className="text-gray-500">Não há eventos {activeCategory !== "todos" ? `na categoria ${categories.find(c => c.id === activeCategory)?.label}` : ''} no momento.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {filteredEvents.map(event => (
+                <div 
+                  key={event.id}
+                  className="bg-white rounded-xl shadow-sm overflow-hidden"
+                >
+                  <div className="flex flex-col">
+                    <div className="h-48">
                       <img 
                         src={event.image} 
                         alt={event.title} 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="md:w-2/3 p-6">
-                      <h3 className="text-xl font-serif text-church-blue mb-2">{event.title}</h3>
-                      
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
-                        <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1 text-church-blue" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1 text-church-blue" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin className="h-4 w-4 mr-1 text-church-blue" />
-                          <span>{event.location}</span>
-                        </div>
-                        {event.audience && (
-                          <div className="flex items-center">
-                            <Users className="h-4 w-4 mr-1 text-church-blue" />
-                            <span>{event.audience}</span>
+                    <div className="p-6">
+                      <div className="flex flex-col justify-between mb-2">
+                        <div>
+                          <h3 className="text-xl font-bold text-church-blue">{event.title}</h3>
+                          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600 mt-2">
+                            <div className="flex items-center">
+                              <Calendar className="h-4 w-4 mr-1" />
+                              {event.date}
+                            </div>
+                            <div className="flex items-center">
+                              <Clock className="h-4 w-4 mr-1" />
+                              {event.time}
+                            </div>
+                            <div className="flex items-center">
+                              <MapPin className="h-4 w-4 mr-1" />
+                              {event.location}
+                            </div>
+                            {event.audience && (
+                              <div className="flex items-center">
+                                <Users className="h-4 w-4 mr-1" />
+                                {event.audience}
+                              </div>
+                            )}
                           </div>
+                        </div>
+                        <div className="mt-4">
+                          <span className="inline-block px-3 py-1 rounded-full text-xs font-medium capitalize bg-gray-100 text-gray-800">
+                            {event.category}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-3">
+                        <p className={`text-gray-600 ${expandedEvent === event.id ? '' : 'line-clamp-2'}`}>
+                          {event.description}
+                        </p>
+                        {event.description.length > 150 && (
+                          <button
+                            onClick={() => toggleEvent(event.id || 0)}
+                            className="text-church-blue text-sm font-medium mt-2 flex items-center hover:underline"
+                          >
+                            {expandedEvent === event.id ? 'Mostrar menos' : 'Mostrar mais'}
+                            <ChevronDown className={`h-4 w-4 ml-1 transition-transform ${expandedEvent === event.id ? 'rotate-180' : ''}`} />
+                          </button>
                         )}
                       </div>
                       
-                      <p className="text-gray-700 line-clamp-2">{event.description}</p>
-                      
-                      <div className="mt-4 flex justify-between items-center">
-                        <Button
-                          variant="churchOutline"
-                          size="sm"
-                          className="flex items-center"
+                      <div className="mt-4 flex justify-end">
+                        <Button 
                           onClick={() => openEventModal(event)}
+                          variant="church"
+                          size="sm"
                         >
-                          Detalhes do Evento
+                          Ver Detalhes
                         </Button>
-                        
-                        <span className="text-xs px-3 py-1 bg-church-gray text-church-blue font-medium capitalize">
-                          {event.category}
-                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))
-            ) : (
-              <div className="text-center py-10">
-                <p className="text-gray-600 mb-4">
-                  Nenhum evento encontrado nesta categoria.
-                </p>
-                <Button 
-                  variant="churchOutline" 
-                  onClick={() => setActiveCategory("todos")}
-                >
-                  Ver Todos os Eventos
-                </Button>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-      
-      {/* Seção de inscrição para notificações */}
-      <section className="py-16 bg-church-blue text-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-serif mb-4">Fique por dentro de nossos eventos</h3>
-            <p className="text-white/90 mb-8">
-              Acompanhe nosso Instagram para se manter atualizado sobre todos os eventos 
-              e atividades da igreja. Não perca nenhuma programação especial!
-            </p>
-            <div className="flex justify-center">
-              <Button asChild variant="churchGold" size="church">
-                <a href="https://www.instagram.com/iasdcentralrussas/" target="_blank" rel="noopener noreferrer">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                  Siga-nos no Instagram
-                </a>
-              </Button>
+              ))}
             </div>
-          </div>
+          )}
         </div>
       </section>
 
-      {/* Modal de Detalhes do Evento */}
+      {/* Modal de Evento */}
       {modalEvent && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 md:p-6">
+        <div className="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 md:p-20" onClick={closeEventModal}>
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" onClick={closeEventModal}></div>
           <div 
-            className="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-xl"
-            onClick={(e) => e.stopPropagation()}
+            className="relative bg-white rounded-xl max-w-3xl mx-auto overflow-hidden shadow-2xl"
+            onClick={e => e.stopPropagation()}
           >
-            <div className="relative h-64 md:h-80">
+            <button
+              onClick={closeEventModal}
+              className="absolute right-4 top-4 z-10 rounded-full bg-white/80 p-2 text-gray-600 hover:text-gray-900"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            
+            <div className="relative h-64 sm:h-72 overflow-hidden">
               <img 
                 src={modalEvent.image} 
                 alt={modalEvent.title} 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent/20"></div>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute top-4 right-4 text-white hover:bg-white/20"
-                onClick={closeEventModal}
-              >
-                <X className="h-6 w-6" />
-              </Button>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h2 className="text-2xl md:text-3xl font-serif text-white mb-1">{modalEvent.title}</h2>
-                <p className="text-white/90 text-lg">{modalEvent.date}</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
+                <h2 className="text-white text-2xl font-bold">{modalEvent.title}</h2>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium capitalize bg-white/20 text-white mt-2">
+                  {modalEvent.category}
+                </span>
               </div>
             </div>
             
-            <div className="p-6 md:p-8">
-              <div className="flex flex-wrap gap-6 mb-6 bg-church-gray/30 p-4">
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 mr-2 text-church-blue" />
-                  <div>
-                    <p className="text-sm text-gray-500">Horário</p>
-                    <p className="font-medium">{modalEvent.time}</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="h-5 w-5 mr-2 text-church-blue" />
-                  <div>
-                    <p className="text-sm text-gray-500">Local</p>
-                    <p className="font-medium">{modalEvent.location}</p>
-                  </div>
-                </div>
-                {modalEvent.audience && (
+            <div className="p-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div className="bg-gray-50 p-3 rounded-lg">
                   <div className="flex items-center">
-                    <Users className="h-5 w-5 mr-2 text-church-blue" />
+                    <Calendar className="h-5 w-5 text-church-blue mr-2" />
                     <div>
-                      <p className="text-sm text-gray-500">Público</p>
-                      <p className="font-medium">{modalEvent.audience}</p>
+                      <p className="text-xs text-gray-500">Data</p>
+                      <p className="font-medium">{modalEvent.date}</p>
                     </div>
                   </div>
-                )}
+                </div>
+                
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center">
+                    <Clock className="h-5 w-5 text-church-blue mr-2" />
+                    <div>
+                      <p className="text-xs text-gray-500">Horário</p>
+                      <p className="font-medium">{modalEvent.time}</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center">
+                    <MapPin className="h-5 w-5 text-church-blue mr-2" />
+                    <div>
+                      <p className="text-xs text-gray-500">Local</p>
+                      <p className="font-medium">{modalEvent.location}</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 p-3 rounded-lg">
+                  <div className="flex items-center">
+                    <Users className="h-5 w-5 text-church-blue mr-2" />
+                    <div>
+                      <p className="text-xs text-gray-500">Público-alvo</p>
+                      <p className="font-medium">{modalEvent.audience || "Todos"}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <div className="mb-8">
-                <h3 className="text-xl font-serif text-church-blue mb-3">Descrição</h3>
-                <p className="text-gray-700 whitespace-pre-line">{modalEvent.description}</p>
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">Sobre o Evento</h3>
+                <p className="text-gray-600">{modalEvent.description}</p>
               </div>
               
-              <div className="flex justify-center md:justify-end">
-                <Button asChild variant="church" size="church">
-                  <Link to={`/contato#evento-${modalEvent.id}`}>Participar deste Evento</Link>
-                </Button>
+              <div className="flex justify-center">
+                <Link to="/contato">
+                  <Button className="w-full sm:w-auto">
+                    Mais Informações
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

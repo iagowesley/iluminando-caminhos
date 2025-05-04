@@ -25,6 +25,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Tithes from "./pages/Tithes";
 import AdminBibleStudies from "./pages/AdminBibleStudies";
 import AdminSchedules from "./pages/AdminSchedules";
+import AdminEvents from "./pages/AdminEvents";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/admin/galeria" element={<AdminGallery />} />
           <Route path="/admin/estudos-biblicos" element={<AdminBibleStudies />} />
           <Route path="/admin/escalas" element={<AdminSchedules />} />
+          <Route path="/admin/eventos" element={<AdminEvents />} />
           <Route path="/projetos-sociais" element={<SocialProjects />} />
           <Route path="/estudos-biblicos" element={<BibleStudies />} />
           <Route path="/faq" element={<FAQ />} />

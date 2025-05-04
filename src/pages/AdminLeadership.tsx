@@ -262,52 +262,59 @@ export default function AdminLeadership() {
                 </Button>
               </div>
             ) : (
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Nome</TableHead>
-                    <TableHead>Cargo</TableHead>
-                    <TableHead>Descrição</TableHead>
-                    <TableHead className="text-right">Ações</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {leaders.map((leader) => (
-                    <TableRow key={leader.id}>
-                      <TableCell>
-                        <div className="flex items-center gap-3">
-                          <img 
-                            src={leader.image} 
-                            alt={leader.name} 
-                            className="h-10 w-10 rounded-full object-cover"
-                          />
-                          <span className="font-medium">{leader.name}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell>{leader.role}</TableCell>
-                      <TableCell className="max-w-xs truncate">{leader.shortDescription}</TableCell>
-                      <TableCell className="text-right">
-                        <Button 
-                          variant="ghost" 
-                          size="icon" 
-                          onClick={() => openEditDialog(leader)}
-                          className="text-blue-500"
-                        >
-                          <Pencil className="h-4 w-4" />
-                        </Button>
-                        <Button 
-                          variant="ghost" 
-                          size="icon" 
-                          onClick={() => openDeleteDialog(leader)}
-                          className="text-red-500"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
-                      </TableCell>
+              <>
+                <div className="flex justify-end mb-4">
+                  <Button onClick={openAddDialog} variant="outline" size="sm">
+                    <Plus className="mr-2 h-4 w-4" /> Adicionar Mais Líderes
+                  </Button>
+                </div>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Nome</TableHead>
+                      <TableHead>Cargo</TableHead>
+                      <TableHead>Descrição</TableHead>
+                      <TableHead className="text-right">Ações</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {leaders.map((leader) => (
+                      <TableRow key={leader.id}>
+                        <TableCell>
+                          <div className="flex items-center gap-3">
+                            <img 
+                              src={leader.image} 
+                              alt={leader.name} 
+                              className="h-10 w-10 rounded-full object-cover"
+                            />
+                            <span className="font-medium">{leader.name}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>{leader.role}</TableCell>
+                        <TableCell className="max-w-xs truncate">{leader.shortDescription}</TableCell>
+                        <TableCell className="text-right">
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            onClick={() => openEditDialog(leader)}
+                            className="text-blue-500"
+                          >
+                            <Pencil className="h-4 w-4" />
+                          </Button>
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            onClick={() => openDeleteDialog(leader)}
+                            className="text-red-500"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </>
             )}
           </CardContent>
           <CardFooter className="border-t pt-6">
@@ -318,7 +325,7 @@ export default function AdminLeadership() {
 
       {/* Diálogo para adicionar/editar líder */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{selectedLeader ? "Editar Líder" : "Adicionar Líder"}</DialogTitle>
             <DialogDescription>
@@ -430,7 +437,7 @@ export default function AdminLeadership() {
 
       {/* Diálogo de confirmação para excluir */}
       <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-h-[90vh] overflow-y-auto">
           <AlertDialogHeader>
             <AlertDialogTitle>Confirmar Exclusão</AlertDialogTitle>
             <AlertDialogDescription>

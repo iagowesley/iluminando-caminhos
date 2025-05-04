@@ -511,139 +511,146 @@ export default function AdminBibleStudies() {
                     </Button>
                   </div>
                 ) : (
-                  <Accordion type="multiple" className="space-y-4">
-                    {studies.map((study) => (
-                      <AccordionItem key={study.id} value={`study-${study.id}`} className="border rounded-lg p-1">
-                        <div className="flex items-start justify-between p-2">
-                          <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 rounded-md overflow-hidden">
-                              <img 
-                                src={study.image} 
-                                alt={study.title} 
-                                className="w-full h-full object-cover"
-                              />
+                  <>
+                    <div className="flex justify-end mb-4">
+                      <Button onClick={openAddStudyDialog} variant="outline" size="sm">
+                        <Plus className="mr-2 h-4 w-4" /> Adicionar Mais Estudos
+                      </Button>
+                    </div>
+                    <Accordion type="multiple" className="space-y-4">
+                      {studies.map((study) => (
+                        <AccordionItem key={study.id} value={`study-${study.id}`} className="border rounded-lg p-1">
+                          <div className="flex items-start justify-between p-2">
+                            <div className="flex items-center gap-3">
+                              <div className="w-12 h-12 rounded-md overflow-hidden">
+                                <img 
+                                  src={study.image} 
+                                  alt={study.title} 
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <div>
+                                <h3 className="font-medium">{study.title}</h3>
+                                <p className="text-sm text-gray-500">{study.instructor}</p>
+                              </div>
                             </div>
-                            <div>
-                              <h3 className="font-medium">{study.title}</h3>
-                              <p className="text-sm text-gray-500">{study.instructor}</p>
+                            <div className="flex gap-2">
+                              <Button 
+                                variant="ghost" 
+                                size="icon" 
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  openEditStudyDialog(study);
+                                }}
+                                className="text-blue-500"
+                              >
+                                <Pencil className="h-4 w-4" />
+                              </Button>
+                              <Button 
+                                variant="ghost" 
+                                size="icon" 
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  openDeleteStudyDialog(study);
+                                }}
+                                className="text-red-500"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </Button>
                             </div>
-                          </div>
-                          <div className="flex gap-2">
-                            <Button 
-                              variant="ghost" 
-                              size="icon" 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                openEditStudyDialog(study);
-                              }}
-                              className="text-blue-500"
-                            >
-                              <Pencil className="h-4 w-4" />
-                            </Button>
-                            <Button 
-                              variant="ghost" 
-                              size="icon" 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                openDeleteStudyDialog(study);
-                              }}
-                              className="text-red-500"
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </Button>
-                          </div>
-                        </div>
-                        
-                        <AccordionTrigger className="px-4">
-                          <span className="text-sm font-normal">
-                            {study.lessons?.length || 0} lições - Clique para ver
-                          </span>
-                        </AccordionTrigger>
-                        
-                        <AccordionContent className="px-4 pb-4">
-                          <div className="mt-2 mb-4 flex justify-between items-center">
-                            <h4 className="text-sm font-medium">Lições</h4>
-                            <Button 
-                              variant="outline" 
-                              size="sm"
-                              onClick={() => openAddLessonDialog(study)}
-                              className="h-8"
-                            >
-                              <Plus className="mr-1 h-3 w-3" /> 
-                              Adicionar Lição
-                            </Button>
                           </div>
                           
-                          {study.lessons && study.lessons.length > 0 ? (
-                            <DragDropContext onDragEnd={handleDragEnd}>
-                              <Droppable droppableId={`study-${study.id}`}>
-                                {(provided) => (
-                                  <div
-                                    ref={provided.innerRef}
-                                    {...provided.droppableProps}
-                                    className="space-y-2"
-                                  >
-                                    {study.lessons.map((lesson, index) => (
-                                      <Draggable
-                                        key={lesson.id}
-                                        draggableId={`${study.id}-lesson-${lesson.id}`}
-                                        index={index}
-                                      >
-                                        {(provided) => (
-                                          <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            className="bg-gray-50 p-3 rounded-md border flex items-center justify-between"
-                                          >
-                                            <div className="flex items-center gap-3">
-                                              <div 
-                                                {...provided.dragHandleProps}
-                                                className="text-gray-400 cursor-move"
-                                              >
-                                                <GripVertical className="h-4 w-4" />
+                          <AccordionTrigger className="px-4">
+                            <span className="text-sm font-normal">
+                              {study.lessons?.length || 0} lições - Clique para ver
+                            </span>
+                          </AccordionTrigger>
+                          
+                          <AccordionContent className="px-4 pb-4">
+                            <div className="mt-2 mb-4 flex justify-between items-center">
+                              <h4 className="text-sm font-medium">Lições</h4>
+                              <Button 
+                                variant="outline" 
+                                size="sm"
+                                onClick={() => openAddLessonDialog(study)}
+                                className="h-8"
+                              >
+                                <Plus className="mr-1 h-3 w-3" /> 
+                                Adicionar Lição
+                              </Button>
+                            </div>
+                            
+                            {study.lessons && study.lessons.length > 0 ? (
+                              <DragDropContext onDragEnd={handleDragEnd}>
+                                <Droppable droppableId={`study-${study.id}`}>
+                                  {(provided) => (
+                                    <div
+                                      ref={provided.innerRef}
+                                      {...provided.droppableProps}
+                                      className="space-y-2"
+                                    >
+                                      {study.lessons.map((lesson, index) => (
+                                        <Draggable
+                                          key={lesson.id}
+                                          draggableId={`${study.id}-lesson-${lesson.id}`}
+                                          index={index}
+                                        >
+                                          {(provided) => (
+                                            <div
+                                              ref={provided.innerRef}
+                                              {...provided.draggableProps}
+                                              className="bg-gray-50 p-3 rounded-md border flex items-center justify-between"
+                                            >
+                                              <div className="flex items-center gap-3">
+                                                <div 
+                                                  {...provided.dragHandleProps}
+                                                  className="text-gray-400 cursor-move"
+                                                >
+                                                  <GripVertical className="h-4 w-4" />
+                                                </div>
+                                                <div>
+                                                  <p className="font-medium text-sm">
+                                                    {lesson.order}. {lesson.title}
+                                                  </p>
+                                                </div>
                                               </div>
-                                              <div>
-                                                <p className="font-medium text-sm">
-                                                  {lesson.order}. {lesson.title}
-                                                </p>
+                                              <div className="flex gap-1">
+                                                <Button 
+                                                  variant="ghost" 
+                                                  size="icon" 
+                                                  onClick={() => openEditLessonDialog(study, lesson)}
+                                                  className="h-7 w-7 text-blue-500"
+                                                >
+                                                  <Pencil className="h-3 w-3" />
+                                                </Button>
+                                                <Button 
+                                                  variant="ghost" 
+                                                  size="icon" 
+                                                  onClick={() => openDeleteLessonDialog(study, lesson)}
+                                                  className="h-7 w-7 text-red-500"
+                                                >
+                                                  <Trash2 className="h-3 w-3" />
+                                                </Button>
                                               </div>
                                             </div>
-                                            <div className="flex gap-1">
-                                              <Button 
-                                                variant="ghost" 
-                                                size="icon" 
-                                                onClick={() => openEditLessonDialog(study, lesson)}
-                                                className="h-7 w-7 text-blue-500"
-                                              >
-                                                <Pencil className="h-3 w-3" />
-                                              </Button>
-                                              <Button 
-                                                variant="ghost" 
-                                                size="icon" 
-                                                onClick={() => openDeleteLessonDialog(study, lesson)}
-                                                className="h-7 w-7 text-red-500"
-                                              >
-                                                <Trash2 className="h-3 w-3" />
-                                              </Button>
-                                            </div>
-                                          </div>
-                                        )}
-                                      </Draggable>
-                                    ))}
-                                    {provided.placeholder}
-                                  </div>
-                                )}
-                              </Droppable>
-                            </DragDropContext>
-                          ) : (
-                            <p className="text-sm text-gray-500 text-center py-4">
-                              Nenhuma lição cadastrada para este estudo.
-                            </p>
-                          )}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
+                                          )}
+                                        </Draggable>
+                                      ))}
+                                      {provided.placeholder}
+                                    </div>
+                                  )}
+                                </Droppable>
+                              </DragDropContext>
+                            ) : (
+                              <p className="text-sm text-gray-500 text-center py-4">
+                                Nenhuma lição cadastrada para este estudo.
+                              </p>
+                            )}
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </>
                 )}
               </CardContent>
               <CardFooter className="border-t pt-6">
@@ -656,7 +663,7 @@ export default function AdminBibleStudies() {
 
       {/* Diálogo para adicionar/editar estudo */}
       <Dialog open={isStudyDialogOpen} onOpenChange={setIsStudyDialogOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{selectedStudy ? "Editar Estudo" : "Adicionar Estudo"}</DialogTitle>
             <DialogDescription>
@@ -782,7 +789,7 @@ export default function AdminBibleStudies() {
 
       {/* Diálogo para adicionar/editar lição */}
       <Dialog open={isLessonDialogOpen} onOpenChange={setIsLessonDialogOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{selectedLesson ? "Editar Lição" : "Adicionar Lição"}</DialogTitle>
             <DialogDescription>
@@ -845,7 +852,7 @@ export default function AdminBibleStudies() {
 
       {/* Diálogo de confirmação para excluir estudo */}
       <AlertDialog open={isDeleteStudyDialogOpen} onOpenChange={setIsDeleteStudyDialogOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-h-[90vh] overflow-y-auto">
           <AlertDialogHeader>
             <AlertDialogTitle>Confirmar Exclusão</AlertDialogTitle>
             <AlertDialogDescription>
@@ -868,7 +875,7 @@ export default function AdminBibleStudies() {
 
       {/* Diálogo de confirmação para excluir lição */}
       <AlertDialog open={isDeleteLessonDialogOpen} onOpenChange={setIsDeleteLessonDialogOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-h-[90vh] overflow-y-auto">
           <AlertDialogHeader>
             <AlertDialogTitle>Confirmar Exclusão</AlertDialogTitle>
             <AlertDialogDescription>

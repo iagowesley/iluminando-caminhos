@@ -412,7 +412,7 @@ export default function AdminSchedules() {
 
       {/* Diálogo para adicionar/editar escala */}
       <Dialog open={isScheduleDialogOpen} onOpenChange={setIsScheduleDialogOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{selectedSchedule ? "Editar Escala" : "Adicionar Escala"}</DialogTitle>
             <DialogDescription>
@@ -538,7 +538,7 @@ export default function AdminSchedules() {
 
       {/* Diálogo de confirmação para excluir escala */}
       <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-h-[90vh] overflow-y-auto">
           <AlertDialogHeader>
             <AlertDialogTitle>Confirmar Exclusão</AlertDialogTitle>
             <AlertDialogDescription>

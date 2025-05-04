@@ -77,6 +77,21 @@ export type Schedule = {
   service_type?: ServiceType
 }
 
+// Tipo para eventos da igreja
+export type Event = {
+  id?: number
+  title: string
+  date: string
+  time: string
+  location: string
+  description: string
+  category: string
+  image: string
+  featured?: boolean
+  audience?: string
+  created_at?: string
+}
+
 // Categorias de fotos disponíveis
 export const photoCategories = [
   "igreja",
@@ -87,6 +102,16 @@ export const photoCategories = [
   "serviço",
   "estudo",
   "eventos"
+];
+
+// Categorias de eventos disponíveis
+export const eventCategories = [
+  "espiritual",
+  "musical",
+  "juventude",
+  "infantil",
+  "família",
+  "comunidade"
 ];
 
 // Função para upload de imagens
@@ -102,17 +127,23 @@ export async function uploadImage(file: File, bucket: string = 'leaders'): Promi
     const fileName = `${Math.random().toString(36).substring(2, 15)}_${Date.now()}.${fileExt}`
     const filePath = `${fileName}`
 
+    console.log(`Fazendo upload para o bucket: ${bucket}`)
+    
+    // Usar cliente admin para eventos, supabase normal para outros buckets
+    const client = bucket === 'events' ? supabaseAdmin : supabase
+    
     // Fazer upload do arquivo
-    const { data, error } = await supabase.storage
+    const { data, error } = await client.storage
       .from(bucket)
       .upload(filePath, file)
 
     if (error) {
+      console.error('Erro no upload:', error)
       throw error
     }
 
     // Gerar URL pública
-    const { data: urlData } = supabase.storage
+    const { data: urlData } = client.storage
       .from(bucket)
       .getPublicUrl(filePath)
 

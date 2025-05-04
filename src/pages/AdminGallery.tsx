@@ -292,52 +292,59 @@ export default function AdminGallery() {
                 </Button>
               </div>
             ) : (
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Foto</TableHead>
-                      <TableHead>Descrição</TableHead>
-                      <TableHead>Categoria</TableHead>
-                      <TableHead className="text-right">Ações</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredPhotos.map((photo) => (
-                      <TableRow key={photo.id}>
-                        <TableCell>
-                          <div className="w-16 h-16 overflow-hidden rounded-md">
-                            <img 
-                              src={photo.src} 
-                              alt={photo.alt} 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </TableCell>
-                        <TableCell className="max-w-xs truncate">{photo.alt}</TableCell>
-                        <TableCell className="capitalize">{photo.category}</TableCell>
-                        <TableCell className="text-right">
-                          <Button 
-                            variant="ghost" 
-                            size="icon" 
-                            onClick={() => openEditDialog(photo)}
-                            className="text-blue-500"
-                          >
-                            <Pencil className="h-4 w-4" />
-                          </Button>
-                          <Button 
-                            variant="ghost" 
-                            size="icon" 
-                            onClick={() => openDeleteDialog(photo)}
-                            className="text-red-500"
-                          >
-                            <Trash2 className="h-4 w-4" />
-                          </Button>
-                        </TableCell>
+              <div className="space-y-4">
+                <div className="flex justify-end">
+                  <Button onClick={openAddDialog} variant="outline" size="sm">
+                    <Plus className="mr-2 h-4 w-4" /> Adicionar Mais Fotos
+                  </Button>
+                </div>
+                <div className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Foto</TableHead>
+                        <TableHead>Descrição</TableHead>
+                        <TableHead>Categoria</TableHead>
+                        <TableHead className="text-right">Ações</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredPhotos.map((photo) => (
+                        <TableRow key={photo.id}>
+                          <TableCell>
+                            <div className="w-16 h-16 overflow-hidden rounded-md">
+                              <img 
+                                src={photo.src} 
+                                alt={photo.alt} 
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          </TableCell>
+                          <TableCell className="max-w-xs truncate">{photo.alt}</TableCell>
+                          <TableCell className="capitalize">{photo.category}</TableCell>
+                          <TableCell className="text-right">
+                            <Button 
+                              variant="ghost" 
+                              size="icon" 
+                              onClick={() => openEditDialog(photo)}
+                              className="text-blue-500"
+                            >
+                              <Pencil className="h-4 w-4" />
+                            </Button>
+                            <Button 
+                              variant="ghost" 
+                              size="icon" 
+                              onClick={() => openDeleteDialog(photo)}
+                              className="text-red-500"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
             )}
           </CardContent>
@@ -349,7 +356,7 @@ export default function AdminGallery() {
 
       {/* Diálogo para adicionar/editar foto */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{selectedPhoto ? "Editar Foto" : "Adicionar Foto"}</DialogTitle>
             <DialogDescription>

@@ -84,28 +84,28 @@ export default function BibleStudies() {
               <p className="text-gray-500">Não há estudos bíblicos disponíveis no momento.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-8 md:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {studies.map((study) => (
                 <div 
                   key={study.id} 
                   className="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg"
                 >
-                  <div className="flex flex-col md:flex-row">
-                    <div className="w-full md:w-1/3">
+                  <div className="flex flex-row h-56">
+                    <div className="w-1/3 flex items-center justify-center p-2">
                       <img 
                         src={study.image} 
                         alt={study.title}
-                        className="w-full h-64 md:h-full object-cover"
+                        className="max-h-full max-w-full object-contain"
                       />
                     </div>
-                    <div className="w-full md:w-2/3 p-6 flex flex-col">
-                      <h3 className="text-xl md:text-2xl font-semibold text-church-blue mb-2">
+                    <div className="w-2/3 p-4 flex flex-col">
+                      <h3 className="text-lg font-semibold text-church-blue mb-2">
                         {study.title}
                       </h3>
-                      <p className="text-sm md:text-base text-gray-700 mb-2">
+                      <p className="text-sm text-gray-700 mb-2">
                         <span className="font-medium">Ministrado por:</span> {study.instructor}
                       </p>
-                      <p className="text-gray-600 mb-4">
+                      <p className="text-sm text-gray-600 mb-3 line-clamp-4">
                         {study.description}
                       </p>
                       <div className="mt-auto">
@@ -113,7 +113,7 @@ export default function BibleStudies() {
                           href={getWhatsAppLink(study)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+                          className="inline-flex items-center gap-1 px-4 py-2 text-sm bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
                         >
                           <MessageSquare className="h-4 w-4" />
                           Solicitar pelo WhatsApp

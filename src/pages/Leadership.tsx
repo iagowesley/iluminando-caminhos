@@ -111,8 +111,8 @@ export default function Leadership() {
               <p className="text-lg text-gray-700 mb-6">
                 Nossa estrutura de liderança segue o modelo bíblico e as orientações da Igreja Adventista do Sétimo Dia mundial. Todos os líderes são eleitos pela igreja local e trabalham em conjunto para o crescimento e desenvolvimento espiritual da congregação.
               </p>
-              <Button asChild variant="church" size="church" className="rounded-full">
-                <Link to="/contato">Entre em Contato com Nossa Liderança</Link>
+              <Button asChild variant="church" size="church" className="rounded-full w-full sm:w-auto text-sm sm:text-base px-3 py-2">
+                <Link to="/contato">Entre em contato com a liderança</Link>
               </Button>
             </div>
           </div>
