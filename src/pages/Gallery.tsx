@@ -1,125 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import { X, Loader2 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import { supabase, Photo, photoCategories } from "@/lib/supabase";
 
-interface PhotoProps {
-  id: number;
-  src: string;
-  alt: string;
-  category: string;
-}
-
-const photos: PhotoProps[] = [
-  { 
-    id: 1, 
-    src: "/images/fachada.jpg", 
-    alt: "Fachada da Igreja", 
-    category: "igreja" 
-  },
-  { 
-    id: 2, 
-    src: "/images/adoraçao.jpg", 
-    alt: "Momento de Adoração", 
-    category: "cultos" 
-  },
-  { 
-    id: 3, 
-    src: "/images/IMG_6038.png", 
-    alt: "Evento Jovem", 
-    category: "jovens" 
-  },
-  { 
-    id: 4, 
-    src: "/images/IMG-20241124-WA0008.jpg", 
-    alt: "Batismo", 
-    category: "batismos" 
-  },
-  { 
-    id: 5, 
-    src: "/images/ministerioinfantil.jpeg", 
-    alt: "Ministério Infantil", 
-    category: "crianças" 
-  },
-  { 
-    id: 6, 
-    src: "/images/IMG_5969.JPG", 
-    alt: "Serviço Comunitário", 
-    category: "serviço" 
-  },
-  { 
-    id: 7, 
-    src: "/images/CORAL.jpeg", 
-    alt: "Coral da Igreja", 
-    category: "cultos" 
-  },
-  { 
-    id: 8, 
-    src: "/images/IMG-20250418-WA0095.jpg", 
-    alt: "Estudo Bíblico", 
-    category: "estudo" 
-  },
-  { 
-    id: 9, 
-    src: "/images/gallery/church-interior.jpg", 
-    alt: "Interior da Igreja", 
-    category: "igreja" 
-  },
-  { 
-    id: 10, 
-    src: "/images/gallery/social-event.jpg", 
-    alt: "Evento Social", 
-    category: "eventos" 
-  },
-  { 
-    id: 11, 
-    src: "/images/gallery/prayer-meeting.jpg", 
-    alt: "Reunião de Oração", 
-    category: "cultos" 
-  },
-  { 
-    id: 12, 
-    src: "/images/gallery/camp-meeting.jpg", 
-    alt: "Acampamento", 
-    category: "eventos" 
-  },
-  { 
-    id: 13, 
-    src: "/images/gallery/potluck.jpg", 
-    alt: "Almoço Comunitário", 
-    category: "eventos" 
-  },
-  { 
-    id: 14, 
-    src: "/images/gallery/wedding.jpg", 
-    alt: "Casamento", 
-    category: "eventos" 
-  },
-  { 
-    id: 15, 
-    src: "/images/gallery/mission-trip.jpg", 
-    alt: "Viagem Missionária", 
-    category: "serviço" 
-  },
-];
-
-const categories = [
-  "todos",
-  "igreja",
-  "cultos",
-  "jovens",
-  "batismos",
-  "crianças",
-  "serviço",
-  "estudo",
-  "eventos"
-];
+// Adicionando "todos" às categorias para o filtro
+const displayCategories = ["todos", ...photoCategories];
 
 export default function Gallery() {
+  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState("todos");
-  const [lightboxPhoto, setLightboxPhoto] = useState<PhotoProps | null>(null);
+  const [lightboxPhoto, setLightboxPhoto] = useState<Photo | null>(null);
+  
+  // Buscar fotos do Supabase
+  useEffect(() => {
+    async function fetchPhotos() {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase
+          .from('photos')
+          .select('*')
+          .order('created_at', { ascending: false });
+        
+        if (error) throw error;
+        setPhotos(data || []);
+      } catch (error) {
+        console.error('Erro ao buscar fotos:', error);
+        setError('Não foi possível carregar as fotos. Por favor, tente novamente mais tarde.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPhotos();
+  }, []);
   
   const filteredPhotos = activeCategory === "todos" 
     ? photos 
@@ -145,7 +63,7 @@ export default function Gallery() {
           
           {/* Filtros */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-10 mb-12">
-            {categories.map((category) => (
+            {displayCategories.map((category) => (
               <Button
                 key={category}
                 variant={activeCategory === category ? "church" : "churchOutline"}
@@ -157,28 +75,48 @@ export default function Gallery() {
             ))}
           </div>
           
-          {/* Grid de Fotos */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredPhotos.map((photo) => (
-              <div 
-                key={photo.id} 
-                className="aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow"
-                onClick={() => setLightboxPhoto(photo)}
-              >
-                <img 
-                  src={photo.src} 
-                  alt={photo.alt} 
-                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
-                />
-              </div>
-            ))}
-          </div>
-          
-          {/* Mensagem se nenhuma foto for encontrada */}
-          {filteredPhotos.length === 0 && (
-            <div className="text-center py-10">
-              <p className="text-lg text-gray-600">Nenhuma foto encontrada para esta categoria.</p>
+          {/* Mensagem de carregamento */}
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="h-8 w-8 text-church-blue animate-spin" />
+              <span className="ml-2 text-church-blue">Carregando fotos...</span>
             </div>
+          ) : error ? (
+            <div className="text-center py-10">
+              <p className="text-red-500">{error}</p>
+              <Button 
+                variant="outline" 
+                className="mt-4"
+                onClick={() => window.location.reload()}
+              >
+                Tentar novamente
+              </Button>
+            </div>
+          ) : (
+            <>
+              {/* Grid de Fotos */}
+              {filteredPhotos.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {filteredPhotos.map((photo) => (
+                    <div 
+                      key={photo.id} 
+                      className="aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow"
+                      onClick={() => setLightboxPhoto(photo)}
+                    >
+                      <img 
+                        src={photo.src} 
+                        alt={photo.alt} 
+                        className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-10">
+                  <p className="text-lg text-gray-600">Nenhuma foto encontrada para esta categoria.</p>
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>

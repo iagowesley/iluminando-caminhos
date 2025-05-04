@@ -1,18 +1,14 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
+import { supabase, Leader } from "@/lib/supabase";
+import { Loader2 } from "lucide-react";
 
-interface LeaderProps {
-  name: string;
-  role: string;
-  image: string;
-  shortDescription: string;
-}
-
-const Leader = ({ name, role, image, shortDescription }: LeaderProps) => {
+const LeaderCard = ({ name, role, image, shortDescription }: Leader) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 rounded-2xl">
       <div className="relative h-64">
@@ -34,40 +30,36 @@ const Leader = ({ name, role, image, shortDescription }: LeaderProps) => {
   );
 };
 
-const leaders = [
-  {
-    name: "Pr. José Carlos Silva",
-    role: "Pastor Titular",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    shortDescription: "Lidera nossa congregação desde 2018, dedicado ao ministério há mais de 20 anos."
-  },
-  {
-    name: "Pr. André Oliveira",
-    role: "Pastor Associado",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    shortDescription: "Responsável pelos ministérios jovens e familiares, trazendo energia e inovação aos nossos programas."
-  },
-  {
-    name: "Diác. Antônio Ferreira",
-    role: "Primeiro Ancião",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    shortDescription: "Liderança sábia e equilibrada, fundamental para o crescimento espiritual de nossa congregação."
-  },
-  {
-    name: "Roberta Santos",
-    role: "Diretora de Música",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    shortDescription: "Coordena o ministério musical, enriquecendo nossos momentos de adoração com seu talento."
-  },
-  {
-    name: "Daniel Costa",
-    role: "Diretor de Jovens",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    shortDescription: "Lidera o ministério jovem com entusiasmo e criatividade, promovendo engajamento missionário."
-  }
-];
-
 export default function Leadership() {
+  const [leaders, setLeaders] = useState<Leader[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchLeaders() {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase
+          .from('leaders')
+          .select('*')
+          .order('id', { ascending: true });
+        
+        if (error) {
+          throw error;
+        }
+        
+        setLeaders(data || []);
+      } catch (error) {
+        console.error('Erro ao buscar líderes:', error);
+        setError('Não foi possível carregar os líderes. Por favor, tente novamente mais tarde.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchLeaders();
+  }, []);
+
   return (
     <PageLayout>
       <Hero 
@@ -86,11 +78,33 @@ export default function Leadership() {
             ornate={true}
           />
           
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {leaders.map((leader, index) => (
-              <Leader key={index} {...leader} />
-            ))}
-          </div>
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="h-8 w-8 text-church-blue animate-spin" />
+              <span className="ml-2 text-church-blue">Carregando líderes...</span>
+            </div>
+          ) : error ? (
+            <div className="text-center py-10">
+              <p className="text-red-500">{error}</p>
+              <Button 
+                variant="outline" 
+                className="mt-4"
+                onClick={() => window.location.reload()}
+              >
+                Tentar novamente
+              </Button>
+            </div>
+          ) : leaders.length === 0 ? (
+            <div className="text-center py-10">
+              <p className="text-gray-500">Não há líderes cadastrados no momento.</p>
+            </div>
+          ) : (
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {leaders.map((leader) => (
+                <LeaderCard key={leader.id} {...leader} />
+              ))}
+            </div>
+          )}
           
           <div className="mt-16 text-center">
             <div className="bg-white rounded-2xl p-8 shadow-md max-w-3xl mx-auto">
