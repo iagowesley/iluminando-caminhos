@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://mewptqvoiecyzhtgscya.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ld3B0cXZvaWVjeXpodGdzY3lhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYzMTU0NjcsImV4cCI6MjA2MTg5MTQ2N30.ejr4q9bvA8kmCXtQTneuyw0vqTZtwaBbqWJuKKT6dFU'
-const supabaseServiceRoleKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ld3B0cXZvaWVjeXpodGdzY3lhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NjMxNTQ2NywiZXhwIjoyMDYxODkxNDY3fQ.QEHnJoaKxykjOFd89irqwtR72pRhojmNcrc6Nk1mh-s'
+const supabaseUrl = 'https://pghmehimiaqirirqlniv.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBnaG1laGltaWFxaXJpcnFsbml2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ3NDA2MjQsImV4cCI6MjA3MDMxNjYyNH0.kiHDkG57s2O3ZWG4W6cbRRREQqPUCJmwW6OaqrdnwpU'
+const supabaseServiceRoleKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBnaG1laGltaWFxaXJpcnFsbml2Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDc0MDYyNCwiZXhwIjoyMDcwMzE2NjI0fQ.10qGScY6lT6ph7watLsMhHMKEq9fLpoUEniIh1gDkCk'
 
 // Criando o cliente com a chave anônima para uso no frontend
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
@@ -75,6 +75,7 @@ export type Schedule = {
   platform?: string
   created_at?: string
   service_type?: ServiceType
+  is_hidden?: boolean
 }
 
 // Tipo para eventos da igreja

@@ -4,10 +4,11 @@ import SectionTitle from "@/components/SectionTitle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Calendar, Clock, Music, Mic, BookOpen, Heart, ChevronRight, ChevronLeft, Users, Coffee, Loader2 } from "lucide-react";
+import { Calendar, Clock, Music, Mic, BookOpen, Heart, ChevronRight, ChevronLeft, Users, Coffee, Loader2, Eye, EyeOff } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { supabase, Schedule, ServiceType } from "@/lib/supabase";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface SundayWednesdayScheduleItemProps {
   date: string;
@@ -139,8 +140,10 @@ export default function Schedules() {
   const [activeTab, setActiveTab] = useState<string>("sunday");
   const [serviceTypes, setServiceTypes] = useState<ServiceType[]>([]);
   const [schedules, setSchedules] = useState<{[key: string]: Schedule[]}>({});
+  const [hiddenSchedules, setHiddenSchedules] = useState<Set<number>>(new Set()); // Estado para escalas ocultas
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const { user } = useAuth();
 
   useEffect(() => {
     fetchData();
@@ -204,6 +207,24 @@ export default function Schedules() {
     } finally {
       setLoading(false);
     }
+  }
+
+  // Função para ocultar/mostrar uma escala (apenas no frontend)
+  function toggleScheduleVisibility(scheduleId: number) {
+    setHiddenSchedules(prev => {
+      const newHiddenSchedules = new Set(prev);
+      if (newHiddenSchedules.has(scheduleId)) {
+        newHiddenSchedules.delete(scheduleId); // Mostrar escala
+      } else {
+        newHiddenSchedules.add(scheduleId); // Ocultar escala
+      }
+      return newHiddenSchedules;
+    });
+  }
+
+  // Função para filtrar escalas visíveis
+  function getVisibleSchedules(scheduleList: Schedule[]) {
+    return scheduleList.filter(schedule => !hiddenSchedules.has(schedule.id!));
   }
 
   // Obter o tempo padrão com base no tipo de culto ativo
@@ -278,12 +299,12 @@ export default function Schedules() {
                             <span className="font-medium">Horário: {getDefaultTime()}</span>
                           </div>
                           
-                          {schedules.sunday && schedules.sunday.length > 0 ? (
+                          {schedules.sunday && getVisibleSchedules(schedules.sunday).length > 0 ? (
                             <div className="overflow-x-auto -mx-6 px-6 pb-4">
                               <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
                                 <span>← Deslize para visualizar toda a tabela →</span>
                               </div>
-                              <Table className="min-w-[800px]">
+                              <Table>
                                 <TableHeader>
                                   <TableRow>
                                     <TableHead className="w-[120px]"><Calendar className="h-4 w-4 inline mr-2" /> Data</TableHead>
@@ -291,6 +312,7 @@ export default function Schedules() {
                                     <TableHead><Heart className="h-4 w-4 inline mr-2" /> Recepção</TableHead>
                                     <TableHead><Coffee className="h-4 w-4 inline mr-2" /> Abertura do Culto</TableHead>
                                     <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregação</TableHead>
+                                    <TableHead className="w-[100px]">Ações</TableHead>
                                   </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -301,6 +323,17 @@ export default function Schedules() {
                                       <TableCell>{item.reception || "A definir"}</TableCell>
                                       <TableCell>{item.opening || "A definir"}</TableCell>
                                       <TableCell>{item.preacher || "A definir"}</TableCell>
+                                      <TableCell>
+                                        <Button
+                                          variant="ghost"
+                                          size="icon"
+                                          onClick={() => toggleScheduleVisibility(item.id!)}
+                                          className="h-8 w-8"
+                                          title={hiddenSchedules.has(item.id!) ? "Mostrar escala" : "Ocultar escala"}
+                                        >
+                                          {hiddenSchedules.has(item.id!) ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+                                        </Button>
+                                      </TableCell>
                                     </TableRow>
                                   ))}
                                 </TableBody>
@@ -323,12 +356,12 @@ export default function Schedules() {
                             <span className="font-medium">Horário: {getDefaultTime()}</span>
                           </div>
                           
-                          {schedules.wednesday && schedules.wednesday.length > 0 ? (
+                          {schedules.wednesday && getVisibleSchedules(schedules.wednesday).length > 0 ? (
                             <div className="overflow-x-auto -mx-6 px-6 pb-4">
                               <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
                                 <span>← Deslize para visualizar toda a tabela →</span>
                               </div>
-                              <Table className="min-w-[800px]">
+                              <Table>
                                 <TableHeader>
                                   <TableRow>
                                     <TableHead className="w-[120px]"><Calendar className="h-4 w-4 inline mr-2" /> Data</TableHead>
@@ -336,6 +369,7 @@ export default function Schedules() {
                                     <TableHead><Heart className="h-4 w-4 inline mr-2" /> Recepção</TableHead>
                                     <TableHead><Coffee className="h-4 w-4 inline mr-2" /> Abertura do Culto</TableHead>
                                     <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregação</TableHead>
+                                    <TableHead className="w-[100px]">Ações</TableHead>
                                   </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -346,6 +380,17 @@ export default function Schedules() {
                                       <TableCell>{item.reception || "A definir"}</TableCell>
                                       <TableCell>{item.opening || "A definir"}</TableCell>
                                       <TableCell>{item.preacher || "A definir"}</TableCell>
+                                      <TableCell>
+                                        <Button
+                                          variant="ghost"
+                                          size="icon"
+                                          onClick={() => toggleScheduleVisibility(item.id!)}
+                                          className="h-8 w-8"
+                                          title={hiddenSchedules.has(item.id!) ? "Mostrar escala" : "Ocultar escala"}
+                                        >
+                                          {hiddenSchedules.has(item.id!) ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+                                        </Button>
+                                      </TableCell>
                                     </TableRow>
                                   ))}
                                 </TableBody>
@@ -368,12 +413,12 @@ export default function Schedules() {
                             <span className="font-medium">Horário: {getDefaultTime()}</span>
                           </div>
                           
-                          {schedules.sabbath && schedules.sabbath.length > 0 ? (
+                          {schedules.sabbath && getVisibleSchedules(schedules.sabbath).length > 0 ? (
                             <div className="overflow-x-auto -mx-6 px-6 pb-4">
                               <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
                                 <span>← Deslize para visualizar toda a tabela →</span>
                               </div>
-                              <Table className="min-w-[800px]">
+                              <Table>
                                 <TableHeader>
                                   <TableRow>
                                     <TableHead className="w-[120px]"><Calendar className="h-4 w-4 inline mr-2" /> Data</TableHead>
@@ -383,6 +428,7 @@ export default function Schedules() {
                                     <TableHead><Users className="h-4 w-4 inline mr-2" /> Plataforma</TableHead>
                                     <TableHead><BookOpen className="h-4 w-4 inline mr-2" /> Diáconos/Diaconisas</TableHead>
                                     <TableHead><Mic className="h-4 w-4 inline mr-2" /> Pregação</TableHead>
+                                    <TableHead className="w-[100px]">Ações</TableHead>
                                   </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -395,6 +441,17 @@ export default function Schedules() {
                                       <TableCell>{item.platform || "A definir"}</TableCell>
                                       <TableCell>{item.deacons || "A definir"}</TableCell>
                                       <TableCell>{item.preacher || "A definir"}</TableCell>
+                                      <TableCell>
+                                        <Button
+                                          variant="ghost"
+                                          size="icon"
+                                          onClick={() => toggleScheduleVisibility(item.id!)}
+                                          className="h-8 w-8"
+                                          title={hiddenSchedules.has(item.id!) ? "Mostrar escala" : "Ocultar escala"}
+                                        >
+                                          {hiddenSchedules.has(item.id!) ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+                                        </Button>
+                                      </TableCell>
                                     </TableRow>
                                   ))}
                                 </TableBody>
@@ -467,8 +524,8 @@ export default function Schedules() {
                   </div>
                   
                   {schedules.sunday && activeTab === "sunday" ? (
-                    schedules.sunday.length > 0 ? (
-                      <MobileSundayWednesdayView data={schedules.sunday} />
+                    getVisibleSchedules(schedules.sunday).length > 0 ? (
+                      <MobileSundayWednesdayView data={getVisibleSchedules(schedules.sunday)} />
                     ) : (
                       <div className="text-center py-10 bg-white rounded-lg shadow-sm border border-gray-100">
                         <p className="text-gray-500">Nenhuma escala cadastrada para este culto.</p>
@@ -477,8 +534,8 @@ export default function Schedules() {
                   ) : null}
                   
                   {schedules.wednesday && activeTab === "wednesday" ? (
-                    schedules.wednesday.length > 0 ? (
-                      <MobileSundayWednesdayView data={schedules.wednesday} />
+                    getVisibleSchedules(schedules.wednesday).length > 0 ? (
+                      <MobileSundayWednesdayView data={getVisibleSchedules(schedules.wednesday)} />
                     ) : (
                       <div className="text-center py-10 bg-white rounded-lg shadow-sm border border-gray-100">
                         <p className="text-gray-500">Nenhuma escala cadastrada para este culto.</p>
@@ -487,8 +544,8 @@ export default function Schedules() {
                   ) : null}
                   
                   {schedules.sabbath && activeTab === "sabbath" ? (
-                    schedules.sabbath.length > 0 ? (
-                      <MobileSabbathView data={schedules.sabbath} />
+                    getVisibleSchedules(schedules.sabbath).length > 0 ? (
+                      <MobileSabbathView data={getVisibleSchedules(schedules.sabbath)} />
                     ) : (
                       <div className="text-center py-10 bg-white rounded-lg shadow-sm border border-gray-100">
                         <p className="text-gray-500">Nenhuma escala cadastrada para este culto.</p>

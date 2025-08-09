@@ -42,23 +42,7 @@ export default function AdminSchedules() {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // Autenticação simples para a página de administração
-  useEffect(() => {
-    const isAuthenticated = localStorage.getItem("admin_authenticated");
-    if (!isAuthenticated) {
-      const password = prompt("Digite a senha de administrador:");
-      if (password !== "admin123") { // Senha temporária para exemplo
-        toast({
-          title: "Acesso negado",
-          description: "Você não tem permissão para acessar esta página.",
-          variant: "destructive"
-        });
-        navigate("/");
-      } else {
-        localStorage.setItem("admin_authenticated", "true");
-      }
-    }
-  }, [navigate, toast]);
+  // Autenticação removida - usando AdminAuth component
 
   // Carregar dados
   useEffect(() => {

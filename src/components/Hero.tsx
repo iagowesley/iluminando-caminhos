@@ -10,9 +10,7 @@ const churchSlides = [
     info: "Unidos em fé, esperança e amor."
   },
   {
-    image: "/images/church-2.jpg",
-    title: "Horários de culto",
-    info: "Sábados: Adoração 8h30 | Culto Divino 10h\nQuartas: Culto de agradecimento 19h\nSexta: Pequenos grupos 19h"
+    image: "/images/semana-santa.png"
   },
   
   {
