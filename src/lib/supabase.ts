@@ -1,15 +1,19 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://pghmehimiaqirirqlniv.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBnaG1laGltaWFxaXJpcnFsbml2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ3NDA2MjQsImV4cCI6MjA3MDMxNjYyNH0.kiHDkG57s2O3ZWG4W6cbRRREQqPUCJmwW6OaqrdnwpU'
-const supabaseServiceRoleKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBnaG1laGltaWFxaXJpcnFsbml2Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDc0MDYyNCwiZXhwIjoyMDcwMzE2NjI0fQ.10qGScY6lT6ph7watLsMhHMKEq9fLpoUEniIh1gDkCk'
+// Configuração do Supabase usando variáveis de ambiente
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-// Criando o cliente com a chave anônima para uso no frontend
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error(
+    'Variáveis de ambiente do Supabase não configuradas. ' +
+    'Certifique-se de ter um arquivo .env.local com VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY'
+  )
+}
+
+// Criando o cliente Supabase para uso no frontend
+// Usa apenas a chave anônima - todas as operações são controladas por RLS (Row Level Security)
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
-
-// Criando o cliente com a chave de serviço para operações administrativas
-// OBS: Essa chave normalmente não deve ser exposta no frontend
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey)
 
 // Tipo para os líderes da igreja
 export type Leader = {
@@ -130,8 +134,8 @@ export async function uploadImage(file: File, bucket: string = 'leaders'): Promi
 
     console.log(`Fazendo upload para o bucket: ${bucket}`)
     
-    // Usar cliente admin para eventos, supabase normal para outros buckets
-    const client = bucket === 'events' ? supabaseAdmin : supabase
+    // Usar sempre o cliente padrão - todas as operações são controladas por RLS
+    const client = supabase
     
     // Fazer upload do arquivo
     const { data, error } = await client.storage

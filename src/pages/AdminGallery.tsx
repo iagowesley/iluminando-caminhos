@@ -11,7 +11,6 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Loader2, Pencil, Trash2, Plus, Save, X, Upload, Image as ImageIcon, Filter } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import PageLayout from "@/components/PageLayout";
-import { supabaseAdmin } from "@/lib/supabase";
 import AdminAuth from "@/components/AdminAuth";
 
 export default function AdminGallery() {

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase, supabaseAdmin, Event, eventCategories, uploadImage } from "@/lib/supabase";
+import { supabase, Event, eventCategories, uploadImage } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -67,7 +67,7 @@ export default function AdminEvents() {
   async function fetchEvents() {
     try {
       setLoading(true);
-      const { data, error } = await supabaseAdmin
+      const { data, error } = await supabase
         .from('events')
         .select('*')
         .order('created_at', { ascending: false });
@@ -192,7 +192,7 @@ export default function AdminEvents() {
 
       if (selectedEvent?.id) {
         // Atualizar evento existente
-        const { data, error } = await supabaseAdmin
+        const { data, error } = await supabase
           .from('events')
           .update(eventData)
           .eq('id', selectedEvent.id)
@@ -213,7 +213,7 @@ export default function AdminEvents() {
         });
       } else {
         // Adicionar novo evento
-        const { data, error } = await supabaseAdmin
+        const { data, error } = await supabase
           .from('events')
           .insert(eventData)
           .select();
@@ -254,7 +254,7 @@ export default function AdminEvents() {
     
     try {
       setFormLoading(true);
-      const { error } = await supabaseAdmin
+      const { error } = await supabase
         .from('events')
         .delete()
         .eq('id', selectedEvent.id);
