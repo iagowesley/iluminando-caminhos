@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { supabase, Leader } from "@/lib/supabase";
 import { Loader2 } from "lucide-react";
 
-const LeaderCard = ({ name, role, image, shortDescription }: Leader) => {
+const LeaderCard = ({ name, role, image, shortdescription }: Leader) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 rounded-2xl">
       <div className="relative h-64">
@@ -24,7 +24,7 @@ const LeaderCard = ({ name, role, image, shortDescription }: Leader) => {
         </div>
       </div>
       <CardContent className="p-4">
-        <p className="text-gray-600 text-sm">{shortDescription}</p>
+        <p className="text-gray-600 text-sm">{shortdescription}</p>
       </CardContent>
     </Card>
   );

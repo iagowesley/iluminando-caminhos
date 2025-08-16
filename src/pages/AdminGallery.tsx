@@ -143,7 +143,7 @@ export default function AdminGallery() {
       let imageUrl = formData.src;
       if (imageFile) {
         setUploadLoading(true);
-        imageUrl = await uploadImage(imageFile, 'gallery') || '';
+        imageUrl = await uploadImage(imageFile, 'photos') || '';
         
         if (!imageUrl) {
           toast({

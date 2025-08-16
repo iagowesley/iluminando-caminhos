@@ -21,7 +21,7 @@ export type Leader = {
   name: string
   role: string
   image: string
-  shortDescription: string
+  shortdescription: string
   created_at?: string
 }
 

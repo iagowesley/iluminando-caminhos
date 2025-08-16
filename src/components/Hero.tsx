@@ -10,7 +10,9 @@ const churchSlides = [
     info: "Unidos em fé, esperança e amor."
   },
   {
-    image: "/images/semana-santa.png"
+    image: "/images/desenvolvimento-voluntario.jpg",
+    title: "Nossa missão",
+    info: "Proclamar o evangelho eterno no contexto da mensagem dos três anjos de Apocalipse 14."
   },
   
   {

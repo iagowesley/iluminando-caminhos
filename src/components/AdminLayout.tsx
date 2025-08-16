@@ -46,7 +46,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                 <Button
                   variant="ghost"
                   className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
-                  onClick={() => navigate('/admin/estudos')}
+                  onClick={() => navigate('/admin/estudos-biblicos')}
                 >
                   <BookOpen className="h-4 w-4 mr-2" />
                   Estudos Bíblicos

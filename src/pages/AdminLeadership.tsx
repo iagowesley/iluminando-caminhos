@@ -22,7 +22,7 @@ export default function AdminLeadership() {
     name: "",
     role: "",
     image: "",
-    shortDescription: ""
+    shortdescription: ""
   });
   const [formLoading, setFormLoading] = useState(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -103,7 +103,7 @@ export default function AdminLeadership() {
       name: "",
       role: "",
       image: "",
-      shortDescription: ""
+      shortdescription: ""
     });
     setImageFile(null);
     setImagePreview(null);
@@ -127,7 +127,7 @@ export default function AdminLeadership() {
     try {
       setFormLoading(true);
       
-      if (!formData.name || !formData.role || !(formData.image || imageFile) || !formData.shortDescription) {
+      if (!formData.name || !formData.role || !(formData.image || imageFile) || !formData.shortdescription) {
         toast({
           title: "Erro",
           description: "Preencha todos os campos",
@@ -158,7 +158,7 @@ export default function AdminLeadership() {
         name: formData.name,
         role: formData.role,
         image: imageUrl,
-        shortDescription: formData.shortDescription
+        shortdescription: formData.shortdescription
       };
 
       if (selectedLeader?.id) {
@@ -291,7 +291,7 @@ export default function AdminLeadership() {
                           </div>
                         </TableCell>
                         <TableCell>{leader.role}</TableCell>
-                        <TableCell className="max-w-xs truncate">{leader.shortDescription}</TableCell>
+                        <TableCell className="max-w-xs truncate">{leader.shortdescription}</TableCell>
                         <TableCell className="text-right">
                           <Button 
                             variant="ghost" 
@@ -404,11 +404,11 @@ export default function AdminLeadership() {
               </div>
             </div>
             <div className="grid gap-2">
-              <label htmlFor="shortDescription" className="text-sm font-medium">Descrição Breve</label>
+              <label htmlFor="shortdescription" className="text-sm font-medium">Descrição Breve</label>
               <Textarea
-                id="shortDescription"
-                name="shortDescription"
-                value={formData.shortDescription}
+                id="shortdescription"
+                name="shortdescription"
+                value={formData.shortdescription}
                 onChange={handleInputChange}
                 placeholder="Breve descrição do líder"
                 rows={3}

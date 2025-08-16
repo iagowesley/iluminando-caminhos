@@ -53,22 +53,8 @@ const App = () => (
             <Route path="/contato" element={<Contact />} />
             <Route path="/escalas" element={<Schedules />} />
             <Route path="/admin/escalas" element={<AdminSchedules />} />
-            <Route
-              path="/admin/estudos-biblicos"
-              element={
-                <AdminLayout>
-                  <AdminBibleStudies />
-                </AdminLayout>
-              }
-            />
-            <Route
-              path="/admin/eventos"
-              element={
-                <AdminLayout>
-                  <AdminEvents />
-                </AdminLayout>
-              }
-            />
+            <Route path="/admin/estudos-biblicos" element={<AdminBibleStudies />} />
+            <Route path="/admin/eventos" element={<AdminEvents />} />
             <Route path="/projetos-sociais" element={<SocialProjects />} />
             <Route path="/estudos-biblicos" element={<BibleStudies />} />
             <Route path="/faq" element={<FAQ />} />

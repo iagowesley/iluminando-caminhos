@@ -61,12 +61,12 @@ const navigation: NavigationItem[] = [
     submenu: false
   },
   { 
-    name: "Dízimos e Ofertas", 
+    name: "Dízimos e ofertas", 
     href: "/dizimos-ofertas",
     submenu: true,
     items: [
-      { name: "Sobre Dízimos e Ofertas", href: "/dizimos-ofertas" },
-      { name: "Contribuir Agora", href: "https://giving.7me.app/guest-donation/church/fa6d3669-cc8a-4f33-8eae-a68136df3af9", external: true }
+      { name: "Sobre dízimos e ofertas", href: "/dizimos-ofertas" },
+      { name: "Contribuir agora", href: "https://giving.7me.app/guest-donation/church/fa6d3669-cc8a-4f33-8eae-a68136df3af9", external: true }
     ]
   }
 ];
