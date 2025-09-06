@@ -20,7 +20,7 @@ export default function Tithes() {
             decorator={true}
           />
 
-          <div className="max-w-4xl mx-auto mt-12 bg-white p-8 rounded-lg shadow-md">
+          <div className="max-w-4xl mx-auto mt-12 bg-white p-8 shadow-md">
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-church-blue mb-4">O Que é o Dízimo?</h3>
               <p className="text-gray-700 mb-4">
@@ -57,7 +57,7 @@ export default function Tithes() {
                 href="https://giving.7me.app/guest-donation/church/fa6d3669-cc8a-4f33-8eae-a68136df3af9" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-church-blue text-white text-lg font-semibold rounded-lg hover:bg-church-darkBlue transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center px-8 py-4 bg-church-blue text-white text-lg font-semibold hover:bg-church-darkBlue transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 <Heart className="mr-2 h-5 w-5" />
                 Quero Contribuir
@@ -70,7 +70,7 @@ export default function Tithes() {
           </div>
 
           <div className="max-w-4xl mx-auto mt-12">
-            <div className="bg-church-gray p-6 rounded-lg">
+            <div className="bg-church-gray p-6">
               <h3 className="text-xl font-bold text-church-blue mb-4">Perguntas Frequentes</h3>
               
               <div className="space-y-4">

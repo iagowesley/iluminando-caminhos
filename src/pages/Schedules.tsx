@@ -470,7 +470,7 @@ export default function Schedules() {
                 
                 {/* Navegação alternativa para dispositivos móveis */}
                 <div className="md:hidden">
-                  <div className="flex justify-between items-center mb-4 bg-church-gray rounded-lg p-3 shadow-sm">
+                  <div className="flex justify-between items-center mb-4 bg-church-gray p-3 shadow-sm">
                     <Button 
                       variant="ghost" 
                       size="icon" 
@@ -514,7 +514,7 @@ export default function Schedules() {
                     />
                   </div>
                   
-                  <div className="bg-white rounded-lg p-3 mb-4 shadow-sm border border-gray-100">
+                  <div className="bg-white p-3 mb-4 shadow-sm border border-gray-100">
                     <div className="flex items-center">
                       <Clock className="h-5 w-5 text-church-blue mr-2 flex-shrink-0" />
                       <span className="font-medium text-sm">
@@ -527,7 +527,7 @@ export default function Schedules() {
                     getVisibleSchedules(schedules.sunday).length > 0 ? (
                       <MobileSundayWednesdayView data={getVisibleSchedules(schedules.sunday)} />
                     ) : (
-                      <div className="text-center py-10 bg-white rounded-lg shadow-sm border border-gray-100">
+                      <div className="text-center py-10 bg-white shadow-sm border border-gray-100">
                         <p className="text-gray-500">Nenhuma escala cadastrada para este culto.</p>
                       </div>
                     )
@@ -537,7 +537,7 @@ export default function Schedules() {
                     getVisibleSchedules(schedules.wednesday).length > 0 ? (
                       <MobileSundayWednesdayView data={getVisibleSchedules(schedules.wednesday)} />
                     ) : (
-                      <div className="text-center py-10 bg-white rounded-lg shadow-sm border border-gray-100">
+                      <div className="text-center py-10 bg-white shadow-sm border border-gray-100">
                         <p className="text-gray-500">Nenhuma escala cadastrada para este culto.</p>
                       </div>
                     )
@@ -547,7 +547,7 @@ export default function Schedules() {
                     getVisibleSchedules(schedules.sabbath).length > 0 ? (
                       <MobileSabbathView data={getVisibleSchedules(schedules.sabbath)} />
                     ) : (
-                      <div className="text-center py-10 bg-white rounded-lg shadow-sm border border-gray-100">
+                      <div className="text-center py-10 bg-white shadow-sm border border-gray-100">
                         <p className="text-gray-500">Nenhuma escala cadastrada para este culto.</p>
                       </div>
                     )
@@ -556,7 +556,7 @@ export default function Schedules() {
               </>
             )}
             
-            <div className="mt-8 sm:mt-12 bg-church-gray p-4 sm:p-6 rounded-lg shadow-sm">
+            <div className="mt-8 sm:mt-12 bg-church-gray p-4 sm:p-6 shadow-sm">
               <h3 className="text-lg sm:text-xl font-bold text-church-darkBlue mb-3 sm:mb-4">Informações Importantes</h3>
               <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base">
                 <li className="flex items-start">

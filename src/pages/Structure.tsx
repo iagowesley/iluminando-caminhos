@@ -29,17 +29,17 @@ const Structure = () => {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-              <div className="bg-church-gray rounded-lg p-6 flex flex-col items-center">
+              <div className="bg-church-gray p-6 flex flex-col items-center">
                 <div className="text-4xl font-bold text-church-blue mb-2">4</div>
                 <p className="text-gray-700">Níveis Administrativos</p>
               </div>
               
-              <div className="bg-church-gray rounded-lg p-6 flex flex-col items-center">
+              <div className="bg-church-gray p-6 flex flex-col items-center">
                 <div className="text-4xl font-bold text-church-blue mb-2">13</div>
                 <p className="text-gray-700">Divisões Mundiais</p>
               </div>
               
-              <div className="bg-church-gray rounded-lg p-6 flex flex-col items-center">
+              <div className="bg-church-gray p-6 flex flex-col items-center">
                 <div className="text-4xl font-bold text-church-blue mb-2">150K+</div>
                 <p className="text-gray-700">Congregações</p>
               </div>
@@ -51,7 +51,7 @@ const Structure = () => {
               
               <div className="flex flex-col items-center">
                 {/* Associação Geral */}
-                <div className="bg-church-blue text-white p-5 rounded-lg shadow-lg mb-8 w-full max-w-xl text-center">
+                <div className="bg-church-blue text-white p-5 shadow-lg mb-8 w-full max-w-xl text-center">
                   <h4 className="font-bold text-xl mb-3 border-b border-white/20 pb-2">ASSOCIAÇÃO GERAL</h4>
                   <div className="space-y-1">
                     <p><span className="font-semibold">Presidente:</span> Ted N.C. Wilson</p>
@@ -64,7 +64,7 @@ const Structure = () => {
                 <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-church-blue/60 mb-8"></div>
                 
                 {/* Divisão Sul-Americana */}
-                <div className="bg-church-blue/90 text-white p-5 rounded-lg shadow-lg mb-8 w-full max-w-xl text-center">
+                <div className="bg-church-blue/90 text-white p-5 shadow-lg mb-8 w-full max-w-xl text-center">
                   <h4 className="font-bold text-xl mb-3 border-b border-white/20 pb-2">DIVISÃO SUL-AMERICANA</h4>
                   <div className="space-y-1">
                     <p><span className="font-semibold">Presidente:</span> Stanley Arco</p>
@@ -79,7 +79,7 @@ const Structure = () => {
                 <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-church-blue/60 mb-8"></div>
                 
                 {/* União Nordeste Brasileira */}
-                <div className="bg-church-blue/80 text-white p-5 rounded-lg shadow-lg mb-8 w-full max-w-xl text-center">
+                <div className="bg-church-blue/80 text-white p-5 shadow-lg mb-8 w-full max-w-xl text-center">
                   <h4 className="font-bold text-xl mb-3 border-b border-white/20 pb-2">UNIÃO NORDESTE BRASILEIRA</h4>
                   <div className="space-y-1">
                     <p><span className="font-semibold">Presidente:</span> Pr. Alijofran Brandão</p>
@@ -93,7 +93,7 @@ const Structure = () => {
                 <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-church-blue/60 mb-8"></div>
                 
                 {/* Associação Cearense */}
-                <div className="bg-church-blue/70 text-white p-5 rounded-lg shadow-lg mb-8 w-full max-w-xl text-center">
+                <div className="bg-church-blue/70 text-white p-5 shadow-lg mb-8 w-full max-w-xl text-center">
                   <h4 className="font-bold text-xl mb-3 border-b border-white/20 pb-2">ASSOCIAÇÃO CEARENSE</h4>
                   <div className="space-y-1">
                     <p><span className="font-semibold">Presidente:</span> Pr. Marcos Militão</p>
@@ -108,7 +108,7 @@ const Structure = () => {
                 <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-church-blue/60 mb-8"></div>
                 
                 {/* Igreja Local */}
-                <div className="bg-church-blue/60 text-white p-5 rounded-lg shadow-lg w-full max-w-xl text-center">
+                <div className="bg-church-blue/60 text-white p-5 shadow-lg w-full max-w-xl text-center">
                   <h4 className="font-bold text-xl mb-2 border-b border-white/20 pb-2">IGREJA LOCAL</h4>
                   <p className="text-sm">A comunidade de fiéis liderada por pastores e anciãos locais</p>
                 </div>
@@ -206,7 +206,7 @@ const Structure = () => {
                       As decisões nas Associações são tomadas por delegados eleitos pelas igrejas locais durante assembleias periódicas (geralmente a cada 3-4 anos).
                     </p>
                     
-                    <div className="mt-6 p-4 bg-church-gray/40 rounded-lg">
+                    <div className="mt-6 p-4 bg-church-gray/40">
                       <h5 className="font-medium text-church-darkBlue mb-2">Associação Cearense</h5>
                       <ul className="text-sm space-y-1">
                         <li><span className="font-medium">Presidente:</span> Pr. Marcos Militão</li>
@@ -246,7 +246,7 @@ const Structure = () => {
                       A liderança das Uniões é eleita durante assembleias quinquenais por delegados das Associações e Missões.
                     </p>
                     
-                    <div className="mt-6 p-4 bg-church-gray/40 rounded-lg">
+                    <div className="mt-6 p-4 bg-church-gray/40">
                       <h5 className="font-medium text-church-darkBlue mb-2">União Nordeste Brasileira</h5>
                       <ul className="text-sm space-y-1">
                         <li><span className="font-medium">Presidente:</span> Pr. Alijofran Brandão</li>
@@ -266,7 +266,7 @@ const Structure = () => {
                       A Conferência Geral é a autoridade máxima administrativa da Igreja Adventista do Sétimo Dia, representando a igreja global.
                     </p>
                     
-                    <div className="mt-4 mb-6 p-4 bg-church-gray/40 rounded-lg">
+                    <div className="mt-4 mb-6 p-4 bg-church-gray/40">
                       <h5 className="font-medium text-church-darkBlue mb-2">Associação Geral</h5>
                       <ul className="text-sm space-y-1">
                         <li><span className="font-medium">Presidente:</span> Ted N.C. Wilson</li>
@@ -274,7 +274,7 @@ const Structure = () => {
                       </ul>
                     </div>
                     
-                    <div className="mb-6 p-4 bg-church-gray/40 rounded-lg">
+                    <div className="mb-6 p-4 bg-church-gray/40">
                       <h5 className="font-medium text-church-darkBlue mb-2">Divisão Sul-Americana</h5>
                       <ul className="text-sm space-y-1">
                         <li><span className="font-medium">Presidente:</span> Stanley Arco</li>
@@ -333,7 +333,7 @@ const Structure = () => {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl p-8 shadow-md">
+              <div className="bg-white p-8 shadow-md">
                 <div className="flex items-center mb-4">
                   <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center mr-4 text-xl font-bold">1</div>
                   <h3 className="text-xl font-bold text-church-darkBlue">Representatividade</h3>
@@ -343,7 +343,7 @@ const Structure = () => {
                 </p>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-md">
+              <div className="bg-white p-8 shadow-md">
                 <div className="flex items-center mb-4">
                   <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center mr-4 text-xl font-bold">2</div>
                   <h3 className="text-xl font-bold text-church-darkBlue">Unidade na Diversidade</h3>
@@ -353,7 +353,7 @@ const Structure = () => {
                 </p>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-md">
+              <div className="bg-white p-8 shadow-md">
                 <div className="flex items-center mb-4">
                   <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center mr-4 text-xl font-bold">3</div>
                   <h3 className="text-xl font-bold text-church-darkBlue">Transparência</h3>
@@ -363,7 +363,7 @@ const Structure = () => {
                 </p>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-md">
+              <div className="bg-white p-8 shadow-md">
                 <div className="flex items-center mb-4">
                   <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center mr-4 text-xl font-bold">4</div>
                   <h3 className="text-xl font-bold text-church-darkBlue">Cooperação</h3>
@@ -374,7 +374,7 @@ const Structure = () => {
               </div>
             </div>
             
-            <div className="mt-12 bg-white p-8 rounded-xl shadow-md">
+            <div className="mt-12 bg-white p-8 shadow-md">
               <h3 className="text-xl font-bold text-church-darkBlue mb-4 text-center">Aplicação Prática</h3>
               <p className="text-gray-700">
                 Estes princípios se manifestam em reuniões regulares de comissões, assembleias representativas, sistemas financeiros 

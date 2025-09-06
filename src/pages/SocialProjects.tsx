@@ -14,7 +14,7 @@ interface ProjectProps {
 
 const Project = ({ title, description, image, impact, buttonText, buttonLink }: ProjectProps) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-white shadow-lg overflow-hidden">
       <div className="relative h-64">
         <img 
           src={image} 
@@ -25,7 +25,7 @@ const Project = ({ title, description, image, impact, buttonText, buttonLink }: 
       <div className="p-6">
         <h3 className="text-2xl font-serif text-church-blue mb-4">{title}</h3>
         <p className="text-gray-700 mb-4">{description}</p>
-        <div className="bg-church-gray p-4 rounded-md mb-4">
+        <div className="bg-church-gray p-4 mb-4">
           <h4 className="font-medium text-church-blue mb-2">Impacto</h4>
           <p className="text-gray-700">{impact}</p>
         </div>

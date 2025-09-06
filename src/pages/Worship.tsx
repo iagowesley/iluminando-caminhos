@@ -77,32 +77,25 @@ const Worship = () => {
                         
                         <div className="pl-9">
                           <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">8h30 - Escola Sabatina</h5>
+                            <h5 className="font-medium text-church-blue">8h30 - Início</h5>
+                           
+                          </div>
+                          <div className="mb-4">
+                            <h5 className="font-medium text-church-blue">9h - Escola sabatina</h5>
                             <p className="text-gray-700 mt-1">
-                              Estudo sistemático da Bíblia em classes por faixa etária.
+                            Estudo sistemático da Bíblia em classes por faixa etária.
                             </p>
                           </div>
-                          
                           <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">10h45 - Culto Divino</h5>
+                            <h5 className="font-medium text-church-blue">10h - Culto Divino</h5>
                             <p className="text-gray-700 mt-1">
                               Momento principal de adoração com louvor, oração e pregação da Palavra.
                             </p>
                           </div>
                           
-                          <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">16h00 - Culto Jovem</h5>
-                            <p className="text-gray-700 mt-1">
-                              Programação especial para jovens e adolescentes com música, testemunhos e atividades.
-                            </p>
-                          </div>
                           
-                          <div>
-                            <h5 className="font-medium text-church-blue">17h30 - Culto de Pôr-do-Sol</h5>
-                            <p className="text-gray-700 mt-1">
-                              Encerramento do sábado com louvor e reflexão espiritual.
-                            </p>
-                          </div>
+                          
+                         
                         </div>
                       </div>
                       
@@ -114,10 +107,8 @@ const Worship = () => {
                         
                         <div className="pl-9">
                           <div className="mb-4">
-                            <h5 className="font-medium text-church-blue">8h00 - Clube de Desbravadores</h5>
-                            <p className="text-gray-700 mt-1">
-                              Projetos para crianças e adolescentes entre 10 a 15 anos.
-                            </p>
+                            <h5 className="font-medium text-church-blue">19h - Culto</h5>
+                          
                           </div>
                         </div>
                       </div>
@@ -262,7 +253,7 @@ const Worship = () => {
                       </p>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                        <div className="bg-church-gray rounded-lg p-4">
+                        <div className="bg-church-gray p-4">
                           <div className="flex items-center mb-3">
                             <Calendar className="h-5 w-5 text-church-blue mr-2" />
                             <h5 className="font-medium text-church-darkBlue">Lição Trimestral</h5>
@@ -272,7 +263,7 @@ const Worship = () => {
                           </p>
                         </div>
                         
-                        <div className="bg-church-gray rounded-lg p-4">
+                        <div className="bg-church-gray p-4">
                           <div className="flex items-center mb-3">
                             <Users className="h-5 w-5 text-church-blue mr-2" />
                             <h5 className="font-medium text-church-darkBlue">Discussão em Grupo</h5>
@@ -364,21 +355,21 @@ const Worship = () => {
                       <h4 className="text-lg font-medium text-church-blue mb-3">Outros Estudos Bíblicos</h4>
                       
                       <div className="space-y-4 mt-4">
-                        <div className="bg-church-gray rounded-lg p-4">
+                        <div className="bg-church-gray p-4">
                           <h5 className="font-medium text-church-darkBlue mb-2">Pequenos Grupos</h5>
                           <p className="text-gray-700 text-sm">
                             Reuniões semanais em lares, onde membros e interessados estudam a Bíblia em um ambiente informal e acolhedor.
                           </p>
                         </div>
                         
-                        <div className="bg-church-gray rounded-lg p-4">
+                        <div className="bg-church-gray p-4">
                           <h5 className="font-medium text-church-darkBlue mb-2">Estudos Bíblicos Personalizados</h5>
                           <p className="text-gray-700 text-sm">
                             Disponíveis para indivíduos ou famílias que desejam um estudo mais personalizado, conduzido por um instrutor bíblico.
                           </p>
                         </div>
                         
-                        <div className="bg-church-gray rounded-lg p-4">
+                        <div className="bg-church-gray p-4">
                           <h5 className="font-medium text-church-darkBlue mb-2">Seminários Bíblicos</h5>
                           <p className="text-gray-700 text-sm">
                             Cursos especiais oferecidos periodicamente sobre temas específicos como profecia, família, saúde ou princípios financeiros.
@@ -405,7 +396,7 @@ const Worship = () => {
           
           <div className="mt-12 max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="relative overflow-hidden rounded-2xl shadow-lg group">
+              <div className="relative overflow-hidden shadow-lg group">
                 <img 
                   src="/images/santa-ceia.jpeg" 
                   alt="Santa Ceia" 
@@ -422,7 +413,7 @@ const Worship = () => {
               </div>
               
               <div className="flex flex-col justify-between h-full">
-                <div className="bg-white rounded-2xl shadow-md p-6 mb-4 flex items-start">
+                <div className="bg-white shadow-md p-6 mb-4 flex items-start">
                   <div className="flex-shrink-0 mr-4">
                     <div className="w-12 h-12 bg-church-blue rounded-full flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -438,7 +429,7 @@ const Worship = () => {
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-2xl shadow-md p-6">
+                <div className="bg-white shadow-md p-6">
                   <h3 className="text-xl font-bold text-church-darkBlue mb-3">Significado</h3>
                   <p className="text-gray-700 mb-4">
                     Celebrada trimestralmente, a Santa Ceia é precedida pelo rito de humildade (lava-pés), simbolizando purificação e serviço. A cerimônia inclui o pão sem fermento e o suco de uva, representando o corpo e o sangue de Cristo.
@@ -454,7 +445,7 @@ const Worship = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="bg-white shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src="/images/batismo.jpg" 
@@ -479,7 +470,7 @@ const Worship = () => {
                 </div>
               </div>
               
-              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="bg-white shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src="/images/dedicacao-criancas.jpeg" 
@@ -504,7 +495,7 @@ const Worship = () => {
                 </div>
               </div>
               
-              <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="bg-white shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src="/images/casamento.jpeg" 
@@ -530,7 +521,7 @@ const Worship = () => {
               </div>
             </div>
             
-            <div className="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-md">
+            <div className="mt-12 bg-white p-6 sm:p-8 shadow-md">
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-6">
                 <div className="flex-shrink-0 w-16 h-16 bg-church-blue/10 rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-church-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -546,13 +537,13 @@ const Worship = () => {
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <a href="/contato" className="inline-flex items-center justify-center py-3 px-6 bg-church-blue text-white rounded-lg hover:bg-church-darkBlue transition-colors duration-300">
+                <a href="/contato" className="inline-flex items-center justify-center py-3 px-6 bg-church-blue text-white hover:bg-church-darkBlue transition-colors duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   Entre em Contato
                 </a>
-                <a href="/eventos" className="inline-flex items-center justify-center py-3 px-6 bg-white border border-church-blue text-church-blue rounded-lg hover:bg-church-blue/5 transition-colors duration-300">
+                <a href="/eventos" className="inline-flex items-center justify-center py-3 px-6 bg-white border border-church-blue text-church-blue hover:bg-church-blue/5 transition-colors duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
@@ -581,7 +572,7 @@ const Worship = () => {
               Para encontrar a igreja mais próxima, visite nosso site ou entre em contato pelos canais abaixo:
             </p>
             
-            <div className="bg-church-gray p-6 rounded-lg inline-block">
+            <div className="bg-church-gray p-6 inline-block">
               <p className="text-gray-700 mb-2">
                 <span className="font-semibold">E-mail:</span> contato@adventistas.org
               </p>

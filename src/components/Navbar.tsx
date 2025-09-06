@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, MapPin, Heart } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Heart, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type NavigationItem = {
@@ -68,6 +68,12 @@ const navigation: NavigationItem[] = [
       { name: "Sobre dízimos e ofertas", href: "/dizimos-ofertas" },
       { name: "Contribuir agora", href: "https://giving.7me.app/guest-donation/church/fa6d3669-cc8a-4f33-8eae-a68136df3af9", external: true }
     ]
+  },
+  { 
+    name: "Instagram", 
+    href: "https://www.instagram.com/iasdcentralrussas/",
+    submenu: false,
+    external: true
   }
 ];
 
@@ -168,19 +174,32 @@ export default function Navbar() {
                     rel="noopener noreferrer"
                     className={`
                       text-base font-medium transition-colors duration-200 ease-in-out flex items-center
-                      ${item.name === "Dízimos e Ofertas"
+                      ${item.name === "Dízimos e ofertas"
                         ? "bg-church-blue text-white hover:bg-church-darkBlue px-4 py-2 rounded-full"
-                        : scrolled || !isHomePage
-                          ? "text-gray-600 hover:text-church-blue" 
-                          : "text-white hover:text-white"}
+                        : item.name === "Instagram"
+                          ? `rounded-full transition-colors duration-200 ${
+                              scrolled || !isHomePage
+                                ? "text-gray-600 hover:text-pink-500" 
+                                : "text-white hover:text-pink-300"
+                            }`
+                          : scrolled || !isHomePage
+                            ? "text-gray-600 hover:text-church-blue" 
+                            : "text-white hover:text-white"}
                     `}
                   >
-                    {item.name === "Dízimos e Ofertas" ? (
-                      <Heart className="mr-1 h-4 w-4" />
+                    {item.name === "Dízimos e ofertas" ? (
+                      <>
+                        <Heart className="mr-1 h-4 w-4" />
+                        {item.name}
+                      </>
+                    ) : item.name === "Instagram" ? (
+                      <Instagram className="h-5 w-5 translate-y-0.5" />
                     ) : (
-                      <MapPin className="mr-1 h-4 w-4" />
+                      <>
+                        <MapPin className="mr-1 h-4 w-4" />
+                        {item.name}
+                      </>
                     )}
-                    {item.name}
                   </a>
                 ) : (
                   <NavLink
@@ -291,15 +310,19 @@ export default function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`block py-2 text-xl font-medium transition-colors ${
-                        item.name === "Dízimos e Ofertas"
+                        item.name === "Dízimos e ofertas"
                           ? "text-white bg-church-blue px-4 py-2 rounded-md"
-                          : "text-gray-600 hover:text-church-blue"
+                          : item.name === "Instagram"
+                            ? "text-pink-600 hover:text-pink-700"
+                            : "text-gray-600 hover:text-church-blue"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
-                        {item.name === "Dízimos e Ofertas" ? (
+                        {item.name === "Dízimos e ofertas" ? (
                           <Heart className="mr-2 h-5 w-5" />
+                        ) : item.name === "Instagram" ? (
+                          <Instagram className="mr-2 h-5 w-5" />
                         ) : (
                           <MapPin className="mr-2 h-5 w-5" />
                         )}

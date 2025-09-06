@@ -37,7 +37,7 @@ const Mission = () => {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="bg-church-gray rounded-xl p-6 transition-all duration-300 hover:shadow-lg">
+              <div className="bg-church-gray p-6 transition-all duration-300 hover:shadow-lg">
                 <div className="flex items-center justify-center mb-4">
                   <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center text-xl font-bold">1</div>
                 </div>
@@ -47,7 +47,7 @@ const Mission = () => {
                 </p>
               </div>
               
-              <div className="bg-church-gray rounded-xl p-6 transition-all duration-300 hover:shadow-lg">
+              <div className="bg-church-gray p-6 transition-all duration-300 hover:shadow-lg">
                 <div className="flex items-center justify-center mb-4">
                   <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center text-xl font-bold">2</div>
                 </div>
@@ -57,7 +57,7 @@ const Mission = () => {
                 </p>
               </div>
               
-              <div className="bg-church-gray rounded-xl p-6 transition-all duration-300 hover:shadow-lg">
+              <div className="bg-church-gray p-6 transition-all duration-300 hover:shadow-lg">
                 <div className="flex items-center justify-center mb-4">
                   <div className="h-12 w-12 rounded-full bg-church-blue text-white flex items-center justify-center text-xl font-bold">3</div>
                 </div>
@@ -211,7 +211,7 @@ const Mission = () => {
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 shadow-lg hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-sm p-6 border border-white/20 shadow-lg hover:transform hover:scale-105 transition-all duration-300">
               <div className="bg-white/20 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
                 <HeartHandshake className="h-8 w-8 text-white" />
               </div>
@@ -221,7 +221,7 @@ const Mission = () => {
               </p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 shadow-lg hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-sm p-6 border border-white/20 shadow-lg hover:transform hover:scale-105 transition-all duration-300">
               <div className="bg-white/20 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
@@ -233,7 +233,7 @@ const Mission = () => {
               </p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 shadow-lg hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-sm p-6 border border-white/20 shadow-lg hover:transform hover:scale-105 transition-all duration-300">
               <div className="bg-white/20 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
                 <Users className="h-8 w-8 text-white" />
               </div>
@@ -243,7 +243,7 @@ const Mission = () => {
               </p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 shadow-lg hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-sm p-6 border border-white/20 shadow-lg hover:transform hover:scale-105 transition-all duration-300">
               <div className="bg-white/20 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3Z"></path>

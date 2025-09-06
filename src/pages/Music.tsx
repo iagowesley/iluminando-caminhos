@@ -25,32 +25,11 @@ interface SongProps {
 
 const musicGroups: MusicGroupProps[] = [
   {
-    title: "Coral Principal",
-    description: "O Coral da IASD Central Russas existe desde a fundação da igreja e é composto por mais de 30 membros dedicados ao louvor. O repertório inclui hinos tradicionais, músicas sacras contemporâneas e arranjos especiais para datas comemorativas.",
+    title: "Coral Jovem",
+    description: "O Coral Jovem da IASD Central Russas é composto por mais de 10 membros dedicados ao louvor. O repertório inclui hinos tradicionais, músicas sacras contemporâneas e arranjos especiais para datas comemorativas.",
     image: "/images/coral.jpg",
     schedule: "Ensaios: Quartas, 19h30 e Sábados, 15h",
     director: "Roberta Santos"
-  },
-  {
-    title: "Grupo Jovem de Louvor",
-    description: "Formado por jovens talentosos da igreja, o grupo lidera a adoração nos cultos jovens e programas especiais. Com instrumentação completa, oferece um louvor contemporâneo mantendo a reverência e foco espiritual.",
-    image: "/images/Coral-jovens.jpg",
-    schedule: "Ensaios: Sextas, 20h30",
-    director: "Leonardo Mendes"
-  },
-  {
-    title: "Conjunto Infantil",
-    description: "As crianças da igreja participam ativamente do ministério musical através deste grupo. Com vozes angelicais, apresentam músicas especiais na Escola Sabatina infantil e em programações especiais, desenvolvendo desde cedo seus talentos musicais.",
-    image: "/images/coral-infantil.jpg",
-    schedule: "Ensaios: Sábados, 14h",
-    director: "Patrícia Oliveira"
-  },
-  {
-    title: "Quarteto Masculino",
-    description: "Um grupo tradicional que preserva a beleza da música a cappella e harmonizações em quatro vozes. Conhecido por suas interpretações profundas e espirituais de hinos tradicionais e contemporâneos.",
-    image: "/images/coral-homens.jpg",
-    schedule: "Ensaios: Domingos, 18h",
-    director: "Ricardo Almeida"
   }
 ];
 
