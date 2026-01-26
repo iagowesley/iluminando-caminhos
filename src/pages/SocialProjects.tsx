@@ -16,9 +16,9 @@ const Project = ({ title, description, image, impact, buttonText, buttonLink }: 
   return (
     <div className="bg-white shadow-lg overflow-hidden">
       <div className="relative h-64">
-        <img 
-          src={image} 
-          alt={title} 
+        <img
+          src={image}
+          alt={title}
           className="w-full h-full object-cover"
         />
       </div>
@@ -93,7 +93,7 @@ const projects: ProjectProps[] = [
 export default function SocialProjects() {
   return (
     <main>
-      <Hero 
+      <Hero
         title="Projetos Sociais"
         subtitle="Servindo à comunidade com amor e compaixão"
         backgroundImage="https://images.unsplash.com/photo-1469571486292-b53376e58b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
@@ -102,24 +102,24 @@ export default function SocialProjects() {
 
       <section className="py-20 bg-church-gray">
         <div className="container mx-auto px-6">
-          <SectionTitle 
-            title="Nossos Projetos"
+          <SectionTitle
+            title="Nossos projetos"
             subtitle="Amor em ação através de diversas iniciativas sociais"
             accent={true}
             ornate={true}
           />
-          
+
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Project key={index} {...project} />
             ))}
           </div>
-          
+
           <div className="mt-20 text-center">
             <h3 className="text-2xl font-serif text-church-blue mb-4">Como Participar</h3>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
-              Você pode participar de nossos projetos sociais de diversas formas: como voluntário, 
-              através de doações financeiras ou de itens necessários, ou simplesmente divulgando 
+              Você pode participar de nossos projetos sociais de diversas formas: como voluntário,
+              através de doações financeiras ou de itens necessários, ou simplesmente divulgando
               nossas iniciativas. Cada contribuição faz diferença!
             </p>
             <div className="flex flex-wrap justify-center gap-4">

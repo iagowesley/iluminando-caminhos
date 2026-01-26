@@ -20,15 +20,15 @@ export default function BibleStudies() {
     try {
       setLoading(true);
       setError(null);
-      
+
       // Buscar todos os estudos
       const { data: studiesData, error: studiesError } = await supabase
         .from('bible_studies')
         .select('*')
         .order('created_at', { ascending: false });
-      
+
       if (studiesError) throw studiesError;
-      
+
       if (studiesData && studiesData.length > 0) {
         setStudies(studiesData);
       } else {
@@ -51,8 +51,8 @@ export default function BibleStudies() {
 
   return (
     <PageLayout>
-      <Hero 
-        title="Estudos Bíblicos" 
+      <Hero
+        title="Estudos Bíblicos"
         subtitle="Aprofunde seu conhecimento das escrituras"
         backgroundImage="/img/bible-studies-hero.jpg"
         size="medium"
@@ -61,7 +61,7 @@ export default function BibleStudies() {
       <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <SectionTitle
-            title="Nossos Estudos"
+            title="Nossos estudos"
             subtitle="Conhecimento e edificação para sua vida"
             accent={true}
             ornate={true}
@@ -86,14 +86,14 @@ export default function BibleStudies() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {studies.map((study) => (
-                <div 
-                  key={study.id} 
+                <div
+                  key={study.id}
                   className="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg"
                 >
                   <div className="flex flex-row h-56">
                     <div className="w-1/3 flex items-center justify-center p-2">
-                      <img 
-                        src={study.image} 
+                      <img
+                        src={study.image}
                         alt={study.title}
                         className="max-h-full max-w-full object-contain"
                       />
@@ -109,7 +109,7 @@ export default function BibleStudies() {
                         {study.description}
                       </p>
                       <div className="mt-auto">
-                        <a 
+                        <a
                           href={getWhatsAppLink(study)}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -134,7 +134,7 @@ export default function BibleStudies() {
             Deseja um estudo personalizado?
           </h2>
           <p className="mb-8 max-w-2xl mx-auto">
-            Entre em contato conosco para agendar um estudo bíblico personalizado 
+            Entre em contato conosco para agendar um estudo bíblico personalizado
             para você, sua família ou seu grupo de amigos.
           </p>
           <Link to="/contato">

@@ -85,39 +85,39 @@ const upcomingEvents = [
 
 export default function Music() {
   const [selectedSong, setSelectedSong] = useState<number | null>(null);
-  
+
   return (
     <PageLayout>
-      <Hero 
+      <Hero
         title="Ministério de Música"
         subtitle="Adorando a Deus através da música e louvores"
         backgroundImage="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
       />
-      
+
       <section className="py-12 bg-white">
         <div className="container mx-auto px-6">
-          <SectionTitle 
-            title="Nossos Grupos Musicais"
+          <SectionTitle
+            title="Nossos grupos musicais"
             subtitle="Conheça os talentos que enriquecem nossa adoração"
             accent={true}
             ornate={true}
           />
-          
+
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {musicGroups.map((group, index) => (
               <div key={index} className="bg-white shadow-md overflow-hidden">
                 <div className="h-48">
-                  <img 
-                    src={group.image} 
-                    alt={group.title} 
+                  <img
+                    src={group.image}
+                    alt={group.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-adventist text-church-blue mb-3">{group.title}</h3>
                   <p className="text-gray-700 mb-4 line-clamp-3">{group.description}</p>
-                  
+
                   <div className="border-t border-gray-100 pt-4 mt-4">
                     <div className="text-sm text-gray-600 flex items-center mb-2">
                       <Users className="h-4 w-4 mr-2 text-church-blue" />
@@ -134,31 +134,30 @@ export default function Music() {
           </div>
         </div>
       </section>
-      
+
       <section className="py-20 bg-church-gray">
         <div className="container mx-auto px-6">
-          <SectionTitle 
+          <SectionTitle
             title="Músicas em Destaque"
             subtitle="Ouça nossas gravações e apresentações"
             accent={true}
           />
-          
+
           <div className="mt-12 max-w-4xl mx-auto">
             {featuredSongs.map((song, index) => (
-              <div 
-                key={index} 
-                className={`flex flex-col md:flex-row bg-white shadow-md mb-8 ${
-                  selectedSong === index ? 'border-l-4 border-church-blue' : ''
-                }`}
+              <div
+                key={index}
+                className={`flex flex-col md:flex-row bg-white shadow-md mb-8 ${selectedSong === index ? 'border-l-4 border-church-blue' : ''
+                  }`}
               >
                 <div className="md:w-1/3 h-48 md:h-auto relative">
-                  <img 
-                    src={song.thumbnail} 
-                    alt={song.title} 
+                  <img
+                    src={song.thumbnail}
+                    alt={song.title}
                     className="w-full h-full object-cover"
                   />
                   {song.videoLink && (
-                    <div 
+                    <div
                       className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer"
                       onClick={() => setSelectedSong(selectedSong === index ? null : index)}
                     >
@@ -172,7 +171,7 @@ export default function Music() {
                   {song.album && (
                     <p className="text-sm text-gray-600 mb-4">Álbum: {song.album}</p>
                   )}
-                  
+
                   <div className="flex flex-wrap gap-3 mt-4">
                     {song.audioLink && (
                       <Button asChild variant="churchOutline" size="sm" className="flex items-center">
@@ -194,7 +193,7 @@ export default function Music() {
                       </Button>
                     )}
                   </div>
-                  
+
                   {selectedSong === index && song.videoLink && (
                     <div className="mt-6 aspect-video">
                       <iframe
@@ -212,18 +211,18 @@ export default function Music() {
           </div>
         </div>
       </section>
-      
+
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
-                <SectionTitle 
+                <SectionTitle
                   title="Eventos Musicais"
                   subtitle="Próximas apresentações"
                   accent={true}
                 />
-                
+
                 <div className="mt-8 space-y-6">
                   {upcomingEvents.map((event, index) => (
                     <div key={index} className="border-l-4 border-church-blue pl-4">
@@ -232,7 +231,7 @@ export default function Music() {
                       <p className="text-gray-700">{event.description}</p>
                     </div>
                   ))}
-                  
+
                   <div className="mt-8">
                     <Button asChild variant="church">
                       <Link to="/eventos">Ver Todos os Eventos</Link>
@@ -240,25 +239,25 @@ export default function Music() {
                   </div>
                 </div>
               </div>
-              
+
               <div>
-                <SectionTitle 
+                <SectionTitle
                   title="Participe"
                   subtitle="Use seus talentos musicais"
                   accent={true}
                 />
-                
+
                 <div className="mt-8">
                   <p className="text-gray-700 mb-4">
-                    Gostaria de participar do ministério de música? Temos oportunidades para 
+                    Gostaria de participar do ministério de música? Temos oportunidades para
                     cantores, instrumentistas e técnicos de som.
                   </p>
-                  
+
                   <p className="text-gray-700 mb-8">
-                    Entre em contato conosco para obter mais informações sobre como 
+                    Entre em contato conosco para obter mais informações sobre como
                     participar dos ensaios e conhecer os requisitos para cada grupo musical.
                   </p>
-                  
+
                   <Button asChild variant="church">
                     <Link to="/contato#musica">Quero Participar</Link>
                   </Button>

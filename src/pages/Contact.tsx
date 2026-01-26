@@ -56,13 +56,13 @@ export default function Contact() {
   useEffect(() => {
     if (formspreeState.succeeded) {
       setIsSuccess(true);
-      
+
       // Esconder mensagem de sucesso e resetar o formulário após 5 segundos
       const timer = setTimeout(() => {
         setIsSuccess(false);
         form.reset();
       }, 5000);
-      
+
       return () => clearTimeout(timer);
     }
   }, [formspreeState.succeeded, form]);
@@ -92,27 +92,27 @@ export default function Contact() {
 
   return (
     <PageLayout>
-      <Hero 
+      <Hero
         title="Entre em contato"
         subtitle="Estamos aqui para responder suas dúvidas e receber seus comentários"
         backgroundImage="/images/duvidas.jpg"
         size="medium"
       />
-      
+
       <section className="py-20 bg-white" id="contato">
         <div className="container mx-auto px-6">
-          <SectionTitle 
-            title="Fale Conosco"
+          <SectionTitle
+            title="Fale conosco"
             subtitle="Estamos disponíveis para atendê-lo"
             accent={true}
             ornate={true}
           />
-          
+
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <div className="bg-white shadow-lg rounded-xl p-8 border border-gray-100">
                 <h3 className="text-2xl font-bold text-church-blue mb-8 text-center">Informações de Contato</h3>
-                
+
                 <div className="space-y-8 max-w-md mx-auto">
                   <div className="flex items-start bg-church-gray/30 p-4 rounded-lg hover:bg-church-gray/50 transition-colors">
                     <div className="bg-church-blue rounded-full p-3 text-white mr-4 flex-shrink-0">
@@ -121,13 +121,13 @@ export default function Contact() {
                     <div>
                       <h4 className="text-lg font-semibold text-church-darkBlue">Endereço</h4>
                       <p className="text-gray-700 mt-1">
-                        Igreja Adventista do Sétimo Dia
+                        R. André Moreira - Planalto da Catumbela
                         <br />
                         Russas - CE, 62900-000
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start bg-church-gray/30 p-4 rounded-lg hover:bg-church-gray/50 transition-colors">
                     <div className="bg-church-blue rounded-full p-3 text-white mr-4 flex-shrink-0">
                       <Phone className="h-5 w-5" />
@@ -141,7 +141,7 @@ export default function Contact() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start bg-church-gray/30 p-4 rounded-lg hover:bg-church-gray/50 transition-colors">
                     <div className="bg-church-blue rounded-full p-3 text-white mr-4 flex-shrink-0">
                       <Mail className="h-5 w-5" />
@@ -156,13 +156,13 @@ export default function Contact() {
                     </div>
                   </div>
                 </div>
-              
+
                 <div className="mt-10">
                   <h3 className="text-xl font-bold text-church-blue mb-6 text-center">Redes Sociais</h3>
                   <div className="flex justify-center space-x-5">
-                    <a 
-                      href="https://www.instagram.com/iasdcentralrussas/" 
-                      target="_blank" 
+                    <a
+                      href="https://www.instagram.com/iasdcentralrussas/"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="bg-church-gray/20 p-3 rounded-xl hover:bg-church-gray/40 transition-all duration-300 text-church-darkBlue"
                       aria-label="Instagram"
@@ -173,9 +173,9 @@ export default function Contact() {
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                       </svg>
                     </a>
-                    
-                    <a 
-                      href="#" 
+
+                    <a
+                      href="#"
                       className="bg-church-gray/20 p-3 rounded-xl hover:bg-church-gray/40 transition-all duration-300 text-church-darkBlue"
                       aria-label="YouTube"
                     >
@@ -184,9 +184,9 @@ export default function Contact() {
                         <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
                       </svg>
                     </a>
-                    
-                    <a 
-                      href="#" 
+
+                    <a
+                      href="#"
                       className="bg-church-gray/20 p-3 rounded-xl hover:bg-church-gray/40 transition-all duration-300 text-church-darkBlue"
                       aria-label="Facebook"
                     >
@@ -194,9 +194,9 @@ export default function Contact() {
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                       </svg>
                     </a>
-                    
-                    <a 
-                      href="#" 
+
+                    <a
+                      href="#"
                       className="bg-church-gray/20 p-3 rounded-xl hover:bg-church-gray/40 transition-all duration-300 text-church-darkBlue"
                       aria-label="WhatsApp"
                     >
@@ -207,20 +207,20 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-8">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.8290011052017!2d-37.9743084!3d-4.950107599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b99aad7f4c6d67%3A0x23336c1bdd7cedc8!2sIgreja%20Adventista%20de%20Russas!5e0!3m2!1spt-BR!2sbr!4v1679933357766!5m2!1spt-BR!2sbr" 
-                  className="w-full h-64 rounded-xl shadow-lg" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
-                  loading="lazy" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.8290011052017!2d-37.9743084!3d-4.950107599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b99aad7f4c6d67%3A0x23336c1bdd7cedc8!2sIgreja%20Adventista%20de%20Russas!5e0!3m2!1spt-BR!2sbr!4v1679933357766!5m2!1spt-BR!2sbr"
+                  className="w-full h-64 rounded-xl shadow-lg"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Localização da Igreja Adventista de Russas"
                 ></iframe>
               </div>
             </div>
-            
+
             <div>
               <Card className="shadow-lg border-0">
                 <CardContent className="pt-10 sm:pt-6">
@@ -248,8 +248,8 @@ export default function Contact() {
                               </SelectContent>
                             </Select>
                             <FormMessage />
-                            <ValidationError 
-                              prefix="Tipo de Solicitação" 
+                            <ValidationError
+                              prefix="Tipo de Solicitação"
                               field="requestType"
                               errors={formspreeState.errors}
                             />
@@ -267,15 +267,15 @@ export default function Contact() {
                               <Input placeholder="Digite seu nome" {...field} />
                             </FormControl>
                             <FormMessage />
-                            <ValidationError 
-                              prefix="Nome" 
+                            <ValidationError
+                              prefix="Nome"
                               field="name"
                               errors={formspreeState.errors}
                             />
                           </FormItem>
                         )}
                       />
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <FormField
                           control={form.control}
@@ -287,15 +287,15 @@ export default function Contact() {
                                 <Input placeholder="Digite seu e-mail" {...field} />
                               </FormControl>
                               <FormMessage />
-                              <ValidationError 
-                                prefix="Email" 
+                              <ValidationError
+                                prefix="Email"
                                 field="email"
                                 errors={formspreeState.errors}
                               />
                             </FormItem>
                           )}
                         />
-                        
+
                         <FormField
                           control={form.control}
                           name="phone"
@@ -306,8 +306,8 @@ export default function Contact() {
                                 <Input placeholder="(00) 00000-0000" {...field} />
                               </FormControl>
                               <FormMessage />
-                              <ValidationError 
-                                prefix="Telefone" 
+                              <ValidationError
+                                prefix="Telefone"
                                 field="phone"
                                 errors={formspreeState.errors}
                               />
@@ -315,7 +315,7 @@ export default function Contact() {
                           )}
                         />
                       </div>
-                      
+
                       <FormField
                         control={form.control}
                         name="department"
@@ -337,15 +337,15 @@ export default function Contact() {
                               </SelectContent>
                             </Select>
                             <FormMessage />
-                            <ValidationError 
-                              prefix="Departamento" 
+                            <ValidationError
+                              prefix="Departamento"
                               field="department"
                               errors={formspreeState.errors}
                             />
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="subject"
@@ -356,15 +356,15 @@ export default function Contact() {
                               <Input placeholder="Digite o assunto" {...field} />
                             </FormControl>
                             <FormMessage />
-                            <ValidationError 
-                              prefix="Assunto" 
+                            <ValidationError
+                              prefix="Assunto"
                               field="subject"
                               errors={formspreeState.errors}
                             />
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="message"
@@ -372,31 +372,31 @@ export default function Contact() {
                           <FormItem>
                             <FormLabel>Mensagem</FormLabel>
                             <FormControl>
-                              <Textarea 
-                                placeholder="Digite sua mensagem" 
-                                className="min-h-[120px]" 
-                                {...field} 
+                              <Textarea
+                                placeholder="Digite sua mensagem"
+                                className="min-h-[120px]"
+                                {...field}
                               />
                             </FormControl>
                             <FormMessage />
-                            <ValidationError 
-                              prefix="Mensagem" 
+                            <ValidationError
+                              prefix="Mensagem"
                               field="message"
                               errors={formspreeState.errors}
                             />
                           </FormItem>
                         )}
                       />
-                      
+
                       {isSuccess && (
                         <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
                           Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.
                         </div>
                       )}
-                      
-                      <Button 
-                        type="submit" 
-                        variant="church" 
+
+                      <Button
+                        type="submit"
+                        variant="church"
                         className="w-full"
                         disabled={formspreeState.submitting}
                       >
@@ -416,58 +416,58 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      
+
       <section className="py-20 bg-church-gray" id="perguntas">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <SectionTitle 
+            <SectionTitle
               title="Perguntas Frequentes"
               subtitle="Para sua conveniência"
               accent={true}
             />
-            
+
             <div className="mt-8 space-y-6">
               <div className="bg-white p-6 shadow-sm">
                 <h3 className="text-lg font-medium text-church-blue mb-2">Quais são os horários dos cultos?</h3>
                 <p className="text-gray-700">
-                  Nossos principais cultos são: Escola Sabatina (sábado às 9h), Culto Divino (sábado às 11h), 
-                  e Culto de Oração e Estudo da Bíblia (quarta-feira às 19h30). Para conferir todos os horários, 
+                  Nossos principais cultos são: Escola Sabatina (sábado às 9h), Culto Divino (sábado às 11h),
+                  e Culto de Oração e Estudo da Bíblia (quarta-feira às 19h30). Para conferir todos os horários,
                   visite nossa página de <a href="/cultos#horarios" className="text-church-blue hover:underline">Cultos</a>.
                 </p>
               </div>
-              
+
               <div className="bg-white p-6 shadow-sm">
                 <h3 className="text-lg font-medium text-church-blue mb-2">Como solicitar um estudo bíblico?</h3>
                 <p className="text-gray-700">
-                  Você pode solicitar estudos bíblicos preenchendo o formulário de contato e selecionando a opção 
-                  "Solicitar Estudo Bíblico", ou entrando em contato pelo telefone ou e-mail. Temos instrutores bíblicos 
+                  Você pode solicitar estudos bíblicos preenchendo o formulário de contato e selecionando a opção
+                  "Solicitar Estudo Bíblico", ou entrando em contato pelo telefone ou e-mail. Temos instrutores bíblicos
                   prontos para atender você no horário e local de sua preferência.
                 </p>
               </div>
-              
+
               <div className="bg-white p-6 shadow-sm">
                 <h3 className="text-lg font-medium text-church-blue mb-2">Como posso me envolver em projetos sociais?</h3>
                 <p className="text-gray-700">
-                  A igreja oferece diversas oportunidades de voluntariado em projetos sociais. 
-                  Visite nossa página de <a href="/projetos-sociais" className="text-church-blue hover:underline">Projetos Sociais</a> para 
+                  A igreja oferece diversas oportunidades de voluntariado em projetos sociais.
+                  Visite nossa página de <a href="/projetos-sociais" className="text-church-blue hover:underline">Projetos Sociais</a> para
                   conhecer as iniciativas e entrar em contato para participar.
                 </p>
               </div>
-              
+
               <div className="bg-white p-6 shadow-sm">
                 <h3 className="text-lg font-medium text-church-blue mb-2">Como faço para me tornar membro da igreja?</h3>
                 <p className="text-gray-700">
-                  Para se tornar membro, recomendamos: 1) Frequentar os cultos e conhecer a comunidade; 
-                  2) Participar de estudos bíblicos; 3) Quando convencido das verdades bíblicas, 
-                  solicitar o batismo. Também aceitamos por profissão de fé pessoas já batizadas 
+                  Para se tornar membro, recomendamos: 1) Frequentar os cultos e conhecer a comunidade;
+                  2) Participar de estudos bíblicos; 3) Quando convencido das verdades bíblicas,
+                  solicitar o batismo. Também aceitamos por profissão de fé pessoas já batizadas
                   por imersão que aceitem as doutrinas adventistas.
                 </p>
               </div>
             </div>
-            
+
             <div className="mt-10 text-center">
               <p className="text-lg text-gray-700 mb-6">
-                Não encontrou resposta para sua pergunta? Veja nossa seção completa de 
+                Não encontrou resposta para sua pergunta? Veja nossa seção completa de
                 Perguntas Frequentes ou entre em contato conosco.
               </p>
               <Button asChild variant="churchOutline" size="church">

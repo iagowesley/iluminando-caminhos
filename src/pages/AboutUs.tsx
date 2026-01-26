@@ -9,32 +9,32 @@ const AboutUs = () => {
   const timeline = [
     {
       year: "1844",
-      title: "O Grande Desapontamento",
-      description: "Após o evento conhecido como o Grande Desapontamento, um pequeno grupo começou a estudar as Escrituras mais profundamente."
+      title: "O grande desapontamento",
+      description: "Após o evento conhecido como o grande desapontamento, um pequeno grupo começou a estudar as Escrituras mais profundamente."
     },
     {
       year: "1860",
-      title: "Nome Oficial",
+      title: "Nome oficial",
       description: "A igreja adota oficialmente o nome 'Igreja Adventista do Sétimo Dia', refletindo sua observância do sábado e a crença no segundo advento de Cristo."
     },
     {
       year: "1863",
-      title: "Organização Formal",
+      title: "Organização formal",
       description: "Estabelecimento formal da Conferência Geral dos Adventistas do Sétimo Dia com cerca de 3.500 membros em Michigan, EUA."
     },
     {
       year: "1874",
-      title: "Primeiro Missionário",
+      title: "Primeiro missionário",
       description: "J.N. Andrews torna-se o primeiro missionário oficial enviado pela igreja para fora da América do Norte, iniciando o trabalho na Europa."
     },
     {
       year: "1890-1900",
-      title: "Expansão Global",
+      title: "Expansão global",
       description: "A igreja expande sua presença para a América do Sul, África, Ásia e Oceania, estabelecendo instituições de saúde e educação."
     },
     {
       year: "Atualidade",
-      title: "Presença Mundial",
+      title: "Presença mundial",
       description: "Hoje, a Igreja Adventista do Sétimo Dia está presente em mais de 200 países, com cerca de 22 milhões de membros, operando milhares de instituições educacionais, hospitais e projetos humanitários."
     }
   ];
@@ -42,55 +42,55 @@ const AboutUs = () => {
   const stats = [
     {
       number: "22+",
-      label: "Milhões de Membros",
+      label: "Milhões de membros",
       icon: <Users className="h-12 w-12 text-church-blue" />
     },
     {
       number: "200+",
-      label: "Países com Presença",
+      label: "Países com presença",
       icon: <Globe className="h-12 w-12 text-church-blue" />
     },
     {
       number: "8,500+",
-      label: "Instituições de Ensino",
+      label: "Instituições de ensino",
       icon: <BookOpen className="h-12 w-12 text-church-blue" />
     },
     {
       number: "175+",
-      label: "Anos de História",
+      label: "Anos de história",
       icon: <Clock className="h-12 w-12 text-church-blue" />
     }
   ];
 
   return (
     <PageLayout>
-      <Hero 
+      <Hero
         size="medium"
         title="Quem somos"
         subtitle="Conheça nossa identidade, história e visão como uma denominação cristã global"
         backgroundImage="/images/quem-somos.jpg"
       />
-      
+
       <section id="content-section" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-church-darkBlue mb-6">Nossa Identidade</h2>
+              <h2 className="text-3xl font-bold text-church-darkBlue mb-6">Nossa identidade</h2>
               <div className="h-1 w-20 bg-church-accent mb-8"></div>
-              
+
               <p className="text-gray-700 mb-6">
                 A Igreja Adventista do Sétimo Dia é uma denominação cristã protestante global organizada em 1863 nos Estados Unidos. Nosso nome reflete duas crenças fundamentais: a expectativa do breve retorno (advento) de Jesus Cristo à Terra e a observância do sábado (sétimo dia) como dia de descanso e adoração conforme estabelecido nas Escrituras.
               </p>
-              
+
               <p className="text-gray-700 mb-6">
                 Somos uma comunidade de fé diversa e inclusiva, unida pela mensagem de esperança e restauração encontrada na Bíblia. Acreditamos no desenvolvimento equilibrado e holístico dos aspectos físicos, mentais, sociais e espirituais da vida humana.
               </p>
-              
+
               <p className="text-gray-700">
                 Nossa igreja dedica-se a compartilhar o amor de Deus através da proclamação do evangelho, do serviço compassivo às comunidades e da promoção de um estilo de vida saudável que honra a Deus como Criador e Redentor.
               </p>
             </div>
-            
+
             <div>
               <div className="grid grid-cols-2 gap-6">
                 {stats.map((stat, index) => (
@@ -109,20 +109,20 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-      
+
       <section className="py-20 bg-church-gray">
         <div className="container mx-auto px-6">
-          <SectionTitle 
-            title="Nossa História"
+          <SectionTitle
+            title="Nossa história"
             subtitle="De um pequeno movimento a uma igreja global"
             accent={true}
             ornate={true}
           />
-          
+
           <div className="relative mt-20 pb-10">
             {/* Linha do tempo central */}
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-church-blue z-0"></div>
-            
+
             {timeline.map((item, index) => (
               <div key={index} className={`relative z-10 mb-20 last:mb-0 flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-12 text-right' : 'md:pl-12 text-left'}`}>
@@ -142,7 +142,7 @@ const AboutUs = () => {
                     <p className="text-gray-700">{item.description}</p>
                   </div>
                 </div>
-                
+
                 {/* Marcador central */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 -mt-2">
                   <div className="h-8 w-8 rounded-full bg-church-blue border-4 border-white flex items-center justify-center">
@@ -154,21 +154,21 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-      
+
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <SectionTitle 
-            title="Nossa Visão"
+          <SectionTitle
+            title="Nossa visão"
             subtitle="O que esperamos alcançar como comunidade global de fé"
             accent={true}
             ornate={true}
           />
-          
+
           <div className="mt-8 max-w-3xl mx-auto">
             <p className="text-gray-700 text-center mb-8">
               Em harmonia com as profecias bíblicas, visualizamos um tempo em que a missão de nossa igreja estará concluída e Jesus Cristo retornará.
             </p>
-            
+
             <Card className="glass-card border-none shadow-md p-8 text-center">
               <CardContent className="p-0">
                 <h3 className="text-2xl font-semibold text-church-darkBlue mb-4">
@@ -179,7 +179,7 @@ const AboutUs = () => {
                 </p>
                 <div className="flex justify-center mt-3">
                   <a href="/missao" className="flex items-center text-church-blue hover:text-church-accent transition-colors">
-                    Saiba mais sobre nossa Missão e Serviço <ChevronRight className="ml-1 h-4 w-4" />
+                    Saiba mais sobre nossa missão e serviço <ChevronRight className="ml-1 h-4 w-4" />
                   </a>
                 </div>
               </CardContent>

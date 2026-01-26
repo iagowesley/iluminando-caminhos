@@ -15,7 +15,7 @@ export default function Gallery() {
   const [error, setError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState("todos");
   const [lightboxPhoto, setLightboxPhoto] = useState<Photo | null>(null);
-  
+
   // Buscar fotos do Supabase
   useEffect(() => {
     async function fetchPhotos() {
@@ -25,7 +25,7 @@ export default function Gallery() {
           .from('photos')
           .select('*')
           .order('created_at', { ascending: false });
-        
+
         if (error) throw error;
         setPhotos(data || []);
       } catch (error) {
@@ -38,14 +38,14 @@ export default function Gallery() {
 
     fetchPhotos();
   }, []);
-  
-  const filteredPhotos = activeCategory === "todos" 
-    ? photos 
+
+  const filteredPhotos = activeCategory === "todos"
+    ? photos
     : photos.filter(photo => photo.category === activeCategory);
-  
+
   return (
     <PageLayout>
-      <Hero 
+      <Hero
         title="Galeria de Fotos"
         subtitle="Momentos especiais de nossa comunidade"
         backgroundImage="/images/galeria-fotos.jpg"
@@ -54,13 +54,13 @@ export default function Gallery() {
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <SectionTitle 
-            title="Nossa Galeria"
+          <SectionTitle
+            title="Nossa galeria"
             subtitle="Imagens que contam nossa história e missão"
             accent={true}
             ornate={true}
           />
-          
+
           {/* Filtros */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-10 mb-12">
             {displayCategories.map((category) => (
@@ -74,7 +74,7 @@ export default function Gallery() {
               </Button>
             ))}
           </div>
-          
+
           {/* Mensagem de carregamento */}
           {loading ? (
             <div className="flex justify-center items-center py-20">
@@ -84,8 +84,8 @@ export default function Gallery() {
           ) : error ? (
             <div className="text-center py-10">
               <p className="text-red-500">{error}</p>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="mt-4"
                 onClick={() => window.location.reload()}
               >
@@ -98,14 +98,14 @@ export default function Gallery() {
               {filteredPhotos.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {filteredPhotos.map((photo) => (
-                    <div 
-                      key={photo.id} 
+                    <div
+                      key={photo.id}
                       className="aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow"
                       onClick={() => setLightboxPhoto(photo)}
                     >
-                      <img 
-                        src={photo.src} 
-                        alt={photo.alt} 
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
                         className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
                       />
                     </div>
@@ -120,7 +120,7 @@ export default function Gallery() {
           )}
         </div>
       </section>
-      
+
       {/* Lightbox */}
       {lightboxPhoto && (
         <div className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4">
@@ -133,9 +133,9 @@ export default function Gallery() {
             >
               <X className="h-8 w-8" />
             </Button>
-            <img 
-              src={lightboxPhoto.src} 
-              alt={lightboxPhoto.alt} 
+            <img
+              src={lightboxPhoto.src}
+              alt={lightboxPhoto.alt}
               className="w-full h-auto max-h-[80vh] object-contain"
             />
             <p className="text-white text-center mt-4 text-lg font-serif">{lightboxPhoto.alt}</p>

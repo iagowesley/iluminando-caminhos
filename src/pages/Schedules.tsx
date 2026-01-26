@@ -139,7 +139,7 @@ const MobileSabbathView = ({ data }: { data: Schedule[] }) => {
 export default function Schedules() {
   const [activeTab, setActiveTab] = useState<string>("sunday");
   const [serviceTypes, setServiceTypes] = useState<ServiceType[]>([]);
-  const [schedules, setSchedules] = useState<{[key: string]: Schedule[]}>({});
+  const [schedules, setSchedules] = useState<{ [key: string]: Schedule[] }>({});
   const [hiddenSchedules, setHiddenSchedules] = useState<Set<number>>(new Set()); // Estado para escalas ocultas
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -159,47 +159,47 @@ export default function Schedules() {
         .from('service_types')
         .select('*')
         .order('order_index');
-      
+
       if (typesError) throw typesError;
-      
+
       if (!typesData || typesData.length === 0) {
         throw new Error('Nenhum tipo de culto encontrado');
       }
 
       setServiceTypes(typesData);
-      
+
       // Definir aba ativa para o primeiro tipo
       if (typesData.length > 0) {
-        const defaultTab = typesData[0].name.toLowerCase().includes('domingo') 
-          ? 'sunday' 
-          : typesData[0].name.toLowerCase().includes('quarta') 
-            ? 'wednesday' 
+        const defaultTab = typesData[0].name.toLowerCase().includes('domingo')
+          ? 'sunday'
+          : typesData[0].name.toLowerCase().includes('quarta')
+            ? 'wednesday'
             : 'sabbath';
-        
+
         setActiveTab(defaultTab);
       }
 
       // Buscar escalas para cada tipo de culto
-      const schedulesData: {[key: string]: Schedule[]} = {};
-      
+      const schedulesData: { [key: string]: Schedule[] } = {};
+
       for (const type of typesData) {
         const { data: scheduleItems, error: scheduleError } = await supabase
           .from('schedules')
           .select('*')
           .eq('service_type_id', type.id)
           .order('date');
-        
+
         if (scheduleError) throw scheduleError;
-        
-        const key = type.name.toLowerCase().includes('domingo') 
-          ? 'sunday' 
-          : type.name.toLowerCase().includes('quarta') 
-            ? 'wednesday' 
+
+        const key = type.name.toLowerCase().includes('domingo')
+          ? 'sunday'
+          : type.name.toLowerCase().includes('quarta')
+            ? 'wednesday'
             : 'sabbath';
-        
+
         schedulesData[key] = scheduleItems || [];
       }
-      
+
       setSchedules(schedulesData);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
@@ -230,39 +230,39 @@ export default function Schedules() {
   // Obter o tempo padrão com base no tipo de culto ativo
   const getDefaultTime = () => {
     const serviceType = serviceTypes.find(type => {
-      const key = type.name.toLowerCase().includes('domingo') 
-        ? 'sunday' 
-        : type.name.toLowerCase().includes('quarta') 
-          ? 'wednesday' 
+      const key = type.name.toLowerCase().includes('domingo')
+        ? 'sunday'
+        : type.name.toLowerCase().includes('quarta')
+          ? 'wednesday'
           : 'sabbath';
-      
+
       return key === activeTab;
     });
 
     return serviceType?.default_time || '';
   };
-  
+
   return (
     <PageLayout>
-      <Hero 
+      <Hero
         title="Escalas de Cultos"
         subtitle="Organização e participação nos nossos momentos de adoração"
         backgroundImage="/images/church-2.jpg"
         size="medium"
       />
-      
+
       <section className="py-12 sm:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <SectionTitle 
-            title="Nossas Escalas"
+          <SectionTitle
+            title="Nossas escalas"
             subtitle="Conheça a programação dos nossos cultos"
             accent={true}
             ornate={true}
           />
-          
+
           <div className="max-w-5xl mx-auto mt-8 sm:mt-12">
             <p className="text-gray-700 text-center mb-8 sm:mb-10 px-2">
-              Estas são as escalas de participação nos cultos da nossa igreja para os próximos meses. 
+              Estas são as escalas de participação nos cultos da nossa igreja para os próximos meses.
               Todos os envolvidos são convidados a chegar com antecedência para os preparativos necessários.
               Em caso de impossibilidade de participação na data designada, favor comunicar com antecedência
               ao responsável pelo ministério correspondente.
@@ -290,7 +290,7 @@ export default function Schedules() {
                       <TabsTrigger value="wednesday" className="text-sm sm:text-base">Culto de Quarta</TabsTrigger>
                       <TabsTrigger value="sabbath" className="text-sm sm:text-base">Culto de Sábado</TabsTrigger>
                     </TabsList>
-                    
+
                     <TabsContent value="sunday">
                       <Card>
                         <CardContent className="pt-6">
@@ -298,7 +298,7 @@ export default function Schedules() {
                             <Clock className="h-5 w-5 text-church-blue mr-2" />
                             <span className="font-medium">Horário: {getDefaultTime()}</span>
                           </div>
-                          
+
                           {schedules.sunday && getVisibleSchedules(schedules.sunday).length > 0 ? (
                             <div className="overflow-x-auto -mx-6 px-6 pb-4">
                               <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
@@ -347,7 +347,7 @@ export default function Schedules() {
                         </CardContent>
                       </Card>
                     </TabsContent>
-                    
+
                     <TabsContent value="wednesday">
                       <Card>
                         <CardContent className="pt-6">
@@ -355,7 +355,7 @@ export default function Schedules() {
                             <Clock className="h-5 w-5 text-church-blue mr-2" />
                             <span className="font-medium">Horário: {getDefaultTime()}</span>
                           </div>
-                          
+
                           {schedules.wednesday && getVisibleSchedules(schedules.wednesday).length > 0 ? (
                             <div className="overflow-x-auto -mx-6 px-6 pb-4">
                               <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
@@ -404,7 +404,7 @@ export default function Schedules() {
                         </CardContent>
                       </Card>
                     </TabsContent>
-                    
+
                     <TabsContent value="sabbath">
                       <Card>
                         <CardContent className="pt-6">
@@ -412,7 +412,7 @@ export default function Schedules() {
                             <Clock className="h-5 w-5 text-church-blue mr-2" />
                             <span className="font-medium">Horário: {getDefaultTime()}</span>
                           </div>
-                          
+
                           {schedules.sabbath && getVisibleSchedules(schedules.sabbath).length > 0 ? (
                             <div className="overflow-x-auto -mx-6 px-6 pb-4">
                               <div className="text-center text-xs text-gray-500 mb-2 md:hidden">
@@ -467,29 +467,29 @@ export default function Schedules() {
                     </TabsContent>
                   </Tabs>
                 </div>
-                
+
                 {/* Navegação alternativa para dispositivos móveis */}
                 <div className="md:hidden">
                   <div className="flex justify-between items-center mb-4 bg-church-gray p-3 shadow-sm">
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
+                    <Button
+                      variant="ghost"
+                      size="icon"
                       onClick={() => setActiveTab(activeTab === "sunday" ? "sabbath" : activeTab === "wednesday" ? "sunday" : "wednesday")}
                       className="h-8 w-8 hover:bg-white/50"
                       aria-label="Culto anterior"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </Button>
-                    
+
                     <div className="font-semibold text-church-darkBlue text-center">
                       {activeTab === "sunday" && "Culto de Domingo"}
                       {activeTab === "wednesday" && "Culto de Quarta"}
                       {activeTab === "sabbath" && "Culto de Sábado"}
                     </div>
-                    
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
+
+                    <Button
+                      variant="ghost"
+                      size="icon"
                       onClick={() => setActiveTab(activeTab === "sunday" ? "wednesday" : activeTab === "wednesday" ? "sabbath" : "sunday")}
                       className="h-8 w-8 hover:bg-white/50"
                       aria-label="Próximo culto"
@@ -497,23 +497,23 @@ export default function Schedules() {
                       <ChevronRight className="h-5 w-5" />
                     </Button>
                   </div>
-                  
+
                   {/* Indicadores de página */}
                   <div className="flex justify-center space-x-2 mb-4">
-                    <div 
+                    <div
                       className={`h-2 w-2 rounded-full ${activeTab === "sunday" ? "bg-church-blue" : "bg-gray-300"}`}
                       aria-hidden="true"
                     />
-                    <div 
+                    <div
                       className={`h-2 w-2 rounded-full ${activeTab === "wednesday" ? "bg-church-blue" : "bg-gray-300"}`}
                       aria-hidden="true"
                     />
-                    <div 
+                    <div
                       className={`h-2 w-2 rounded-full ${activeTab === "sabbath" ? "bg-church-blue" : "bg-gray-300"}`}
                       aria-hidden="true"
                     />
                   </div>
-                  
+
                   <div className="bg-white p-3 mb-4 shadow-sm border border-gray-100">
                     <div className="flex items-center">
                       <Clock className="h-5 w-5 text-church-blue mr-2 flex-shrink-0" />
@@ -522,7 +522,7 @@ export default function Schedules() {
                       </span>
                     </div>
                   </div>
-                  
+
                   {schedules.sunday && activeTab === "sunday" ? (
                     getVisibleSchedules(schedules.sunday).length > 0 ? (
                       <MobileSundayWednesdayView data={getVisibleSchedules(schedules.sunday)} />
@@ -532,7 +532,7 @@ export default function Schedules() {
                       </div>
                     )
                   ) : null}
-                  
+
                   {schedules.wednesday && activeTab === "wednesday" ? (
                     getVisibleSchedules(schedules.wednesday).length > 0 ? (
                       <MobileSundayWednesdayView data={getVisibleSchedules(schedules.wednesday)} />
@@ -542,7 +542,7 @@ export default function Schedules() {
                       </div>
                     )
                   ) : null}
-                  
+
                   {schedules.sabbath && activeTab === "sabbath" ? (
                     getVisibleSchedules(schedules.sabbath).length > 0 ? (
                       <MobileSabbathView data={getVisibleSchedules(schedules.sabbath)} />
@@ -555,7 +555,7 @@ export default function Schedules() {
                 </div>
               </>
             )}
-            
+
             <div className="mt-8 sm:mt-12 bg-church-gray p-4 sm:p-6 shadow-sm">
               <h3 className="text-lg sm:text-xl font-bold text-church-darkBlue mb-3 sm:mb-4">Informações Importantes</h3>
               <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base">

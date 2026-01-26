@@ -12,9 +12,9 @@ const LeaderCard = ({ name, role, image, shortdescription }: Leader) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 bg-white">
       <div className="relative h-48">
-        <img 
-          src={image} 
-          alt={name} 
+        <img
+          src={image}
+          alt={name}
           className="w-full h-full object-contain bg-gray-50"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -43,11 +43,11 @@ export default function Leadership() {
           .from('leaders')
           .select('*')
           .order('id', { ascending: true });
-        
+
         if (error) {
           throw error;
         }
-        
+
         setLeaders(data || []);
       } catch (error) {
         console.error('Erro ao buscar líderes:', error);
@@ -62,8 +62,8 @@ export default function Leadership() {
 
   return (
     <PageLayout>
-      <Hero 
-        title="Nossa Liderança"
+      <Hero
+        title="Nossa liderança"
         subtitle="Conheça os líderes que servem nossa igreja"
         backgroundImage="https://images.unsplash.com/photo-1556484687-30636164638b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
         size="medium"
@@ -71,13 +71,13 @@ export default function Leadership() {
 
       <section className="py-20 bg-church-gray">
         <div className="container mx-auto px-6">
-          <SectionTitle 
+          <SectionTitle
             title="Líderes da Igreja"
             subtitle="Dedicados a servir a Deus e à comunidade"
             accent={true}
             ornate={true}
           />
-          
+
           {loading ? (
             <div className="flex justify-center items-center py-20">
               <Loader2 className="h-8 w-8 text-church-blue animate-spin" />
@@ -86,8 +86,8 @@ export default function Leadership() {
           ) : error ? (
             <div className="text-center py-10">
               <p className="text-red-500">{error}</p>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="mt-4"
                 onClick={() => window.location.reload()}
               >
@@ -105,7 +105,7 @@ export default function Leadership() {
               ))}
             </div>
           )}
-          
+
           <div className="mt-16 text-center">
             <div className="bg-white p-8 shadow-md max-w-3xl mx-auto">
               <p className="text-lg text-gray-700 mb-6">
