@@ -24,6 +24,7 @@ import NotFound from "./pages/NotFound";
 import Schedules from "./pages/Schedules";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Tithes from "./pages/Tithes";
+import TenDaysOfPrayer from "./pages/TenDaysOfPrayer";
 import AdminBibleStudies from "./pages/AdminBibleStudies";
 import AdminSchedules from "@/pages/AdminSchedules";
 import AdminEvents from "./pages/AdminEvents";
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="/musica" element={<Music />} />
             <Route path="/privacidade" element={<PrivacyPolicy />} />
             <Route path="/dizimos-ofertas" element={<Tithes />} />
+            <Route path="/10-dias-oracao" element={<TenDaysOfPrayer />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

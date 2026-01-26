@@ -7,22 +7,30 @@ const churchSlides = [
   {
     image: "/images/church-1.jpg",
     title: "Bem-vindo à Igreja Adventista do Sétimo Dia Central Russas",
-    info: "Unidos em fé, esperança e amor."
+    info: "Unidos em fé, esperança e amor.",
+    buttonText: undefined,
+    buttonLink: undefined
   },
   {
     image: "/images/desenvolvimento-voluntario.jpg",
     title: "Nossa missão",
-    info: "Proclamar o evangelho eterno no contexto da mensagem dos três anjos de Apocalipse 14."
+    info: "Proclamar o evangelho eterno no contexto da mensagem dos três anjos de Apocalipse 14.",
+    buttonText: undefined,
+    buttonLink: undefined
   },
   {
     image: "/images/church-4.jpg",
     title: "Nossa missão",
-    info: "Proclamar o evangelho eterno no contexto da mensagem dos três anjos de Apocalipse 14."
+    info: "Proclamar o evangelho eterno no contexto da mensagem dos três anjos de Apocalipse 14.",
+    buttonText: undefined,
+    buttonLink: undefined
   },
   {
     image: "/images/topo-10dias-pt.jpg",
     title: "10 Dias de Clamor e 365 dias de Oração",
-    info: "Junte-se a nós nesta jornada de fé e comunhão com Deus."
+    info: "Junte-se a nós nesta jornada de fé e comunhão com Deus.",
+    buttonText: "Acesse",
+    buttonLink: "/10-dias-oracao"
   }
 ];
 
@@ -171,6 +179,18 @@ export default function Hero({
               <p className="text-lg md:text-xl whitespace-pre-line drop-shadow-lg font-adventist">
                 {slide.info}
               </p>
+
+              {/* Button if defined */}
+              {slide.buttonText && slide.buttonLink && (
+                <div className="mt-8">
+                  <Button
+                    asChild
+                    className="bg-church-lightBlue hover:bg-church-lightBlue/90 text-white font-bold px-8 py-6 font-adventist transform transition-transform hover:scale-105 hover:shadow-2xl border-2 border-white/20 backdrop-blur-sm"
+                  >
+                    <a href={slide.buttonLink}>{slide.buttonText}</a>
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
