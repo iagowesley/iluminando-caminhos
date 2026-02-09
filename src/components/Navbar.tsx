@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, MapPin, Heart, Instagram } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Heart, Instagram, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type NavigationItem = {
@@ -23,9 +23,7 @@ const navigation: NavigationItem[] = [
     submenu: true,
     items: [
       { name: "Nossa história", href: "/quem-somos#historia" },
-      { name: "Visão e missão", href: "/quem-somos#visao" },
       { name: "Liderança", href: "/lideranca" },
-      { name: "Galeria de fotos", href: "/galeria" },
       { name: "Missão e serviço", href: "/missao" }
     ]
   },
@@ -50,8 +48,6 @@ const navigation: NavigationItem[] = [
     submenu: true,
     items: [
       { name: "Horários", href: "/cultos#horarios" },
-      { name: "Música", href: "/musica" },
-      { name: "Eventos", href: "/eventos" },
       { name: "Escalas", href: "/escalas" }
     ]
   },
@@ -59,15 +55,6 @@ const navigation: NavigationItem[] = [
     name: "Contato",
     href: "/contato",
     submenu: false
-  },
-  {
-    name: "Dízimos",
-    href: "/dizimos-ofertas",
-    submenu: true,
-    items: [
-      { name: "Sobre dízimos e ofertas", href: "/dizimos-ofertas" },
-      { name: "Contribuir agora", href: "https://giving.7me.app/guest-donation/church/fa6d3669-cc8a-4f33-8eae-a68136df3af9", external: true }
-    ]
   },
   {
     name: "Instagram",
@@ -141,8 +128,30 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Announcement Bar for 7ChatAI */}
+      <div className="fixed top-0 left-0 right-0 md:right-[calc(100vw/7)] z-40 bg-[#003366]">
+        <div className="container mx-auto px-6 lg:px-8">
+          <a
+            href="https://7chat.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 py-2.5 hover:opacity-90 transition-opacity"
+          >
+            <img
+              src="/images/7chat.png"
+              alt="7ChatAI"
+              className="h-7 w-auto"
+            />
+            <span className="text-white text-sm font-medium">
+              Conheça o <span className="font-bold">7ChatAI</span> - A Inteligência Artificial da IASD
+            </span>
+          </a>
+        </div>
+      </div>
+
+      {/* Navbar */}
       <header
-        className={`fixed top-0 left-0 right-0 md:right-[calc(100vw/7)] z-30 transition-all duration-300 ease-in-out ${scrolled || !isHomePage
+        className={`fixed top-12 left-0 right-0 md:right-[calc(100vw/7)] z-30 transition-all duration-300 ease-in-out ${scrolled || !isHomePage
           ? "bg-white/95 backdrop-blur-md shadow-md py-4"
           : "bg-transparent py-6"
           }`}

@@ -16,7 +16,7 @@ export default function SectionTitle({
   return (
     <div className={`max-w-3xl ${centered ? 'mx-auto text-center' : 'text-left'} mb-12`}>
       <h2 className={`
-        ${ornate ? 'font-adventist text-3xl md:text-4xl lg:text-5xl' : 'text-3xl md:text-4xl'} 
+        ${ornate ? 'font-adventist text-2xl md:text-3xl lg:text-4xl' : 'text-2xl md:text-3xl'} 
         font-bold ${accent ? 'text-church-blue' : ''}
       `}>
         {title}
