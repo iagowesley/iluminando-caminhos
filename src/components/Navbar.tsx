@@ -132,7 +132,7 @@ export default function Navbar() {
       <div className="fixed top-0 left-0 right-0 md:right-[calc(100vw/7)] z-40 bg-[#003366]">
         <div className="container mx-auto px-6 lg:px-8 h-12 flex items-center justify-center gap-4 sm:gap-12">
           <a
-            href="https://7chat.app"
+            href="https://noticias.adventistas.org/pt/igreja-adventista-do-setimo-dia-lanca-novo-sistema-de-inteligencia-artificial/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:opacity-90 transition-opacity"
